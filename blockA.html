@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Defence Expo Stalls</title>
+  <style>
+    /* ===== General Styles ===== */
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #fcdec1, #b4f0af);
+      color: #ffffff;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 1em;
+      margin: 0;
+      font-size: 2em;
+      color: #005da0;
+    }
+
+    /* ===== Block Container ===== */
+    .block-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5em;
+      padding: 2em;
+    }
+
+    /* ===== Stall Card Styles ===== */
+    .stall-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .stall-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .stall-card img {
+      width: 100%;
+      height: 120px; /* ✅ uniform, smaller image size */
+      object-fit: cover;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .stall-card p {
+      padding: 1em;
+      font-weight: 700;
+      font-size: 1.1em; /* ✅ bigger titles */
+      color: #222;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      margin-top: auto;
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 1em;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 600px) {
+      .stall-card img {
+        height: 100px;
+      }
+      .stall-card p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <h1>Defence Expo Stalls</h1>
+
+  <!-- ✅ Stalls Section -->
+  <section id="stalls" class="block-container">
+
+    <div class="stall-card" data-name="Metal & Steel Factory, Ishapore, GOI" data-id="metal-steel">
+      <a href="view.html?id=metal-steel">
+        <img src="assets/metal-steel.jpg" alt="Metal & Steel Factory">
+        <p>1. Metal & Steel Factory, Ishapore, GOI</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="Armoured Vehicles Nigam Limited, GOI" data-id="armoured">
+      <a href="view.html?id=armoured">
+        <img src="assets/armoured.jpg" alt="Armoured Vehicles Nigam">
+        <p>2. Armoured Vehicles Nigam Limited, GOI</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="Defence Research & Development Organisation, GOI" data-id="drdo">
+      <a href="view.html?id=drdo">
+        <img src="assets/drdo.jpg" alt="DRDO">
+        <p>3. Defence Research & Development Organisation, GOI</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="Hindustan Aeronautics Limited, GOI" data-id="hal">
+      <a href="view.html?id=hal">
+        <img src="assets/hal.jpg" alt="HAL">
+        <p>4. Hindustan Aeronautics Limited, GOI</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="Troop Comforts Limited, GOI" data-id="troop-comforts">
+      <a href="view.html?id=troop-comforts">
+        <img src="assets/troop.jpg" alt="Troop Comforts">
+        <p>5. Troop Comforts Limited, GOI</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="India Optel Limited, GOI" data-id="india-optel">
+      <a href="view.html?id=india-optel">
+        <img src="assets/optel.jpg" alt="India Optel">
+        <p>6. India Optel Limited, GOI</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="Advanced Weapons and Equipment India Limited, GOI" data-id="aweil">
+      <a href="view.html?id=aweil">
+        <img src="assets/aweil.jpg" alt="AWEI">
+        <p>7. Advanced Weapons and Equipment India Limited, GOI</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="Indian Air Force, GOI" data-id="indian-air-force">
+      <a href="view.html?id=indian-air-force">
+        <img src="assets/iaf.jpg" alt="Indian Air Force">
+        <p>8. Indian Air Force, GOI</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="Indian Navy, GOI" data-id="indian-navy">
+      <a href="view.html?id=indian-navy">
+        <img src="assets/navy.jpg" alt="Indian Navy">
+        <p>9. Indian Navy, GOI</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="Indian Army, GOI" data-id="indian-army">
+      <a href="view.html?id=indian-army">
+        <img src="assets/army.jpg" alt="Indian Army">
+        <p>10. Indian Army, GOI</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="Gliders India Limited, GOI" data-id="gliders-india">
+      <a href="view.html?id=gliders-india">
+        <img src="assets/gliders.jpg" alt="Gliders India Limited">
+        <p>11. Gliders India Limited, GOI</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="Munitions India Limited, GOI" data-id="munitions-india">
+      <a href="view.html?id=munitions-india">
+        <img src="assets/munitions.jpg" alt="Munitions India Limited">
+        <p>12. Munitions India Limited, GOI</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="Mazagon Dock Shipbuilders Limited, GOI" data-id="mazagon-doc">
+      <a href="view.html?id=mazagon-doc">
+        <img src="assets/mazagon.jpg" alt="Mazagon Dock">
+        <p>13. Mazagon Dock Shipbuilders Limited, GOI</p>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Defence Expo</p>
+  </footer>
+
+</body>
+</html>

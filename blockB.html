@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agri Expo Stalls</title>
+  <style>
+    /* ===== General Styles ===== */
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #fcdec1, #b4f0af);
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 1em;
+      margin: 0;
+      font-size: 2em;
+      color: #005fa3;
+    }
+
+    /* ===== Block Container ===== */
+    .block-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5em;
+      padding: 2em;
+    }
+
+    /* ===== Stall Card Styles ===== */
+    .stall-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .stall-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .stall-card img {
+      width: 100%;
+      height: 120px; /* ✅ smaller image */
+      object-fit: cover;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .stall-card p {
+      padding: 1em;
+      font-weight: 700;
+      font-size: 1.1em; /* ✅ bigger titles */
+      color: #222;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      margin-top: auto;
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 1em;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 600px) {
+      .stall-card img {
+        height: 100px;
+      }
+      .stall-card p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <h1>Agri Expo Stalls</h1>
+
+  <!-- ✅ Stalls Section -->
+  <section id="stalls" class="block-container">
+
+    <div class="stall-card" data-name="ICAR - Central Marine Fisheries Research Institute, Kochi" data-id="cmfri">
+      <a href="view.html?id=cmfri">
+        <img src="assets/cmfri.jpg" alt="CMFRI">
+        <p>14. ICAR - Central Marine Fisheries Research Institute, Kochi</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="Department of Agriculture, Govt. of West Bengal" data-id="dept-agri-wb">
+      <a href="view.html?id=dept-agri-wb">
+        <img src="assets/dept-agri.jpg" alt="Department of Agriculture">
+        <p>15. Department of Agriculture, Govt. of West Bengal</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="Directorate of Extension, GOI" data-id="directorate-ext">
+      <a href="view.html?id=directorate-ext">
+        <img src="assets/directorate.jpg" alt="Directorate of Extension">
+        <p>16. Directorate of Extension, GOI</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="ICAR - National Bureau of Fish Genetics Resources, GOI" data-id="nbfgr">
+      <a href="view.html?id=nbfgr">
+        <img src="assets/nbfgr.jpg" alt="NBFGR">
+        <p>17. ICAR - National Bureau of Fish Genetics Resources, GOI</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="Indian Council of Agricultural Research, GOI, ICAR Application Technology Research Institute, Kolkata" data-id="icar-atrik">
+      <a href="view.html?id=icar-icar-kolkata">
+        <img src="assets/icar-atrik.jpg" alt="ICAR ATRI Kolkata">
+        <p>18. Indian Council of Agricultural Research, GOI, ICAR Application Technology Research Institute, Kolkata</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="ICAR - Central Institute of Fisheries Education, GOI" data-id="cife">
+      <a href="view.html?id=cife">
+        <img src="assets/cife.jpg" alt="CIFE">
+        <p>19. ICAR - Central Institute of Fisheries Education, GOI</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="ICAR - Directorate of Knowledge Management in Agriculture, GOI" data-id="dkma">
+      <a href="view.html?id=dkma">
+        <img src="assets/dkma.jpg" alt="DKMA">
+        <p>20. ICAR - Directorate of Knowledge Management in Agriculture, GOI</p>
+      </a>
+    </div>
+
+    <div class="stall-card" data-name="Agricultural and Processed Food Products Export Development Authority, GOI" data-id="apeda">
+      <a href="view.html?id=apeda">
+        <img src="assets/apeda.jpg" alt="APEDA">
+        <p>21. Agricultural and Processed Food Products Export Development Authority, GOI</p>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Agri Expo</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f2f5;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #0077cc, #005fa3);
+      color: white;
+      padding: 1.5em 1em;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    #results-title {
+      margin: 1.2em;
+      font-size: 1.4em;
+    }
+
+    .block-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5em;
+      justify-content: center;
+      padding: 1.5em;
+    }
+
+    .stall-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 220px;
+      text-align: center;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .stall-card:hover {
+      transform: scale(1.05);
+    }
+
+    .stall-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .stall-card p {
+      margin: 0.5em;
+      font-weight: 500;
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 1.2em;
+      margin-top: 3em;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Search Results</h1>
+  </header>
+
+  <!-- Results Title -->
+  <h2 id="results-title">Showing results...</h2>
+
+  <!-- Stall Cards -->
+  <section id="stalls" class="block-container">
+    <div class="stall-card" data-name="Metal & Steel Factory, Ishapore, GOI" data-id="metal-steel">
+        <a href="view.html?id=metal-steel">
+            <img src="assets/metal-steel.jpg" alt="Metal & Steel Factory">
+            <p>1. Metal & Steel Factory, Ishapore, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Armoured Vehicles Nigam Limited, GOI" data-id="armoured">
+        <a href="view.html?id=armoured">
+            <img src="assets/armoured.jpg" alt="Armoured Vehicles Nigam">
+            <p>2. Armoured Vehicles Nigam Limited, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Defence Research & Development Organisation, GOI" data-id="drdo">
+        <a href="view.html?id=drdo">
+            <img src="assets/drdo.jpg" alt="DRDO">
+            <p>3. Defence Research & Development Organisation, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Hindustan Aeronautics Limited, GOI" data-id="hal">
+        <a href="view.html?id=hal">
+            <img src="assets/hal.jpg" alt="HAL">
+            <p>4. Hindustan Aeronautics Limited, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Troop Comforts Limited, GOI" data-id="troop-comforts">
+        <a href="view.html?id=troop-comforts">
+            <img src="assets/troop.jpg" alt="Troop Comforts">
+            <p>5. Troop Comforts Limited, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="India Optel Limited, GOI" data-id="india-optel">
+        <a href="view.html?id=india-optel">
+            <img src="assets/optel.jpg" alt="India Optel">
+            <p>6. India Optel Limited, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Advanced Weapons and Equipment India Limited, GOI" data-id="aweil">
+        <a href="view.html?id=aweil">
+            <img src="assets/aweil.jpg" alt="AWEI">
+            <p>7. Advanced Weapons and Equipment India Limited, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Indian Air Force, GOI" data-id="indian-air-force">
+        <a href="view.html?id=indian-air-force">
+            <img src="assets/iaf.jpg" alt="Indian Air Force">
+            <p>8. Indian Air Force, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Indian Navy, GOI" data-id="indian-navy">
+        <a href="view.html?id=indian-navy">
+            <img src="assets/navy.jpg" alt="Indian Navy">
+            <p>9. Indian Navy, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Indian Army, GOI" data-id="indian-army">
+        <a href="view.html?id=indian-army">
+            <img src="assets/army.jpg" alt="Indian Army">
+            <p>10. Indian Army, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Gliders India Limited, GOI" data-id="gliders-india">
+        <a href="view.html?id=gliders-india">
+            <img src="assets/gliders.jpg" alt="Gliders India Limited">
+            <p>11. Gliders India Limited, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Munitions India Limited, GOI" data-id="munitions-india">
+        <a href="view.html?id=munitions-india">
+            <img src="assets/munitions.jpg" alt="Munitions India Limited">
+            <p>12. Munitions India Limited, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Mazagon Dock Shipbuilders Limited, GOI" data-id="mazagon-doc">
+        <a href="view.html?id=mazagon-doc">
+            <img src="assets/mazagon.jpg" alt="Mazagon Dock">
+            <p>13. Mazagon Dock Shipbuilders Limited, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="ICAR - Central Marine Fisheries Research Institute, Kochi" data-id="cmfri">
+        <a href="view.html?id=cmfri">
+            <img src="assets/cmfri.jpg" alt="CMFRI">
+            <p>14. ICAR - Central Marine Fisheries Research Institute, Kochi</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Department of Agriculture, Govt. of West Bengal" data-id="dept-agri-wb">
+        <a href="view.html?id=dept-agri-wb">
+            <img src="assets/dept-agri.jpg" alt="Department of Agriculture">
+            <p>15. Department of Agriculture, Govt. of West Bengal</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Directorate of Extension, GOI" data-id="directorate-ext">
+        <a href="view.html?id=directorate-ext">
+            <img src="assets/directorate.jpg" alt="Directorate of Extension">
+            <p>16. Directorate of Extension, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="ICAR - National Bureau of Fish Genetics Resources, GOI" data-id="nbfgr">
+        <a href="view.html?id=nbfgr">
+            <img src="assets/nbfgr.jpg" alt="NBFGR">
+            <p>17. ICAR - National Bureau of Fish Genetics Resources, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Indian Council of Agricultural Research, GOI, ICAR Application Technology Research Institute, Kolkata" data-id="icar-atrik">
+        <a href="view.html?id=icar-icar-kolkata">
+            <img src="assets/icar-atrik.jpg" alt="ICAR ATRI Kolkata">
+            <p>18. Indian Council of Agricultural Research, GOI, ICAR Application Technology Research Institute, Kolkata</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="ICAR - Central Institute of Fisheries Education, GOI" data-id="cife">
+        <a href="view.html?id=cife">
+            <img src="assets/cife.jpg" alt="CIFE">
+            <p>19. ICAR - Central Institute of Fisheries Education, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="ICAR - Directorate of Knowledge Management in Agriculture, GOI" data-id="dkma">
+        <a href="view.html?id=dkma">
+            <img src="assets/dkma.jpg" alt="DKMA">
+            <p>20. ICAR - Directorate of Knowledge Management in Agriculture, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Agricultural and Processed Food Products Export Development Authority, GOI" data-id="apeda">
+        <a href="view.html?id=apeda">
+            <img src="assets/apeda.jpg" alt="APEDA">
+            <p>21. Agricultural and Processed Food Products Export Development Authority, GOI</p>
+        </a>
+    </div>
+    
+    <div class="stall-card" data-name="NTPC Limited, GOI" data-id="ntpc">
+        <a href="view.html?id=ntpc">
+            <img src="assets/ntpc.jpg" alt="NTPC Limited">
+            <p>22. NTPC Limited, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Geological Survey of India, GOI" data-id="gsi">
+        <a href="view.html?id=gsi">
+            <img src="assets/gsi.jpg" alt="Geological Survey of India">
+            <p>23. Geological Survey of India, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="West Bengal NGRBA Program Management Group" data-id="wb-ngrba">
+        <a href="view.html?id=wb-ngrba">
+            <img src="assets/wb-ngrba.jpg" alt="WB NGRBA">
+            <p>24. West Bengal NGRBA Program Management Group</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="North Eastern Electric Power Corporation Limited, GOI" data-id="neepcl">
+        <a href="view.html?id=neepcl">
+            <img src="assets/neepcl.jpg" alt="NEEPCO">
+            <p>25. North Eastern Electric Power Corporation Limited, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="NHPC, GOI" data-id="nhpc">
+        <a href="view.html?id=nhpc">
+            <img src="assets/nhpc.jpg" alt="NHPC">
+            <p>26. NHPC, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Bureau of Indian Standards, GOI" data-id="bis">
+        <a href="view.html?id=bis">
+            <img src="assets/bis.jpg" alt="BIS">
+            <p>27. Bureau of Indian Standards, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Central Ground Water Board, GOI" data-id="cgwb">
+        <a href="view.html?id=cgwb">
+            <img src="assets/cgwb.jpg" alt="CGWB">
+            <p>28. Central Ground Water Board, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Tripura Tourism" data-id="tripura-tourism">
+        <a href="view.html?id=tripura-tourism">
+            <img src="assets/tripura-tourism.jpg" alt="Tripura Tourism">
+            <p>29. Tripura Tourism</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Eastern Railway, GOI" data-id="eastern-railway">
+        <a href="view.html?id=eastern-railway">
+            <img src="assets/eastern-railway.jpg" alt="Eastern Railway">
+            <p>30. Eastern Railway, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Adamas University" data-id="adamas-univ">
+        <a href="view.html?id=adamas-univ">
+            <img src="assets/adamas-univ.jpg" alt="Adamas University">
+            <p>31. Adamas University</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Reserve Bank of India" data-id="rbi">
+        <a href="view.html?id=rbi">
+            <img src="assets/rbi.jpg" alt="RBI">
+            <p>32. Reserve Bank of India</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="National e-Governance Division, GOI" data-id="negd">
+        <a href="view.html?id=negd">
+            <img src="assets/negd.jpg" alt="NEGD">
+            <p>33. National e-Governance Division, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Sister Nivedita University" data-id="sister-nivedita-univ">
+        <a href="view.html?id=sister-nivedita-univ">
+            <img src="assets/sister-nivedita.jpg" alt="Sister Nivedita University">
+            <p>34. Sister Nivedita University</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Bose Institute, Department of Science and Technology, GOI" data-id="bose-institute">
+        <a href="view.html?id=bose-institute">
+            <img src="assets/bose.jpg" alt="Bose Institute">
+            <p>35. Bose Institute, Department of Science and Technology, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Indian Institute of Science Education and Research, Kolkata, GOI" data-id="iiser-kolkata">
+        <a href="view.html?id=iiser-kolkata">
+            <img src="assets/iiser.jpg" alt="IISER Kolkata">
+            <p>36. Indian Institute of Science Education and Research, Kolkata, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Saha Institute of Nuclear Physics, Department of Atomic Energy, GOI" data-id="saha-institute">
+        <a href="view.html?id=saha-institute">
+            <img src="assets/saha.jpg" alt="Saha Institute">
+            <p>37. Saha Institute of Nuclear Physics, Department of Atomic Energy, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Department of Atomic Energy, GOI" data-id="dae">
+        <a href="view.html?id=dae">
+            <img src="assets/dae.jpg" alt="Department of Atomic Energy">
+            <p>38. Department of Atomic Energy, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Bric-Centre for DNA Fingerprinting & Diagnostics, GOI" data-id="bric-dna">
+        <a href="view.html?id=bric-dna">
+            <img src="assets/bric-dna.jpg" alt="BRIC DNA">
+            <p>39. Bric-Centre for DNA Fingerprinting & Diagnostics, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="BRIC, DBT" data-id="bric-dbt">
+        <a href="view.html?id=bric-dbt">
+            <img src="assets/bric-dbt.jpg" alt="BRIC DBT">
+            <p>40. BRIC, DBT</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Department of Biotechnology, GOI (NIBMG)" data-id="nibmg">
+        <a href="view.html?id=nibmg">
+            <img src="assets/nibmg.jpg" alt="NIBMG">
+            <p>41. Department of Biotechnology, GOI (NIBMG)</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Science Model Competition" data-id="science-model">
+        <a href="view.html?id=science-model">
+            <img src="assets/science-model.jpg" alt="Science Model">
+            <p>42. Science Model Competition</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Council of Scientific and Industrial Research, GOI" data-id="csir">
+        <a href="view.html?id=csir">
+            <img src="assets/csir.jpg" alt="CSIR">
+            <p>43. Council of Scientific and Industrial Research, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Ministry of Earth Sciences, GOI" data-id="moes">
+        <a href="view.html?id=moes">
+            <img src="assets/moes.jpg" alt="Ministry of Earth Sciences">
+            <p>44. Ministry of Earth Sciences, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Survey of India, GOI" data-id="survey-india">
+        <a href="view.html?id=survey-india">
+            <img src="assets/survey-india.jpg" alt="Survey of India">
+            <p>45. Survey of India, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="Anusandhan National Research Foundation" data-id="anusandhan-nrf">
+        <a href="view.html?id=anusandhan-nrf">
+            <img src="assets/anusandhan.jpg" alt="Anusandhan NRF">
+            <p>46. Anusandhan National Research Foundation</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="ICMR-NIRBI, GOI" data-id="icmr-nirbi">
+        <a href="view.html?id=icmr-nirbi">
+            <img src="assets/icmr-nirbi.jpg" alt="ICMR NIRBI">
+            <p>47. ICMR-NIRBI, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="National Health Mission, Govt. of West Bengal" data-id="nhm-wb">
+        <a href="view.html?id=nhm-wb">
+            <img src="assets/nhm-wb.jpg" alt="National Health Mission WB">
+            <p>47A. National Health Mission, Govt. of West Bengal</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="The University of Burdwan" data-id="univ-burdwan">
+        <a href="view.html?id=univ-burdwan">
+            <img src="assets/univ-burdwan.jpg" alt="University of Burdwan">
+            <p>49. The University of Burdwan</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="HANDICRAFTS, GOI-1" data-id="handicrafts-goi-1">
+        <a href="view.html?id=handicrafts-goi-1">
+            <img src="assets/hanidcrafts1.jpg" alt="Handicrafts GOI-1">
+            <p>56. HANDICRAFTS, GOI-1</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="HANDICRAFTS, GOI-2" data-id="handicrafts-goi-2">
+        <a href="view.html?id=handicrafts-goi-2">
+            <img src="assets/hanidcrafts2.jpg" alt="Handicrafts GOI-2">
+            <p>57. HANDICRAFTS, GOI-2</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="HANDICRAFTS, GOI-3" data-id="handicrafts-goi-3">
+        <a href="view.html?id=handicrafts-goi-3">
+            <img src="assets/hanidcrafts3.jpg" alt="Handicrafts GOI-3">
+            <p>58. HANDICRAFTS, GOI-3</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="HANDICRAFTS, GOI-4" data-id="handicrafts-goi-4">
+        <a href="view.html?id=handicrafts-goi-4">
+            <img src="assets/hanidcrafts4.jpg" alt="Handicrafts GOI-4">
+            <p>59. HANDICRAFTS, GOI-4</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="HANDICRAFTS, GOI-5" data-id="handicrafts-goi-5">
+        <a href="view.html?id=handicrafts-goi-5">
+            <img src="assets/hanidcrafts5.jpg" alt="Handicrafts GOI-5">
+            <p>60. HANDICRAFTS, GOI-5</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="HANDICRAFTS, GOI-6" data-id="handicrafts-goi-6">
+        <a href="view.html?id=handicrafts-goi-6">
+            <img src="assets/hanidcrafts6.jpg" alt="Handicrafts GOI-6">
+            <p>61. HANDICRAFTS, GOI-6</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="HANDICRAFTS, GOI-7" data-id="handicrafts-goi-7">
+        <a href="view.html?id=handicrafts-goi-7">
+            <img src="assets/hanidcrafts7.jpg" alt="Handicrafts GOI-7">
+            <p>62. HANDICRAFTS, GOI-7</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="HANDICRAFTS, GOI-8" data-id="handicrafts-goi-8">
+        <a href="view.html?id=handicrafts-goi-8">
+            <img src="assets/hanidcrafts8.jpg" alt="Handicrafts GOI-8">
+            <p>63. HANDICRAFTS, GOI-8</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="HANDICRAFTS, GOI-9" data-id="handicrafts-goi-9">
+        <a href="view.html?id=handicrafts-goi-9">
+            <img src="assets/hanidcrafts9.jpg" alt="Handicrafts GOI-9">
+            <p>64. HANDICRAFTS, GOI-9</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="HANDICRAFTS, GOI-10" data-id="handicrafts-goi-10">
+        <a href="view.html?id=handicrafts-goi-10">
+            <img src="assets/hanidcrafts10.jpg" alt="Handicrafts GOI-10">
+            <p>65. HANDICRAFTS, GOI-10</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="HANDICRAFTS, GOI-11" data-id="handicrafts-goi-11">
+        <a href="view.html?id=handicrafts-goi-11">
+            <img src="assets/hanidcrafts11.jpg" alt="Handicrafts GOI-11">
+            <p>66. HANDICRAFTS, GOI-11</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="HANDICRAFTS, GOI-12" data-id="handicrafts-goi-12">
+        <a href="view.html?id=handicrafts-goi-12">
+            <img src="assets/hanidcrafts12.jpg" alt="Handicrafts GOI-12">
+            <p>67. HANDICRAFTS, GOI-12</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="HANDICRAFTS, GOI-13" data-id="handicrafts-goi-13">
+        <a href="view.html?id=handicrafts-goi-13">
+            <img src="assets/hanidcrafts13.jpg" alt="Handicrafts GOI-13">
+            <p>68. HANDICRAFTS, GOI-13</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="HANDICRAFTS, GOI-14" data-id="handicrafts-goi-14">
+        <a href="view.html?id=handicrafts-goi-14">
+            <img src="assets/hanidcrafts14.jpg" alt="Handicrafts GOI-14">
+            <p>69. HANDICRAFTS, GOI-14</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="HANDICRAFTS, GOI-15" data-id="handicrafts-goi-15">
+        <a href="view.html?id=handicrafts-goi-15">
+            <img src="assets/hanidcrafts15.jpg" alt="Handicrafts GOI-15">
+            <p>70. HANDICRAFTS, GOI-15</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="HANDICRAFTS, GOI-16" data-id="handicrafts-goi-16">
+        <a href="view.html?id=handicrafts-goi-16">
+            <img src="assets/hanidcrafts16.jpg" alt="Handicrafts GOI-16">
+            <p>71. HANDICRAFTS, GOI-16</p>
+        </a>
+    </div>
+
+
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Exhibition Name. All rights reserved.</p>
+  </footer>
+
+  <!-- Search Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const query = params.get('q')?.toLowerCase().trim() || "";
+
+      const stalls = document.querySelectorAll('.stall-card');
+      const resultsTitle = document.getElementById('results-title');
+
+      let matchCount = 0;
+      stalls.forEach(stall => {
+        const name = stall.dataset.name.toLowerCase();
+        if (name.includes(query)) {
+          stall.style.display = "block";
+          matchCount++;
+        } else {
+          stall.style.display = "none";
+        }
+      });
+
+      if (matchCount === 0) {
+        resultsTitle.textContent = `No results found for "${query}"`;
+      } else {
+        resultsTitle.textContent = `Found ${matchCount} result(s) for "${query}"`;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cultural Gallery</title>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        font-family: 'Poppins', Arial, sans-serif;
+        color: #fff;
+        overflow-x: hidden;
+    }
+
+    h1 {
+        text-align: center;
+        padding: 1em;
+        color: #EFA55C;
+    }
+
+    /* Vertical gallery */
+    .gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 3em;           /* increased gap between images */
+        align-items: center;
+        padding: 2em 0 3em 0; /* more top & bottom padding */
+    }
+
+    .gallery img {
+        width: 80%;         /* slightly narrower */
+        height: 55vh;       /* increased vertical size */
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 
+        0 -20px 40px rgba(239,165,92,0.6),  /* top orange glow */
+        0 20px 40px rgba(94,153,94,0.6);    /* bottom green glow */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery img:hover {
+        transform: scale(1.03);
+        box-shadow: 
+        0 -25px 50px rgba(239,165,92,0.8),
+        0 25px 50px rgba(94,153,94,0.8);
+    }
+
+    @media (max-width: 600px) {
+        .gallery img {
+        width: 90%;
+        height: 45vh;
+        }
+    }
+    </style>
+
+</head>
+<body>
+
+  <h1>Cultural Gallery</h1>
+
+  <div class="gallery">
+    <img src="assets/culture1.jpg" alt="Culture 1">
+    <img src="assets/culture2.jpg" alt="Culture 2">
+    <img src="assets/culture3.jpg" alt="Culture 3">
+    <img src="assets/culture4.jpg" alt="Culture 4">
+    <img src="assets/culture5.jpg" alt="Culture 5">
+    <img src="assets/culture6.jpg" alt="Culture 6">
+    <img src="assets/culture7.jpg" alt="Culture 7">
+    <img src="assets/culture8.jpg" alt="Culture 8">
+    <img src="assets/culture9.jpg" alt="Culture 9">
+    <img src="assets/culture10.jpg" alt="Culture 10">
+    <img src="assets/culture11.jpg" alt="Culture 11">
+    <img src="assets/culture12.jpg" alt="Culture 12">
+    <img src="assets/culture13.jpg" alt="Culture 13">
+  </div>
+
+</body>
+</html>

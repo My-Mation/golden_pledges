@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Stall</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #stall-details {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        #stall-gallery img {
+            width: 200px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .slideshow-container {
+            position: relative;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: center;
+        }
+        .slide {
+            display: none;
+        }
+        .slide img {
+            width: 100%;
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="stall-title">Stall Name</h1>
+        <a href="index.html"><button>Back to Main Page</button></a>
+    </header>
+
+    <section id="stall-details">
+        <p id="stall-description">Description will appear here</p>
+        <div class="slideshow-container" id="slideshow"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Exhibition Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const stalls = {
+            // Block Aconst stalls = {
+            "metal-steel": { 
+                name: "Metal & Steel Factory, Ishapore, GOI", 
+                description: "The Metal & Steel Factory in Ishapore is one of India’s oldest defense production units. It manufactures a wide range of specialized steel and alloy products that are essential for arms, ammunition, and critical infrastructure projects. Its strategic role supports both defense readiness and industrial growth.", 
+                images: ["assets/metal-steel.jpg"] 
+            },
+            "armoured": { 
+                name: "Armoured Vehicles Nigam Limited, GOI", 
+                description: "Armoured Vehicles Nigam Limited (AVNL) is a premier defense manufacturer of tanks, armored vehicles, and combat support equipment. Its engineering excellence ensures reliable mobility and protection for India’s armed forces in diverse terrains.", 
+                images: ["assets/armoured.jpg"] 
+            },
+            "drdo": { 
+                name: "Defence Research & Development Organisation, GOI", 
+                description: "The Defence Research & Development Organisation (DRDO) leads India’s defense innovation ecosystem. It is engaged in the design and development of missiles, drones, radars, electronic warfare systems, and cutting-edge defense technologies, strengthening national security and self-reliance.", 
+                images: ["assets/drdo.jpg"] 
+            },
+            "hal": { 
+                name: "Hindustan Aeronautics Limited, GOI", 
+                description: "Hindustan Aeronautics Limited (HAL) is India’s aerospace and defense powerhouse, producing fighter aircraft, helicopters, engines, avionics, and more. HAL plays a crucial role in maintaining and modernizing India’s combat aircraft fleet.", 
+                images: ["assets/hal.jpg"] 
+            },
+            "troop-comforts": { 
+                name: "Troop Comforts Limited, GOI", 
+                description: "Troop Comforts Limited provides specialized uniforms, extreme weather gear, tents, and personal combat supplies to the armed forces. Its focus is on enhancing soldier comfort, safety, and performance in demanding battle conditions.", 
+                images: ["assets/troop.jpg"] 
+            },
+            "india-optel": { 
+                name: "India Optel Limited, GOI", 
+                description: "India Optel Limited designs and manufactures optical and electronic defense equipment including night vision devices, laser range finders, and surveillance technologies. These products enhance battlefield awareness and precision.", 
+                images: ["assets/optel.jpg"] 
+            },
+            "aweil": { 
+                name: "Advanced Weapons and Equipment India Limited, GOI", 
+                description: "Advanced Weapons and Equipment India Limited (AWEIL) specializes in small arms and artillery production. Its portfolio includes rifles, carbines, sniper rifles, and modern artillery systems that meet both domestic and export defense requirements.", 
+                images: ["assets/aweil.jpg"] 
+            },
+            "indian-air-force": { 
+                name: "Indian Air Force, GOI", 
+                description: "The Indian Air Force (IAF) is tasked with securing Indian airspace and conducting aerial warfare during conflicts. It operates advanced fighter jets, transport aircraft, helicopters, and missile systems, ensuring air dominance and rapid response capability.", 
+                images: ["assets/iaf.jpg"] 
+            },
+            "indian-navy": { 
+                name: "Indian Navy, GOI", 
+                description: "The Indian Navy safeguards India’s maritime borders and plays a key role in disaster relief, trade protection, and regional stability. Its fleet includes aircraft carriers, submarines, destroyers, and patrol vessels, making it a formidable naval force.", 
+                images: ["assets/navy.jpg"] 
+            },
+            "indian-army": { 
+                name: "Indian Army, GOI", 
+                description: "The Indian Army is the largest branch of the Armed Forces, responsible for land-based defense operations. It defends India’s borders, conducts counter-insurgency operations, and assists in disaster relief while maintaining readiness for all forms of conflict.", 
+                images: ["assets/army.jpg"] 
+            },
+            "gliders-india": { 
+                name: "Gliders India Limited, GOI", 
+                description: "Gliders India Limited manufactures a range of parachutes, aerial delivery systems, and safety equipment. Its innovations support defense, aerospace, and emergency services by ensuring reliability in high-stakes operations.", 
+                images: ["assets/gliders.jpg"] 
+            },
+            "munitions-india": { 
+                name: "Munitions India Limited, GOI", 
+                description: "Munitions India Limited (MIL) is India’s leading producer of ammunition and explosives. It provides small arms ammunition, artillery shells, tank ammunition, and mines, forming the backbone of the country’s combat capability.", 
+                images: ["assets/munitions.jpg"] 
+            },
+            "mazagon-doc": { 
+                name: "Mazagon Dock Shipbuilders Limited, GOI", 
+                description: "Mazagon Dock Shipbuilders Limited (MDL) is India’s premier shipyard, building naval warships, submarines, and commercial vessels. It plays a critical role in strengthening India’s maritime defense and shipbuilding industry.", 
+                images: ["assets/mazagon.jpg"] 
+            },
+
+
+            "cmfri": { 
+                name: "ICAR - Central Marine Fisheries Research Institute, Kochi", 
+                description: "The Central Marine Fisheries Research Institute (CMFRI) focuses on the sustainable development of India’s marine fisheries sector. It conducts advanced research on marine biodiversity, fishery resources, aquaculture practices, and climate-resilient technologies to support the livelihoods of coastal communities.", 
+                images: ["assets/cmfri.jpg"] 
+            },
+            "dept-agri-wb": { 
+                name: "Department of Agriculture, Govt. of West Bengal", 
+                description: "The Department of Agriculture, Government of West Bengal, is dedicated to improving agricultural productivity and ensuring food security. It supports farmers through modern technology adoption, soil health initiatives, irrigation projects, and promotion of sustainable farming practices.", 
+                images: ["assets/dept-agri.jpg"] 
+            },
+            "directorate-ext": { 
+                name: "Directorate of Extension, GOI", 
+                description: "The Directorate of Extension, Government of India, works to bridge the gap between agricultural research and farmers. It develops and promotes extension methodologies, capacity-building programs, and field demonstrations to ensure farmers benefit from the latest scientific advancements.", 
+                images: ["assets/directorate.jpg"] 
+            },
+            "nbfgr": { 
+                name: "ICAR - National Bureau of Fish Genetics Resources, GOI", 
+                description: "The National Bureau of Fish Genetic Resources (NBFGR) is a premier ICAR institute that works on the conservation and sustainable utilization of fish genetic diversity. It maintains gene banks, develops molecular tools, and contributes to aquaculture and fisheries policy development.", 
+                images: ["assets/nbfgr.jpg"] 
+            },
+            "icar-icar-kolkata": { 
+                name: "Indian Council of Agricultural Research, GOI, ICAR Application Technology Research Institute, Kolkata", 
+                description: "ICAR - Application Technology Research Institute, Kolkata, specializes in agricultural mechanization, climate-smart farming, and technology dissemination. It focuses on scaling innovations to farmers across eastern India for improved productivity and sustainability.", 
+                images: ["assets/icar-atrik.jpg"] 
+            },
+            "cife": { 
+                name: "ICAR - Central Institute of Fisheries Education, GOI", 
+                description: "The Central Institute of Fisheries Education (CIFE) provides higher education, research, and training in fisheries science. As a deemed university under ICAR, it develops skilled professionals and advances research in aquaculture, fish nutrition, breeding, and aquatic health management.", 
+                images: ["assets/cife.jpg"] 
+            },
+            "dkma": { 
+                name: "ICAR - Directorate of Knowledge Management in Agriculture, GOI", 
+                description: "The Directorate of Knowledge Management in Agriculture (DKMA) is responsible for managing and disseminating agricultural information. It publishes scientific journals, books, and digital resources, ensuring that research outcomes reach policymakers, farmers, and stakeholders nationwide.", 
+                images: ["assets/dkma.jpg"] 
+            },
+            "apeda": { 
+                name: "Agricultural and Processed Food Products Export Development Authority, GOI", 
+                description: "The Agricultural and Processed Food Products Export Development Authority (APEDA) supports India’s agri-export sector. It promotes value-added products, ensures quality certification, assists exporters with global market access, and enhances India’s agricultural trade competitiveness.", 
+                images: ["assets/apeda.jpg"] 
+            },
+//block c
+            "ntpc": { 
+                name: "NTPC Limited, GOI", 
+                description: "NTPC Limited is India’s largest power generation company under the Government of India. It specializes in thermal, hydro, solar, and renewable energy production while driving sustainable practices, technological innovation, and nationwide electrification.", 
+                images: ["assets/ntpc.jpg"] 
+            },
+            "gsi": { 
+                name: "Geological Survey of India, GOI", 
+                description: "The Geological Survey of India (GSI) conducts systematic geological mapping, mineral resource assessment, and geo-scientific research. It supports mineral exploration, hazard assessment, and sustainable management of India’s natural resources.", 
+                images: ["assets/gsi.jpg"] 
+            },
+            "wb-ngrba": { 
+                name: "West Bengal NGRBA Program Management Group", 
+                description: "The West Bengal NGRBA Program Management Group works on river basin management and conservation under the National Ganga River Basin Authority. It implements pollution control, ecosystem restoration, and sustainable water resource projects in the region.", 
+                images: ["assets/wb-ngrba.jpg"] 
+            },
+            "neepcl": { 
+                name: "North Eastern Electric Power Corporation Limited, GOI", 
+                description: "NEEPCO is a Government of India enterprise dedicated to generating power through hydro and thermal plants in North Eastern India. It focuses on harnessing the region’s natural energy potential while ensuring ecological balance and regional growth.", 
+                images: ["assets/neepcl.jpg"] 
+            },
+            "nhpc": { 
+                name: "NHPC, GOI", 
+                description: "NHPC Limited is India’s premier hydropower company under the Government of India. It develops large-scale hydroelectric projects across the country and contributes to clean energy generation, rural electrification, and sustainable power infrastructure.", 
+                images: ["assets/nhpc.jpg"] 
+            },
+            "bis": { 
+                name: "Bureau of Indian Standards, GOI", 
+                description: "The Bureau of Indian Standards (BIS) is the national standards body of India responsible for product certification, quality assurance, and consumer safety. BIS plays a crucial role in standardization, testing, hallmarking, and promoting quality culture nationwide.", 
+                images: ["assets/bis.jpg"] 
+            },
+            "cgwb": { 
+                name: "Central Ground Water Board, GOI", 
+                description: "The Central Ground Water Board (CGWB) manages and monitors India’s groundwater resources. It undertakes hydrogeological surveys, develops groundwater models, and provides strategies for sustainable usage and conservation of water resources.", 
+                images: ["assets/cgwb.jpg"] 
+            },
+            "tripura-tourism": { 
+                name: "Tripura Tourism", 
+                description: "Tripura Tourism promotes the state’s rich cultural heritage, natural landscapes, and historical monuments. It showcases the region’s tribal traditions, wildlife sanctuaries, eco-tourism sites, and efforts to boost sustainable travel in North East India.", 
+                images: ["assets/tripura-tourism.jpg"] 
+            },
+            "eastern-railway": { 
+                name: "Eastern Railway, GOI", 
+                description: "Eastern Railway is a zone of Indian Railways responsible for passenger and freight services in eastern India. It ensures efficient rail connectivity, modernization of infrastructure, and supports economic and cultural linkages across the region.", 
+                images: ["assets/eastern-railway.jpg"] 
+            },
+            "adamas-univ": { 
+                name: "Adamas University", 
+                description: "Adamas University, based in West Bengal, offers multidisciplinary higher education with a focus on research, innovation, and global exposure. It provides undergraduate, postgraduate, and doctoral programs in engineering, sciences, humanities, and management.", 
+                images: ["assets/adamas-univ.jpg"] 
+            },
+            "rbi": { 
+                name: "Reserve Bank of India", 
+                description: "The Reserve Bank of India (RBI) is the nation’s central bank responsible for regulating monetary policy, currency issuance, and banking supervision. It ensures financial stability, controls inflation, and supports sustainable economic growth in India.", 
+                images: ["assets/rbi.jpg"] 
+            },
+            "negd": { 
+                name: "National e-Governance Division, GOI", 
+                description: "The National e-Governance Division (NeGD) under the Ministry of Electronics and Information Technology spearheads India’s Digital India initiative. It designs, develops, and implements e-governance projects to promote transparency and digital public services.", 
+                images: ["assets/negd.jpg"] 
+            },
+            "sister-nivedita-univ": { 
+                name: "Sister Nivedita University", 
+                description: "Sister Nivedita University in West Bengal offers a wide range of programs in science, engineering, law, humanities, and media studies. The university emphasizes research, innovation, and skill-based learning to prepare students for global careers.", 
+                images: ["assets/sister-nivedita.jpg"] 
+            },
+
+
+            // Block D
+            "bose-institute": { 
+                name: "Bose Institute, Department of Science and Technology, GOI", 
+                description: "Bose Institute is one of India’s oldest and most prestigious research institutions under the Department of Science and Technology. It is dedicated to interdisciplinary scientific research across physics, chemistry, biology, and environmental sciences, with a legacy of pioneering discoveries and advanced scientific programs.", 
+                images:["assets/bose.jpg"] 
+            },
+
+            "iiser-kolkata": { 
+                name: "Indian Institute of Science Education and Research, Kolkata, GOI", 
+                description: "IISER Kolkata is an autonomous institution established by the Government of India for high-quality science education and cutting-edge research. It combines rigorous academics with active research in biology, physics, chemistry, mathematics, and earth sciences, nurturing future scientists and innovators.", 
+                images:["assets/iiser.jpg"] 
+            },
+
+            "saha-institute": { 
+                name: "Saha Institute of Nuclear Physics, Department of Atomic Energy, GOI", 
+                description: "The Saha Institute of Nuclear Physics (SINP) is a premier research institute under the Department of Atomic Energy, focused on theoretical and experimental research in nuclear physics, particle physics, biophysical sciences, and interdisciplinary studies in emerging scientific domains.", 
+                images:["assets/saha.jpg"] 
+            },
+
+            "dae": { 
+                name: "Department of Atomic Energy, GOI", 
+                description: "The Department of Atomic Energy is the apex body of the Government of India responsible for nuclear power, atomic research, and the peaceful applications of nuclear energy in areas like health, food security, energy production, and national security.", 
+                images:["assets/dae.jpg"] 
+            },
+
+            "bric-dna": { 
+                name: "Bric-Centre for DNA Fingerprinting & Diagnostics, GOI", 
+                description: "The BRIC Centre for DNA Fingerprinting and Diagnostics is a national hub for genomic and molecular research. It provides state-of-the-art facilities for DNA-based diagnostics, genetic fingerprinting, and advanced biotechnology research to address medical and agricultural challenges.", 
+                images:["assets/bric-dna.jpg"] 
+            },
+
+            "bric-dbt": { 
+                name: "BRIC, DBT", 
+                description: "The Biotechnology Research Innovation Council (BRIC) under the Department of Biotechnology is dedicated to advancing biotechnological innovations, fostering collaborations, and supporting research programs in healthcare, agriculture, and industrial biotechnology.", 
+                images:["assets/bric-dbt.jpg"] 
+            },
+
+            "nibmg": { 
+                name: "Department of Biotechnology, GOI (NIBMG)", 
+                description: "The National Institute of Biomedical Genomics (NIBMG), under the Department of Biotechnology, focuses on genomic research in health and disease. It plays a vital role in precision medicine, genetic studies, and the application of biotechnology in healthcare solutions.", 
+                images:["assets/nibmg.jpg"] 
+            },
+
+            "science-model": { 
+                name: "Science Model Competition", 
+                description: "The Science Model Competition provides a platform for students and innovators to showcase creative scientific models, prototypes, and research projects. It encourages hands-on learning, problem-solving, and the practical application of scientific concepts.", 
+                images:["assets/science-model.jpg"] 
+            },
+
+            "csir": { 
+                name: "Council of Scientific and Industrial Research, GOI", 
+                description: "The Council of Scientific and Industrial Research (CSIR) is one of the largest research and development organizations in India. It drives innovation across industries including pharmaceuticals, energy, agriculture, materials, aerospace, and environmental sustainability.", 
+                images:["assets/csir.jpg"] 
+            },
+
+            "moes": { 
+                name: "Ministry of Earth Sciences, GOI", 
+                description: "The Ministry of Earth Sciences (MoES) oversees programs related to weather, climate change, ocean sciences, seismology, and atmospheric research. It provides critical data for disaster management, environmental monitoring, and sustainable resource management.", 
+                images:["assets/moes.jpg"] 
+            },
+
+            "survey-india": { 
+                name: "Survey of India, GOI", 
+                description: "The Survey of India is the country’s oldest scientific department and the national mapping agency. It is responsible for cartographic data, topographical surveys, geospatial information, and providing crucial infrastructure for defense, development, and governance.", 
+                images:["assets/survey-india.jpg"] 
+            },
+
+            "anusandhan-nrf": { 
+                name: "Anusandhan National Research Foundation", 
+                description: "The Anusandhan National Research Foundation (NRF) promotes and funds research across science, technology, social sciences, and humanities. It aims to strengthen India’s innovation ecosystem, support higher education institutions, and foster interdisciplinary projects with global impact.", 
+                images:["assets/anusandhan.jpg"] 
+            },
+
+            // Block G (Textile)
+            "national-jute-board": { 
+                name: "National Jute Board, GOI", 
+                description: "The National Jute Board (NJB) under the Government of India is responsible for the promotion, development, and expansion of the jute sector. It works to modernize the industry, encourage eco-friendly alternatives, support artisans, and promote Indian jute globally.", 
+                images:["assets/national-jute-board.jpg"] 
+            },
+
+            "blooming-rose": { 
+                name: "BLOOMING ROSE, North 24 Parganas", 
+                description: "Blooming Rose is a regional enterprise specializing in innovative and eco-friendly jute products. Their work emphasizes sustainable practices while creating functional and decorative jute-based items for local and national markets.", 
+                images:["assets/blooming-rose.jpg"] 
+            },
+
+            "jute-baggy": { 
+                name: "JUTE BAGGY ENTERPRISE, Hooghly", 
+                description: "Jute Baggy Enterprise is known for its handmade jute bags and accessories. The business combines traditional craftsmanship with modern designs, providing durable, biodegradable alternatives to synthetic products.", 
+                images:["assets/jute-baggy.jpg"] 
+            },
+
+            "victor-jute": { 
+                name: "VICTOR JUTE PRODUCTS, North 24 Parganas", 
+                description: "Victor Jute Products produces a wide range of jute crafts, bags, and home utility items. Their focus is on promoting eco-conscious living by replacing plastic with natural jute-based solutions.", 
+                images:["assets/victor-jute.jpg"] 
+            },
+
+            "tania-sarkar": { 
+                name: "TANIA SARKAR, North 24 Parganas", 
+                description: "Tania Sarkar is a local artisan specializing in jute handicrafts. Her products highlight the creativity and artistry of jute, blending traditional weaving skills with contemporary aesthetics.", 
+                images:["assets/tania-sarkar.jpg"] 
+            },
+
+            "jute-hind": { 
+                name: "JUTE HIND, Kolkata", 
+                description: "Jute Hind focuses on eco-friendly jute bags, lifestyle products, and traditional items. The enterprise represents the city’s heritage of jute craftsmanship while offering sustainable alternatives to synthetic products.", 
+                images:["assets/jute-hind.jpg"] 
+            },
+
+            "umita-jute": { 
+                name: "UMITA JUTE CENTRE, Hooghly", 
+                description: "Umita Jute Centre is a local initiative that supports rural artisans engaged in weaving and crafting jute-based items. Their work preserves traditional methods while catering to modern consumer needs.", 
+                images:["assets/umita-jute.jpg"] 
+            },
+
+            "handlooms-goi": { 
+                name: "HANDLOOMS, GOI", 
+                description: "Government-supported handloom products.", 
+                images:["assets/handlooms-goi.jpg"] 
+            },
+
+            // Handicrafts (no detailed descriptions as requested)
+            "handicrafts-goi-1": { name: "HANDICRAFTS, GOI-1", description: "Government handicrafts initiative.", images:["assets/hanidcrafts1.jpg"] },
+            "handicrafts-goi-2": { name: "HANDICRAFTS, GOI-2", description: "Government handicrafts initiative.", images:["assets/hanidcrafts2.jpg"] },
+            "handicrafts-goi-3": { name: "HANDICRAFTS, GOI-3", description: "Government handicrafts initiative.", images:["assets/hanidcrafts3.jpg"] },
+            "handicrafts-goi-4": { name: "HANDICRAFTS, GOI-4", description: "Government handicrafts initiative.", images:["assets/hanidcrafts4.jpg"] },
+            "handicrafts-goi-5": { name: "HANDICRAFTS, GOI-5", description: "Government handicrafts initiative.", images:["assets/hanidcrafts5.jpg"] },
+            "handicrafts-goi-6": { name: "HANDICRAFTS, GOI-6", description: "Government handicrafts initiative.", images:["assets/hanidcrafts6.jpg"] },
+            "handicrafts-goi-7": { name: "HANDICRAFTS, GOI-7", description: "Government handicrafts initiative.", images:["assets/hanidcrafts7.jpg"] },
+            "handicrafts-goi-8": { name: "HANDICRAFTS, GOI-8", description: "Government handicrafts initiative.", images:["assets/hanidcrafts8.jpg"] },
+            "handicrafts-goi-9": { name: "HANDICRAFTS, GOI-9", description: "Government handicrafts initiative.", images:["assets/hanidcrafts9.jpg"] },
+            "handicrafts-goi-10": { name: "HANDICRAFTS, GOI-10", description: "Government handicrafts initiative.", images:["assets/hanidcrafts10.jpg"] },
+            "handicrafts-goi-11": { name: "HANDICRAFTS, GOI-11", description: "Government handicrafts initiative.", images:["assets/hanidcrafts11.jpg"] },
+            "handicrafts-goi-12": { name: "HANDICRAFTS, GOI-12", description: "Government handicrafts initiative.", images:["assets/hanidcrafts12.jpg"] },
+            "handicrafts-goi-13": { name: "HANDICRAFTS, GOI-13", description: "Government handicrafts initiative.", images:["assets/hanidcrafts13.jpg"] },
+            "handicrafts-goi-14": { name: "HANDICRAFTS, GOI-14", description: "Government handicrafts initiative.", images:["assets/hanidcrafts14.jpg"] },
+            "handicrafts-goi-15": { name: "HANDICRAFTS, GOI-15", description: "Government handicrafts initiative.", images:["assets/hanidcrafts15.jpg"] },
+            "handicrafts-goi-16": { name: "HANDICRAFTS, GOI-16", description: "Government handicrafts initiative.", images:["assets/hanidcrafts16.jpg"] },
+
+            // Block H (Health)
+            "icmr": { 
+                name: "Indian Council of Medical Research, GOI", 
+                description: "The Indian Council of Medical Research (ICMR) is the apex body in India for the formulation, coordination, and promotion of biomedical research. It plays a key role in advancing public health, medical innovation, and disease control programs.", 
+                images:["assets/icmr.jpg"] 
+            },
+
+            "icmr-nirbi": { 
+                name: "ICMR-NIRBI, GOI", 
+                description: "The ICMR-National Institute for Research in Biologicals and Immunology is engaged in advanced biological and immunological research. It contributes to vaccine development, diagnostics, and immunotherapy research for national health priorities.", 
+                images:["assets/icmr-nirbi.jpg"] 
+            },
+
+            "nhm-wb": { 
+                name: "National Health Mission, Govt. of West Bengal", 
+                description: "The National Health Mission (NHM) in West Bengal implements healthcare programs that aim to strengthen rural and urban health infrastructure, improve maternal and child health, and provide affordable healthcare to all sections of society.", 
+                images:["assets/nhm-wb.jpg"] 
+            },
+
+            "univ-burdwan": { 
+                name: "The University of Burdwan", 
+                description: "The University of Burdwan engages in higher education and research, with collaborations in the field of medical sciences, public health, and applied life sciences to foster academic and societal development.", 
+                images:["assets/univ-burdwan.jpg"] 
+            }
+
+        };
+
+        function getStallIdFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id');
+        }
+
+        function showStall(stallId) {
+            const stall = stalls[stallId];
+            if(!stall) {
+                document.getElementById('stall-title').innerText = "Stall not found";
+                document.getElementById('stall-description').innerText = "";
+                return;
+            }
+            document.getElementById('stall-title').innerText = stall.name;
+            document.getElementById('stall-description').innerText = stall.description;
+
+            const slideshow = document.getElementById('slideshow');
+            slideshow.innerHTML = '';
+            stall.images.forEach((img, idx) => {
+                const slideDiv = document.createElement('div');
+                slideDiv.classList.add('slide');
+                if(idx === 0) slideDiv.style.display = 'block';
+                const image = document.createElement('img');
+                image.src = img;
+                slideDiv.appendChild(image);
+                slideshow.appendChild(slideDiv);
+            });
+
+            let currentSlide = 0;
+            const slides = slideshow.getElementsByClassName('slide');
+            setInterval(() => {
+                slides[currentSlide].style.display = 'none';
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].style.display = 'block';
+            }, 3000);
+        }
+
+        showStall(getStallIdFromUrl());
+    </script>
+</body>
+</html>

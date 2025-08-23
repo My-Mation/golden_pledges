@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creators - The 2025 Exhibition</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 2em 1em;
+    }
+
+    header h1 {
+      margin: 0 0 1em;
+      font-size: 2em;
+      color: #EFA55C;
+    }
+
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2em;
+      margin-top: 1em;
+    }
+
+    .team-member {
+      text-align: center;
+      max-width: 180px;
+    }
+
+    .team-member img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #EFA55C;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .team-member h3 {
+      margin: 0.5em 0 0 0;
+      font-size: 1.1em;
+      color: #F5F5F5;
+    }
+
+    .team-member p {
+      margin: 0.2em 0 0;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    #description {
+      background-color: #111;
+      color: #f5f5f5;
+      padding: 3em 2em;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    #description h2 {
+      color: #EFA55C;
+      margin-bottom: 1em;
+    }
+
+    a.back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: linear-gradient(to right, #EFA55C, #5E995E);
+      color: white;
+      padding: 0.8em 1.2em;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+
+    a.back-btn:hover {
+      transform: scale(1.05);
+    }
+
+    @media(max-width:600px){
+      .team-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">Back</a>
+
+  <header>
+    <h1>Meet the Team</h1>
+    <div class="team-container">
+      <div class="team-member">
+        <img src="assets/debargha.jpg" alt="Debargha Sarkar">
+        <h3>Debargha Sarkar</h3>
+        <p>Coder & Website Designer</p>
+      </div>
+      <div class="team-member">
+        <img src="assets/sagnika.jpg" alt="Sagnika Paul">
+        <h3>Sagnika Paul</h3>
+        <p>Stall Information Specialist</p>
+      </div>
+      <div class="team-member">
+        <img src="assets/rupsa.jpg" alt="Rupsa Kundu">
+        <h3>Rupsa Kundu</h3>
+        <p>Stall Information Specialist</p>
+      </div>
+    </div>
+  </header>
+
+  <section id="description">
+    <h2>About the Team</h2>
+    <p>
+      This exhibition platform was conceptualized and developed by <strong>Debargha Sarkar</strong>, an experienced coder and website designer who led the entire design, development, and implementation process.<br><br>
+      <strong>Sagnika Paul</strong> contributed by providing accurate and detailed information regarding the names of the exhibition stalls, ensuring the data was well-organized and accessible.<br><br>
+      <strong>Rupsa Kundu</strong> assisted similarly in compiling and verifying stall information, supporting the project with careful attention to detail.<br><br>
+      The project was guided and provided by <strong>Dipan Bandyopadhyay</strong>, our mentor, who provided the concept and oversight.<br><br>
+      This platform represents a collaborative effort, with Debargha Sarkar overseeing all aspects and integrating contributions from the team to create a cohesive, professional exhibition experience.
+    </p>
+  </section>
+
+</body>
+</html>

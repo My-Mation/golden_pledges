@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Handicrafts Stalls</title>
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #fcdec1, #b4f0af);
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 1em;
+      margin: 0;
+      font-size: 2em;
+      color: #8b4513;
+    }
+
+    .block-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5em;
+      padding: 2em;
+    }
+
+    .stall-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .stall-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .stall-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .stall-card p {
+      padding: 1em;
+      font-weight: 700;
+      font-size: 1.1em;
+      color: #222;
+    }
+
+    footer {
+      margin-top: auto;
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 1em;
+    }
+
+    @media (max-width: 600px) {
+      .stall-card img {
+        height: 100px;
+      }
+      .stall-card p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Handicrafts Stalls</h1>
+
+  <section id="stalls" class="block-container">
+
+    <div class="stall-card" data-name="ICMR-NIRBI, GOI" data-id="icmr-nirbi">
+        <a href="view.html?id=icmr-nirbi">
+            <img src="assets/icmr-nirbi.jpg" alt="ICMR NIRBI">
+            <p>46. ICMR-NIRBI, GOI</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="National Health Mission, Govt. of West Bengal" data-id="nhm-wb">
+        <a href="view.html?id=nhm-wb">
+            <img src="assets/nhm-wb.jpg" alt="National Health Mission WB">
+            <p>47. National Health Mission, Govt. of West Bengal</p>
+        </a>
+    </div>
+
+    <div class="stall-card" data-name="The University of Burdwan" data-id="univ-burdwan">
+        <a href="view.html?id=univ-burdwan">
+            <img src="assets/univ-burdwan.jpg" alt="University of Burdwan">
+            <p>47A. The University of Burdwan</p>
+        </a>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Handicrafts Stalls</p>
+  </footer>
+
+</body>
+</html>

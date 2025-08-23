@@ -1,0 +1,299 @@
+/* ===== General Styles ===== */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+h1, h2, h3 {
+    margin: 0.3em 0;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Footer ===== */
+footer {
+    margin-top: auto;
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+/* ===== Header / Search ===== */
+header {
+    background: linear-gradient(to right, #EFA55C, #F5F5F5, #5E995E); /* dulled saffron → white → green */
+    color: #222;
+    padding: 1em;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+header input[type="text"] {
+    padding: 0.6em 1em;
+    width: 80%;
+    max-width: 400px;
+    margin-top: 0.5em;
+    border-radius: 50px;
+    border: 2px solid #5E995E;
+    outline: none;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+header input[type="text"]:focus {
+    box-shadow: 0 0 10px rgba(94,153,94,0.5);
+    border-color: #EFA55C;
+}
+
+header a button {
+    margin-top: 0.5em;
+    padding: 0.6em 1.5em;
+    border-radius: 50px;
+    border: none;
+    background: #EFA55C;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 1em;
+}
+
+header a button:hover {
+    background: #5E995E;
+    transform: scale(1.05);
+}
+
+/* ===== Block Container ===== */
+.block-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5em;
+    padding: 2em;
+}
+
+/* ===== Stall Card Styles ===== */
+.stall-card {
+    background: linear-gradient(135deg, #ffffff, #f9f9f9);
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.stall-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+.stall-card img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.stall-card p {
+    padding: 0.8em 0;
+    font-weight: 600;
+    font-size: 1em;
+    color: #222;
+}
+
+/* ===== Stall Description / Gallery ===== */
+.stall-description {
+    padding: 1em;
+    border-top: 1px solid #ddd;
+}
+
+.stall-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1em;
+    justify-content: center;
+}
+
+.stall-gallery img {
+    width: calc(50% - 10px);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.stall-gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* ===== Highlighted Projects ===== */
+#highlighted-projects {
+    padding: 2em;
+    background: #f9f9f9;
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#highlighted-projects .stall-card {
+    flex: 1 1 220px;
+}
+
+/* ===== Block Buttons ===== */
+.block-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
+  gap: 1.5em;
+  justify-items: center;
+  margin-top: 1.5em;
+}
+
+.block-buttons a button {
+  background: linear-gradient(to right, #EFA55C, #F5F5F5, #5E995E);
+  border-radius: 12px;        /* smaller radius → blocky look */
+  border: 2px solid #5E995E;
+  padding: 1.2em 2.5em;       /* taller and wider buttons */
+  color: #222;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.block-buttons a button:hover { 
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(94,153,94,0.3);
+}
+
+/* ===== Cultural Button ===== */
+/* Creator button in top-left corner */
+.creator-btn {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(to right, #EFA55C, #5E995E);
+  color: #222;
+  font-weight: bold;
+  padding: 0.6em 1.2em;
+  border-radius: 12px;
+  border: 2px solid #5E995E;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 20;
+}
+
+.creator-btn:hover {
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 4px 12px rgba(94,153,94,0.3);
+}
+
+
+/* ===== Chat App Container ===== */
+#chat-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+#chat-options button {
+    flex: 1 1 45%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(to right, #EFA55C, #5E995E);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#chat-options button:hover {
+    transform: scale(1.05);
+}
+
+/* ===== Chat Response Area ===== */
+#chat-response {
+    max-width: 500px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    min-height: 80px;
+    font-size: 1em;
+    line-height: 1.4;
+    overflow-y: auto;
+}
+
+.bot-message {
+    margin: 8px 0;
+    padding: 10px 14px;
+    background: linear-gradient(to right, #EFA55C, #5E995E);
+    color: white;
+    border-radius: 12px;
+}
+
+/* ===== Back Button ===== */
+#back-btn {
+    display: block;
+    margin: 15px auto;
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: none;
+    background: linear-gradient(to right, #EFA55C, #5E995E);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#back-btn:hover {
+    transform: scale(1.05);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .stall-gallery img {
+        width: 100%;
+    }
+
+    header input[type="text"] {
+        width: 90%;
+    }
+
+    .block-buttons {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    #chat-options button {
+        flex: 1 1 100%;
+    }
+
+    #chat-response {
+        width: 90%;
+        padding: 12px;
+    }
+
+    #back-btn {
+        width: 90%;
+        padding: 12px;
+    }
+}
