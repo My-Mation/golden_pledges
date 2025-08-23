@@ -131,26 +131,30 @@
 
     /* Creator button at bottom-left */
   .creator-btn {
-    position: fixed;      /* fixed relative to viewport */
-    bottom: 20px;         
-    left: 20px;
-    padding: 1em 2em;
-    background: linear-gradient(to right, #EFA55C, #5E995E);
-    color: white;
-    font-weight: bold;
-    border-radius: 50px;
-    border: 2px solid #5E995E;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    text-decoration: none;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+      position: fixed;
+      bottom: 20px;
+      right: 90px; /* distance from AI chat button */
+      width: 60px;     /* same as AI chat */
+      height: 60px;    /* same as AI chat */
+      background: linear-gradient(to right, #EFA55C, #5E995E);
+      color: white;
+      font-size: 28px;  /* same as AI chat */
+      border-radius: 50%; /* circular */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+      cursor: pointer;
+      transition: transform 0.2s;
   }
-
-
 
   .creator-btn:hover {
-    transform: scale(1.05);
+      transform: scale(1.1);
   }
+
+
 
     /* Responsive */
     @media (max-width: 800px) {
@@ -230,6 +234,9 @@
       });
     });
   </script>
+  <!-- Bottom-right creator button -->
+  <a href="creator.html" class="creator-btn" title="Creator">✎</a>
+
 
 </body>
 </html>
