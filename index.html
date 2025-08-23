@@ -58,7 +58,7 @@
 
     .block-buttons {
       display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3 per row */
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5em;
       justify-items: center;
       margin-top: 1.5em;
@@ -129,6 +129,25 @@
     }
     #ai-chat-btn:hover { transform: scale(1.1); }
 
+    /* Creator button at bottom-left */
+    .creator-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: linear-gradient(to right, #EFA55C, #5E995E);
+      color: white;
+      font-weight: bold;
+      padding: 0.8em 1.5em;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: transform 0.2s ease;
+    }
+    .creator-btn:hover {
+      transform: scale(1.05);
+    }
+
     /* Responsive */
     @media (max-width: 800px) {
       .block-buttons {
@@ -143,13 +162,19 @@
       .cultural-btn {
         width: 90%;
       }
+      /* Ensure buttons don’t overlap */
+      .creator-btn {
+        bottom: 90px;
+      }
+      #ai-chat-btn {
+        bottom: 20px;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <a href="creator.html" class="creator-btn">Creator</a>
     <h1>The 2025 Exhibition Field Report & Data Archive</h1>
   </header>
 
@@ -180,6 +205,10 @@
     <p>&copy; 2025 The 2025 Exhibition Field Report & Data Archive. All rights reserved.</p>
   </footer>
 
+  <!-- Bottom-left creator button -->
+  <a href="creator.html" class="creator-btn" title="Creator">Creator</a>
+
+  <!-- Bottom-right AI chat button -->
   <a href="chat_app.html" id="ai-chat-btn" title="Chat with AI">&#9733;</a>
 
   <script>

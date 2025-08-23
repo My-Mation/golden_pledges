@@ -179,27 +179,25 @@ header a button:hover {
 
 /* ===== Cultural Button ===== */
 /* Creator button in top-left corner */
-.creator-btn {
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: linear-gradient(to right, #EFA55C, #5E995E);
+/* ===== Creator Button ===== */
+/* ===== Cultural Button (smaller like block buttons) ===== */
+.cultural-btn {
+  background: linear-gradient(to right, #EFA55C, #F5F5F5, #5E995E);
+  border-radius: 50px;
+  border: 2px solid #5E995E;
+  padding: 1em 2em;        /* same as block buttons */
   color: #222;
   font-weight: bold;
-  padding: 0.6em 1.2em;
-  border-radius: 12px;
-  border: 2px solid #5E995E;
-  text-decoration: none;
+  font-size: 1em;          /* same as block buttons */
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 20;
 }
 
-.creator-btn:hover {
-  transform: translateY(-50%) scale(1.05);
+.cultural-btn:hover {
+  transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(94,153,94,0.3);
 }
+
 
 
 /* ===== Chat App Container ===== */
