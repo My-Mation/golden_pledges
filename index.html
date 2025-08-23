@@ -131,25 +131,19 @@
 
     /* Creator button at bottom-left */
   .creator-btn {
-    position: fixed;
-    bottom: 20px;           /* same as AI chat button */
-    left: 20px;             /* distance from left */
-    width: 60px;            /* same as AI chat button */
-    height: 60px;           /* same as AI chat button */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: absolute;   /* moves with the page */
+    bottom: 20px;         /* distance from the bottom of page/section */
+    left: 20px;           /* distance from left */
     background: linear-gradient(to right, #EFA55C, #5E995E);
     color: white;
     font-weight: bold;
-    border-radius: 50%;      /* circular like AI chat button */
+    padding: 1em 2em;     /* size like block buttons */
+    border-radius: 50px;
     border: 2px solid #5E995E;
     text-decoration: none;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    z-index: 1000;
     cursor: pointer;
     transition: transform 0.2s ease;
-    font-size: 18px;          /* adjust text size to fit */
   }
 
   .creator-btn:hover {
