@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 2025 Exhibition Field Report & Data Archive</title>
+  <link rel="stylesheet" href="modern-style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="#" class="nav-brand">🎯 Exhibition 2025</a>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#schedule" class="nav-link">Schedule</a></li>
+        <li><a href="#leaderboard" class="nav-link">Leaderboard</a></li>
+        <li><a href="#social" class="nav-link">Social Feed</a></li>
+        <li><a href="recommendation-demo.html" class="nav-link">Recommendations</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section" style="
+    background: var(--gradient-primary);
+    color: white;
+    padding: var(--spacing-3xl) 0;
+    text-align: center;
+  ">
+    <div class="container">
+      <h1 style="font-size: 3rem; margin-bottom: var(--spacing-lg); text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+        The 2025 Exhibition Field Report & Data Archive
+      </h1>
+      <p style="font-size: 1.2rem; margin-bottom: var(--spacing-xl); opacity: 0.9;">
+        Discover innovation, technology, and culture in one extraordinary event
+      </p>
+      
+      <!-- Enhanced Search Bar -->
+      <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchBar" class="search-bar" placeholder="Search stalls, events, or keywords...">
+      </div>
+      
+      <div style="margin-top: var(--spacing-lg);">
+        <span id="current-time" style="
+          background: rgba(255,255,255,0.2);
+          padding: var(--spacing-sm) var(--spacing-md);
+          border-radius: var(--radius-full);
+          font-weight: 500;
+        "></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container" style="padding: var(--spacing-2xl) 0;">
+    
+    <!-- Quick Stats -->
+    <section class="stats-section" style="margin-bottom: var(--spacing-2xl);">
+      <div class="grid grid-cols-4 gap-lg">
+        <div class="stat-card">
+          <div class="stat-number">71</div>
+          <div class="stat-label">Total Stalls</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">14</div>
+          <div class="stat-label">Categories</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">6</div>
+          <div class="stat-label">Blocks</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="total-votes">0</div>
+          <div class="stat-label">Total Votes</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Two Column Layout -->
+    <div class="grid grid-cols-2 gap-xl">
+      
+      <!-- Left Column -->
+      <div class="left-column">
+        
+        <!-- Block Navigation -->
+        <section class="card" style="margin-bottom: var(--spacing-xl);">
+          <div class="card-header">
+            <h2>🏢 Exhibition Blocks</h2>
+          </div>
+          <div class="card-body">
+            <div class="grid grid-cols-2 gap-md">
+              <a href="blockA.html" class="btn btn-primary btn-lg">Block A - Defence</a>
+              <a href="blockB.html" class="btn btn-primary btn-lg">Block B - Agriculture</a>
+              <a href="blockC.html" class="btn btn-primary btn-lg">Block C - General & PSU</a>
+              <a href="blockD.html" class="btn btn-primary btn-lg">Block D - Science</a>
+              <a href="blockG.html" class="btn btn-primary btn-lg">Block G - Textile</a>
+              <a href="blockH.html" class="btn btn-primary btn-lg">Block H - Health</a>
+            </div>
+            <div style="text-align: center; margin-top: var(--spacing-lg);">
+              <a href="cultural.html" class="btn btn-secondary btn-lg">Cultural Events</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Today's Schedule -->
+        <section id="schedule" class="card" style="margin-bottom: var(--spacing-xl);">
+          <div class="schedule-header">
+            <h2>📅 Today's Schedule</h2>
+            <p>Live events and activities</p>
+          </div>
+          <div id="schedule-content" class="schedule-content">
+            <!-- Schedule items will be loaded here -->
+          </div>
+        </section>
+
+        <!-- Top Stalls Leaderboard -->
+        <section id="leaderboard" class="card">
+          <div class="leaderboard-header">
+            <h2>🏆 Popular Stalls</h2>
+            <p>Most voted stalls</p>
+          </div>
+          <div id="leaderboard-overall">
+            <!-- Leaderboard items will be loaded here -->
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Right Column -->
+      <div class="right-column">
+        
+        <!-- Social Media Feed -->
+        <section id="social" class="card" style="margin-bottom: var(--spacing-xl);">
+          <div class="social-feed-header">
+            <h2>📱 Live Social Feed</h2>
+            <p>#KolkataSciCulture25</p>
+          </div>
+          <div id="social-feed-content" class="social-feed-content">
+            <!-- Social posts will be loaded here -->
+          </div>
+        </section>
+
+        <!-- Category Leaderboards -->
+        <section class="card">
+          <div class="card-header">
+            <h2>📊 Category Rankings</h2>
+          </div>
+          <div class="card-body">
+            <div class="grid grid-cols-2 gap-md">
+              <div>
+                <h4 style="margin-bottom: var(--spacing-sm);">🔬 Science & Tech</h4>
+                <div id="leaderboard-science" style="max-height: 200px; overflow-y: auto;"></div>
+              </div>
+              <div>
+                <h4 style="margin-bottom: var(--spacing-sm);">🛡️ Defence</h4>
+                <div id="leaderboard-defence" style="max-height: 200px; overflow-y: auto;"></div>
+              </div>
+              <div>
+                <h4 style="margin-bottom: var(--spacing-sm);">🌾 Agriculture</h4>
+                <div id="leaderboard-agriculture" style="max-height: 200px; overflow-y: auto;"></div>
+              </div>
+              <div>
+                <h4 style="margin-bottom: var(--spacing-sm);">🎨 Handicrafts</h4>
+                <div id="leaderboard-textile" style="max-height: 200px; overflow-y: auto;"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+
+    <!-- Featured Stalls -->
+    <section class="featured-stalls" style="margin-top: var(--spacing-2xl);">
+      <h2 style="text-align: center; margin-bottom: var(--spacing-xl);">⭐ Featured Stalls</h2>
+      <div class="stall-grid">
+        <div class="stall-card">
+          <img src="assets/drdo.jpg" alt="DRDO" class="stall-image">
+          <div class="stall-content">
+            <div class="stall-category">Science & Technology</div>
+            <h3 class="stall-title">DRDO - Defence Research</h3>
+            <p class="stall-description">Cutting-edge defence technology and missile systems</p>
+            <div class="stall-footer">
+              <a href="view.html?id=drdo" class="btn btn-primary">View Details</a>
+              <div id="vote-drdo"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stall-card">
+          <img src="assets/hal.jpg" alt="HAL" class="stall-image">
+          <div class="stall-content">
+            <div class="stall-category">Defence & Aviation</div>
+            <h3 class="stall-title">HAL - Aerospace</h3>
+            <p class="stall-description">Aircraft manufacturing and aerospace technology</p>
+            <div class="stall-footer">
+              <a href="view.html?id=hal" class="btn btn-primary">View Details</a>
+              <div id="vote-hal"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stall-card">
+          <img src="assets/cmfri.jpg" alt="CMFRI" class="stall-image">
+          <div class="stall-content">
+            <div class="stall-category">Agriculture</div>
+            <h3 class="stall-title">CMFRI - Fisheries Research</h3>
+            <p class="stall-description">Marine fisheries and aquaculture research</p>
+            <div class="stall-footer">
+              <a href="view.html?id=cmfri" class="btn btn-primary">View Details</a>
+              <div id="vote-cmfri"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stall-card">
+          <img src="assets/victor-jute.jpg" alt="Victor Jute" class="stall-image">
+          <div class="stall-content">
+            <div class="stall-category">Textile & Handicrafts</div>
+            <h3 class="stall-title">Victor Jute Products</h3>
+            <p class="stall-description">Traditional jute crafts and eco-friendly products</p>
+            <div class="stall-footer">
+              <a href="view.html?id=victor-jute" class="btn btn-primary">View Details</a>
+              <div id="vote-victor-jute"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer style="
+    background: var(--gray-900);
+    color: white;
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+    margin-top: var(--spacing-3xl);
+  ">
+    <div class="container">
+      <h2 style="color: var(--primary-color); margin-bottom: var(--spacing-md);">
+        The 2025 Exhibition Field Report & Data Archive
+      </h2>
+      <p style="opacity: 0.8; margin-bottom: var(--spacing-md);">
+        Celebrating innovation, technology, and cultural heritage
+      </p>
+      <div style="display: flex; justify-content: center; gap: var(--spacing-lg);">
+        <a href="#" style="color: var(--primary-color);">Privacy Policy</a>
+        <a href="#" style="color: var(--primary-color);">Terms of Service</a>
+        <a href="#" style="color: var(--primary-color);">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Action Buttons -->
+  <a href="chat_app.html" id="ai-chat-btn" title="Chat with AI" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-secondary);
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: var(--shadow-xl);
+    transition: all var(--transition-normal);
+    z-index: var(--z-fixed);
+  " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">🤖</a>
+
+  <a href="recommendation-demo.html" id="recommendation-demo-btn" title="Recommendation System Demo" style="
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: var(--shadow-xl);
+    transition: all var(--transition-normal);
+    z-index: var(--z-fixed);
+  " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">🎯</a>
+
+  <a href="creator.html" class="creator-btn" title="Creator" style="
+    position: fixed;
+    bottom: 160px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-success);
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: var(--shadow-xl);
+    transition: all var(--transition-normal);
+    z-index: var(--z-fixed);
+  " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">✎</a>
+
+  <!-- Scripts -->
+  <script src="recommendation-system.js"></script>
+  <script src="voting-system.js"></script>
+  <script src="social-feed.js"></script>
+  <script src="schedule-system.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        // Initialize all systems
+        initializeVotingButtons();
+        updateStats();
+      
+      // Search functionality
+      const searchBar = document.getElementById('searchBar');
+      if (searchBar) {
+        searchBar.addEventListener('keydown', (e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            const query = searchBar.value.toLowerCase().trim();
+            if (!query) return;
+            window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+          }
+        });
+      }
+
+      // Update current time
+      function updateTime() {
+        const timeElement = document.getElementById('current-time');
+        if (timeElement) {
+          timeElement.textContent = new Date().toLocaleTimeString();
+        }
+      }
+      updateTime();
+      setInterval(updateTime, 1000);
+
+      // Initialize voting buttons for featured stalls
+      function initializeVotingButtons() {
+        const featuredStalls = ['drdo', 'hal', 'cmfri', 'victor-jute'];
+        featuredStalls.forEach(stallId => {
+          const container = document.getElementById(`vote-${stallId}`);
+          if (container && votingSystem) {
+            container.innerHTML = votingSystem.createVoteButton(stallId);
+          }
+        });
+      }
+
+      // Update statistics
+      function updateStats() {
+        if (votingSystem) {
+          const stats = votingSystem.getVotingStats();
+          const totalVotesElement = document.getElementById('total-votes');
+          if (totalVotesElement) {
+            totalVotesElement.textContent = stats.totalVotes;
+          }
+        }
+      }
+
+      // Smooth scrolling for navigation
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Header scroll effect
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+      } catch (error) {
+        console.error('Error initializing page:', error);
+      }
+    });
+  </script>
+</body>
+</html> 

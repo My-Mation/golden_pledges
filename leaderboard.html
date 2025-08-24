@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Exhibition 2025</title>
+    <link rel="stylesheet" href="modern-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index-modern.html" class="nav-brand">🎯 Exhibition 2025</a>
+            <ul class="nav-menu">
+                <li><a href="index-modern.html" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link active">Leaderboard</a></li>
+                <li><a href="recommendation-demo.html" class="nav-link">Recommendations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section style="
+        background: var(--gradient-primary);
+        color: white;
+        padding: var(--spacing-2xl) 0;
+        text-align: center;
+    ">
+        <div class="container">
+            <h1 style="font-size: 2.5rem; margin-bottom: var(--spacing-md);">
+                🏆 Exhibition Leaderboard
+            </h1>
+            <p style="font-size: 1.1rem; opacity: 0.9;">
+                Discover the most popular stalls voted by visitors
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container" style="padding: var(--spacing-2xl) 0;">
+        
+        <!-- Overall Statistics -->
+        <section class="card" style="margin-bottom: var(--spacing-xl);">
+            <div class="card-header">
+                <h2>📊 Overall Statistics</h2>
+            </div>
+            <div class="card-body">
+                <div class="grid grid-cols-4 gap-lg">
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-votes">0</div>
+                        <div class="stat-label">Total Votes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-stalls">0</div>
+                        <div class="stat-label">Voted Stalls</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="most-voted-count">0</div>
+                        <div class="stat-label">Most Votes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="avg-votes">0</div>
+                        <div class="stat-label">Avg Votes</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Tabs -->
+        <section class="card" style="margin-bottom: var(--spacing-xl);">
+            <div class="card-header">
+                <h2>🏅 Category Rankings</h2>
+            </div>
+            <div class="card-body">
+                <div style="display: flex; gap: var(--spacing-md); margin-bottom: var(--spacing-lg); flex-wrap: wrap;">
+                    <button class="btn btn-primary category-tab active" data-category="overall">Overall</button>
+                    <button class="btn btn-secondary category-tab" data-category="defence">Defence</button>
+                    <button class="btn btn-secondary category-tab" data-category="agriculture">Agriculture</button>
+                    <button class="btn btn-secondary category-tab" data-category="science">Science</button>
+                    <button class="btn btn-secondary category-tab" data-category="energy">Energy</button>
+                    <button class="btn btn-secondary category-tab" data-category="textile">Textile</button>
+                    <button class="btn btn-secondary category-tab" data-category="health">Health</button>
+                </div>
+
+                <!-- Overall Leaderboard -->
+                <div id="leaderboard-overall" class="leaderboard-content active">
+                    <div class="leaderboard">
+                        <div class="leaderboard-header">
+                            <h3>🏆 Overall Top Stalls</h3>
+                        </div>
+                        <div id="leaderboard-overall-content">
+                            <!-- Content will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Defence Leaderboard -->
+                <div id="leaderboard-defence" class="leaderboard-content">
+                    <div class="leaderboard">
+                        <div class="leaderboard-header">
+                            <h3>🛡️ Defence & Military</h3>
+                        </div>
+                        <div id="leaderboard-defence-content">
+                            <!-- Content will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agriculture Leaderboard -->
+                <div id="leaderboard-agriculture" class="leaderboard-content">
+                    <div class="leaderboard">
+                        <div class="leaderboard-header">
+                            <h3>🌾 Agriculture & Fisheries</h3>
+                        </div>
+                        <div id="leaderboard-agriculture-content">
+                            <!-- Content will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Science Leaderboard -->
+                <div id="leaderboard-science" class="leaderboard-content">
+                    <div class="leaderboard">
+                        <div class="leaderboard-header">
+                            <h3>🔬 Science & Technology</h3>
+                        </div>
+                        <div id="leaderboard-science-content">
+                            <!-- Content will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Energy Leaderboard -->
+                <div id="leaderboard-energy" class="leaderboard-content">
+                    <div class="leaderboard">
+                        <div class="leaderboard-header">
+                            <h3>⚡ Energy & Power</h3>
+                        </div>
+                        <div id="leaderboard-energy-content">
+                            <!-- Content will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Textile Leaderboard -->
+                <div id="leaderboard-textile" class="leaderboard-content">
+                    <div class="leaderboard">
+                        <div class="leaderboard-header">
+                            <h3>🧵 Textile & Handicrafts</h3>
+                        </div>
+                        <div id="leaderboard-textile-content">
+                            <!-- Content will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Health Leaderboard -->
+                <div id="leaderboard-health" class="leaderboard-content">
+                    <div class="leaderboard">
+                        <div class="leaderboard-header">
+                            <h3>🏥 Health & Medical</h3>
+                        </div>
+                        <div id="leaderboard-health-content">
+                            <!-- Content will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="card">
+            <div class="card-header">
+                <h2>📈 Recent Voting Activity</h2>
+            </div>
+            <div class="card-body">
+                <div id="recent-activity">
+                    <!-- Recent activity will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="
+        background: var(--gray-900);
+        color: white;
+        text-align: center;
+        padding: var(--spacing-xl) 0;
+        margin-top: var(--spacing-3xl);
+    ">
+        <div class="container">
+            <p>&copy; 2025 Exhibition Field Report & Data Archive</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="recommendation-system.js"></script>
+    <script src="voting-system.js"></script>
+
+    <style>
+        .leaderboard-content {
+            display: none;
+        }
+        
+        .leaderboard-content.active {
+            display: block;
+        }
+        
+        .category-tab.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .recent-activity-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--gray-200);
+            transition: background-color var(--transition-fast);
+        }
+        
+        .recent-activity-item:hover {
+            background: var(--gray-50);
+        }
+        
+        .recent-activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: var(--radius-full);
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .activity-content {
+            flex: 1;
+        }
+        
+        .activity-text {
+            color: var(--gray-700);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .activity-time {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                // Initialize voting system
+                if (typeof VotingSystem !== 'undefined') {
+                    initializeLeaderboards();
+                    setupCategoryTabs();
+                    updateStatistics();
+                    loadRecentActivity();
+                    
+                    // Update every 10 seconds
+                    setInterval(() => {
+                        updateStatistics();
+                        loadRecentActivity();
+                    }, 10000);
+                }
+            } catch (error) {
+                console.error('Error initializing leaderboard:', error);
+            }
+        });
+
+        function initializeLeaderboards() {
+            const categories = ['overall', 'defence', 'agriculture', 'science', 'energy', 'textile', 'health'];
+            
+            categories.forEach(category => {
+                const container = document.getElementById(`leaderboard-${category}-content`);
+                if (container && votingSystem) {
+                    const topStalls = category === 'overall' 
+                        ? votingSystem.getTopStalls(20)
+                        : votingSystem.getTopStalls(20, category);
+                    
+                    container.innerHTML = createLeaderboardHTML(topStalls);
+                }
+            });
+        }
+
+        function createLeaderboardHTML(stalls) {
+            if (stalls.length === 0) {
+                return `
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-info">
+                            <div class="leaderboard-name">No votes yet</div>
+                            <div class="leaderboard-category">Be the first to vote!</div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            return stalls.map(stall => `
+                <div class="leaderboard-item">
+                    <div class="leaderboard-rank ${stall.rank <= 3 ? `top-${stall.rank}` : ''}">
+                        ${stall.rank}
+                    </div>
+                    <div class="leaderboard-info">
+                        <div class="leaderboard-name">${stall.stallData ? stall.stallData.name : stall.stallId}</div>
+                        <div class="leaderboard-category">${stall.stallData ? stall.stallData.category : 'Unknown'}</div>
+                    </div>
+                    <div class="leaderboard-votes">
+                        ${stall.votes} ${stall.votes === 1 ? 'vote' : 'votes'}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function setupCategoryTabs() {
+            const tabs = document.querySelectorAll('.category-tab');
+            const contents = document.querySelectorAll('.leaderboard-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const category = tab.dataset.category;
+                    
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Update active content
+                    contents.forEach(content => content.classList.remove('active'));
+                    document.getElementById(`leaderboard-${category}`).classList.add('active');
+                });
+            });
+        }
+
+        function updateStatistics() {
+            if (!votingSystem) return;
+            
+            const stats = votingSystem.getVotingStats();
+            
+            document.getElementById('total-votes').textContent = stats.totalVotes;
+            document.getElementById('total-stalls').textContent = stats.totalStalls;
+            
+            if (stats.mostVoted) {
+                document.getElementById('most-voted-count').textContent = stats.mostVoted.votes;
+            }
+            
+            const avgVotes = stats.totalStalls > 0 ? Math.round(stats.totalVotes / stats.totalStalls) : 0;
+            document.getElementById('avg-votes').textContent = avgVotes;
+        }
+
+        function loadRecentActivity() {
+            const container = document.getElementById('recent-activity');
+            if (!container) return;
+            
+            // Simulate recent activity (in a real app, this would come from a server)
+            const activities = [
+                { user: 'Visitor', action: 'voted for DRDO', time: '2 minutes ago' },
+                { user: 'Student', action: 'voted for HAL', time: '5 minutes ago' },
+                { user: 'Guest', action: 'voted for CMFRI', time: '8 minutes ago' },
+                { user: 'Researcher', action: 'voted for Bose Institute', time: '12 minutes ago' },
+                { user: 'Tourist', action: 'voted for Victor Jute', time: '15 minutes ago' }
+            ];
+            
+            container.innerHTML = activities.map(activity => `
+                <div class="recent-activity-item">
+                    <div class="activity-avatar">
+                        ${activity.user.charAt(0)}
+                    </div>
+                    <div class="activity-content">
+                        <div class="activity-text">
+                            <strong>${activity.user}</strong> ${activity.action}
+                        </div>
+                        <div class="activity-time">
+                            ${activity.time}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html> 
