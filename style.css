@@ -297,3 +297,35 @@ header a button:hover {
         padding: 12px;
     }
 }
+#ai-chat-btn,
+.creator-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #EFA55C, #5E995E);
+    color: white;
+    font-size: 28px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    position: fixed;
+    right: 20px; /* same for both */
+    z-index: 1000;
+    transition: transform 0.2s;
+}
+
+#ai-chat-btn:hover,
+.creator-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Stack creator above AI chat button */
+.creator-btn {
+    bottom: 90px; /* distance above AI chat button */
+}
+
+#ai-chat-btn {
+    bottom: 20px;
+}
