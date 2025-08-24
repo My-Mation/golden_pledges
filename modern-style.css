@@ -3,34 +3,36 @@
 
 /* ===== CSS Variables & Root Styles ===== */
 :root {
-  /* Color Palette */
-  --primary-color: #6366f1;
-  --primary-dark: #4f46e5;
-  --primary-light: #a5b4fc;
-  --secondary-color: #10b981;
-  --accent-color: #f59e0b;
-  --danger-color: #ef4444;
-  --success-color: #22c55e;
-  
-  /* Neutral Colors */
+  /* Color Palette (Indian Flag Theme) */
+  --primary-color: #ff9933;        /* Saffron */
+  --primary-dark: #050301;         /* Darker saffron */
+  --primary-light: #bd8d44;        /* Lighter saffron */
+
+  --secondary-color: #138808;      /* Green */
+  --accent-color: #0066cc;         /* Subtle blue accent (like Ashoka Chakra) */
+  --danger-color: #d32f2f;         /* Red, sparingly for errors */
+  --success-color: #22c55e;        /* Keep a vibrant green for success */
+
+  /* Neutral Colors (keep light neutrals) */
   --white: #ffffff;
-  --gray-50: #f9fafb;
-  --gray-100: #f3f4f6;
-  --gray-200: #e5e7eb;
-  --gray-300: #d1d5db;
-  --gray-400: #9ca3af;
+  --gray-50: #fefcf5;              /* slightly warm off-white */
+  --gray-100: #f7f5ed;
+  --gray-200: #e5e3d4;
+  --gray-300: #d1cfc0;
+  --gray-400: #9ca38f;
   --gray-500: #6b7280;
   --gray-600: #4b5563;
   --gray-700: #374151;
   --gray-800: #1f2937;
   --gray-900: #111827;
-  
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  --gradient-warning: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-  
+
+  /* Gradients (subtle Indian flag vibes) */
+  --gradient-primary: linear-gradient(135deg, #ff9933 0%, #ffffff 100%);
+  --gradient-secondary: linear-gradient(135deg, #ffffff 0%, #138808 100%);
+  --gradient-success: linear-gradient(135deg, #138808 0%, #22c55e 100%);
+  --gradient-warning: linear-gradient(135deg, #ff9933 0%, #ffb84d 100%);
+
+
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-secondary: 'Poppins', sans-serif;
@@ -187,6 +189,36 @@ a:hover {
 
 .header.scrolled {
   box-shadow: var(--shadow-lg);
+}
+
+/* ===== Stats Section ===== */
+.stats-container {
+  display: flex;
+  justify-content: space-around; /* distributes items evenly */
+  flex-wrap: nowrap;             /* stay in a single line */
+  gap: var(--spacing-md);
+  overflow-x: auto;              /* horizontal scroll on narrow screens */
+  padding: var(--spacing-md) 0;
+}
+
+.stat-card {
+  background: var(--primary-color);
+  color: var(--white);
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  text-align: center;
+  min-width: 100px;
+  box-shadow: var(--shadow-md);
+  pointer-events: none; /* non-clickable */
+  transition: transform var(--transition-fast);
+}
+
+.stat-card span {
+  display: block;
+  font-weight: 400;
+  font-size: 0.875rem;
+  margin-top: var(--spacing-xs);
 }
 
 .nav {

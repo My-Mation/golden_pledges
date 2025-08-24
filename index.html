@@ -59,25 +59,26 @@
     
     <!-- Quick Stats -->
     <section class="stats-section" style="margin-bottom: var(--spacing-2xl);">
-      <div class="grid grid-cols-4 gap-lg">
+      <div class="stats-container">
         <div class="stat-card">
-          <div class="stat-number">71</div>
-          <div class="stat-label">Total Stalls</div>
+          71
+          <span>Total Stalls</span>
         </div>
         <div class="stat-card">
-          <div class="stat-number">14</div>
-          <div class="stat-label">Categories</div>
+          14
+          <span>Categories</span>
         </div>
         <div class="stat-card">
-          <div class="stat-number">6</div>
-          <div class="stat-label">Blocks</div>
+          6
+          <span>Blocks</span>
         </div>
         <div class="stat-card">
-          <div class="stat-number" id="total-votes">0</div>
-          <div class="stat-label">Total Votes</div>
+          0
+          <span>Total Votes</span>
         </div>
       </div>
     </section>
+
 
     <!-- Two Column Layout -->
     <div class="grid grid-cols-2 gap-xl">
@@ -99,22 +100,21 @@
               <a href="blockG.html" class="btn btn-primary btn-lg">Block G - Textile</a>
               <a href="blockH.html" class="btn btn-primary btn-lg">Block H - Health</a>
             </div>
-            <div style="text-align: center; margin-top: var(--spacing-lg);">
-              <a href="cultural.html" class="btn btn-secondary btn-lg">Cultural Events</a>
-            </div>
           </div>
         </section>
 
         <!-- Today's Schedule -->
-        <section id="schedule" class="card" style="margin-bottom: var(--spacing-xl);">
-          <div class="schedule-header">
-            <h2>📅 Today's Schedule</h2>
-            <p>Live events and activities</p>
+        <section id="top-gallery" class="card" style="margin-bottom: var(--spacing-xl); padding: var(--spacing-lg); text-align: center;">
+          <div class="gallery-header" style="margin-bottom: var(--spacing-md);">
+            <h2>📸 Explore Our Galleries</h2>
+            <p>Click a category to explore related content</p>
           </div>
-          <div id="schedule-content" class="schedule-content">
-            <!-- Schedule items will be loaded here -->
+          <div class="gallery-buttons" style="display: flex; justify-content: center; gap: var(--spacing-md);">
+            <a href="sciencepages.html" class="btn btn-primary btn-sm">Science</a>
+            <a href="cultural.html" class="btn btn-secondary btn-sm">Culture</a>
           </div>
         </section>
+
 
         <!-- Top Stalls Leaderboard -->
         <section id="leaderboard" class="card">
@@ -217,18 +217,6 @@
           </div>
         </div>
 
-        <div class="stall-card">
-          <img src="assets/victor-jute.jpg" alt="Victor Jute" class="stall-image">
-          <div class="stall-content">
-            <div class="stall-category">Textile & Handicrafts</div>
-            <h3 class="stall-title">Victor Jute Products</h3>
-            <p class="stall-description">Traditional jute crafts and eco-friendly products</p>
-            <div class="stall-footer">
-              <a href="view.html?id=victor-jute" class="btn btn-primary">View Details</a>
-              <div id="vote-victor-jute"></div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 

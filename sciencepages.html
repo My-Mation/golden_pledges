@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2025 Science Exhibition</title>
+  <style>
+    /* ===== General Styles ===== */
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #fcdec1, #b4f0af);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ===== Navbar ===== */
+    nav {
+      background-color: #005da0;
+      color: white;
+      padding: 1em;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* ===== Main Title ===== */
+    h1 {
+      text-align: center;
+      padding: 1em;
+      margin: 0;
+      font-size: 2em;
+      color: #005da0;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-bottom: 2px solid #005da0;
+    }
+
+    /* ===== Block Container ===== */
+    .block-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2.5em; /* more space between cards */
+      padding: 2em;
+    }
+
+    /* For desktop: 3 per row */
+    @media (min-width: 900px) {
+      .block-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* ===== Stall Card Styles ===== */
+    .stall-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .stall-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .stall-card img {
+      width: 100%;
+      height: 180px; /* increased image size */
+      object-fit: cover;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .stall-card p {
+      padding: 1em 1em 0.3em 1em; /* more space between title and top of card */
+      font-weight: 700;
+      font-size: 1.2em;
+      color: #222;
+    }
+
+    .stall-card small {
+      display: block;
+      padding: 0.5em 1em 1em 1em; /* more space between title and description */
+      font-weight: 400;
+      color: #555;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: auto;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 600px) {
+      .stall-card img {
+        height: 120px;
+      }
+      .stall-card p {
+        font-size: 1em;
+      }
+      .stall-card small {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>2025 Science Exhibition</nav>
+
+  <!-- Main Title -->
+  <h1>Explore Our Stalls</h1>
+
+  <!-- Main Section -->
+  <main class="block-container">
+    <div class="stall-card">
+        <img src="scienceimage/1img.jpg" alt="Metal & Steel Factory">
+        <p>1. Eco-Friendly Energy Model</p>
+        <small>A sustainable model demonstrating energy efficiency techniques.</small>
+    </div>
+
+    <div class="stall-card">
+        <img src="scienceimage/2img.jpg" alt="Armoured Vehicles Nigam">
+        <p>2. Smart Waste Management</p>
+        <small>An innovative approach to optimize urban waste disposal.</small>
+    </div>
+
+    <div class="stall-card">
+        <img src="scienceimage/3img.jpg" alt="Stall 3">
+        <p>3. Biogas Generation</p>
+        <small>Shows how organic waste can be converted into renewable energy.</small>
+    </div>
+
+    <div class="stall-card">
+        <img src="scienceimage/4img.jpg" alt="Stall 4">
+        <p>4. Lunar Research Base</p>
+        <small>A futuristic concept for sustainable living on the moon.</small>
+    </div>
+
+    <div class="stall-card">
+        <img src="scienceimage/5img.jpg" alt="Stall 5">
+        <p>5. IoT-Integrated Aeroponics</p>
+        <small>Smart aeroponic farming using IoT sensors for optimal growth.</small>
+    </div>
+
+    <div class="stall-card">
+        <img src="scienceimage/6img.jpg" alt="Stall 6">
+        <p>6. Mushroom-Based Soil Restoration</p>
+        <small>Biotechnological approach to rejuvenate degraded soil naturally.</small>
+    </div>
+
+    <div class="stall-card">
+        <img src="scienceimage/7img.jpg" alt="Stall 7">
+        <p>7. Hydroponic Farming System</p>
+        <small>Soilless cultivation system for high-efficiency crop production.</small>
+    </div>
+
+    <div class="stall-card">
+        <img src="scienceimage/8img.jpg" alt="Stall 8">
+        <p>8. Bee & Organic Farming</p>
+        <small>Integrating bees into organic farming to boost pollination.</small>
+    </div>
+
+    <div class="stall-card">
+        <img src="scienceimage/9img.jpg" alt="Stall 9">
+        <p>9. Smart City Infrastructure</p>
+        <small>Concepts for sustainable and intelligent urban development.</small>
+    </div>
+
+    <div class="stall-card">
+        <img src="scienceimage/10img.jpg" alt="Stall 10">
+        <p>10. Biodegradable System</p>
+        <small>Demonstrates eco-friendly materials that decompose naturally.</small>
+    </div>
+
+    <div class="stall-card">
+        <img src="scienceimage/11img.jpg" alt="Stall 11">
+        <p>11. Lotus Leaf Self-Cleaning Surface</p>
+        <small>Inspired by lotus leaves, surfaces repel water and dirt naturally.</small>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Defence Expo</p>
+  </footer>
+
+</body>
+</html>
