@@ -329,3 +329,47 @@ header a button:hover {
 #ai-chat-btn {
     bottom: 20px;
 }
+/* ===== Search Option Boxes (Index Page) ===== */
+.search-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 2em;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    height: 160px;
+    background: linear-gradient(135deg, #EFA55C, #5E995E);
+    color: white;
+    font-size: 1.4em;
+    font-weight: bold;
+    border-radius: 20px;
+    text-decoration: none;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.search-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 10px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive (stacked on mobile) */
+@media (max-width: 600px) {
+    .search-options {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .search-box {
+        width: 90%;
+        height: 140px;
+        font-size: 1.2em;
+    }
+}
