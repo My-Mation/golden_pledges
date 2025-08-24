@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1756015546102",
+    "stallId": "metal-steel",
+    "reviewerName": "Soumya",
+    "rating": 5,
+    "comment": "Awesome",
+    "timestamp": "2025-08-24T06:05:46.102Z"
+  },
+  {
+    "id": "1756015817484",
+    "stallId": "nhm-wb",
+    "reviewerName": "Hello",
+    "rating": 5,
+    "comment": "Good",
+    "timestamp": "2025-08-24T06:10:17.484Z"
+  }
+]
