@@ -39,12 +39,24 @@
 
     <section id="stall-details">
         <p id="stall-description">Description will appear here</p>
+        
+        <!-- Voting Section -->
+        <div style="text-align: center; margin: var(--spacing-lg) 0;">
+            <div id="vote-button-container"></div>
+        </div>
+        
         <div class="slideshow-container" id="slideshow"></div>
     </section>
 
     <footer>
         <p>&copy; 2025 Exhibition Name. All rights reserved.</p>
     </footer>
+
+    <!-- Include all system scripts -->
+    <script src="recommendation-system.js"></script>
+    <script src="recommendation-component.js"></script>
+    <script src="voting-system.js"></script>
+    <link rel="stylesheet" href="modern-style.css">
 
     <script>
         const stalls = {
@@ -397,10 +409,16 @@
         }
 
         function showStall(stallId) {
+            if (!stallId) {
+                document.getElementById('stall-title').innerText = "No stall selected";
+                document.getElementById('stall-description').innerText = "Please select a stall from the main page.";
+                return;
+            }
+            
             const stall = stalls[stallId];
             if(!stall) {
                 document.getElementById('stall-title').innerText = "Stall not found";
-                document.getElementById('stall-description').innerText = "";
+                document.getElementById('stall-description').innerText = "The requested stall could not be found. Please check the URL and try again.";
                 return;
             }
             document.getElementById('stall-title').innerText = stall.name;
@@ -414,17 +432,36 @@
                 if(idx === 0) slideDiv.style.display = 'block';
                 const image = document.createElement('img');
                 image.src = img;
+                image.onerror = function() {
+                    this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vdCBmb3VuZDwvdGV4dD48L3N2Zz4=';
+                };
                 slideDiv.appendChild(image);
                 slideshow.appendChild(slideDiv);
             });
 
             let currentSlide = 0;
             const slides = slideshow.getElementsByClassName('slide');
-            setInterval(() => {
-                slides[currentSlide].style.display = 'none';
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].style.display = 'block';
-            }, 3000);
+            if (slides.length > 1) {
+                setInterval(() => {
+                    slides[currentSlide].style.display = 'none';
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].style.display = 'block';
+                }, 3000);
+            }
+
+            // Initialize recommendation system
+            if (typeof RecommendationComponent !== 'undefined') {
+                const recommendationComponent = new RecommendationComponent();
+                recommendationComponent.init(stallId);
+            }
+
+            // Initialize voting button
+            if (typeof votingSystem !== 'undefined') {
+                const voteContainer = document.getElementById('vote-button-container');
+                if (voteContainer) {
+                    voteContainer.innerHTML = votingSystem.createVoteButton(stallId);
+                }
+            }
         }
 
         showStall(getStallIdFromUrl());

@@ -168,8 +168,28 @@
 
   <!-- Bottom-left creator button -->
 
-  <!-- Bottom-right AI chat button -->
+      <!-- Bottom-right AI chat button -->
   <a href="chat_app.html" id="ai-chat-btn" title="Chat with AI">&#9733;</a>
+
+  <!-- Recommendation System Demo Button -->
+  <a href="recommendation-demo.html" id="recommendation-demo-btn" title="Recommendation System Demo" style="
+    position: fixed;
+    bottom: 50px;
+    left: 25px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+  " onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 6px 16px rgba(52, 152, 219, 0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(52, 152, 219, 0.3)'">&#128279;</a>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {

@@ -551,6 +551,10 @@
     <p>&copy; 2025 Exhibition Name. All rights reserved.</p>
   </footer>
 
+  <!-- Include recommendation system scripts -->
+  <script src="recommendation-system.js"></script>
+  <script src="recommendation-component.js"></script>
+
   <!-- Search Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -576,7 +580,161 @@
       } else {
         resultsTitle.textContent = `Found ${matchCount} result(s) for "${query}"`;
       }
+
+      // Add search-based recommendations
+      if (query && typeof RecommendationSystem !== 'undefined') {
+        addSearchRecommendations(query);
+      }
     });
+
+    // Function to add search-based recommendations
+    function addSearchRecommendations(query) {
+      try {
+        const recommendationSystem = new RecommendationSystem();
+        
+        // Extract keywords from search query
+        const keywords = query.split(/\s+/).filter(word => word.length > 2);
+        
+        if (keywords.length === 0) return;
+
+        // Get recommendations based on search keywords
+        const recommendations = recommendationSystem.getRecommendationsByKeywords(keywords, null, 6);
+        
+        if (recommendations.length === 0) return;
+
+      // Create recommendations section
+      const stallsSection = document.getElementById('stalls');
+      const recommendationsContainer = document.createElement('div');
+      recommendationsContainer.style.cssText = `
+        width: 100%;
+        margin-top: 2em;
+        padding: 1.5em;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      `;
+
+      const header = document.createElement('h3');
+      header.textContent = `Based on your search for "${query}", you might also be interested in...`;
+      header.style.cssText = `
+        color: #2c3e50;
+        margin-bottom: 1em;
+        font-size: 1.4em;
+        text-align: center;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 0.5em;
+      `;
+
+      const recommendationsGrid = document.createElement('div');
+      recommendationsGrid.style.cssText = `
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1em;
+        margin-top: 1em;
+      `;
+
+      recommendations.forEach(rec => {
+        const card = createRecommendationCard(rec);
+        recommendationsGrid.appendChild(card);
+      });
+
+      recommendationsContainer.appendChild(header);
+      recommendationsContainer.appendChild(recommendationsGrid);
+      stallsSection.appendChild(recommendationsContainer);
+      } catch (error) {
+        console.error('Error adding search recommendations:', error);
+      }
+    }
+
+    // Function to create recommendation card for search page
+    function createRecommendationCard(recommendation) {
+      const card = document.createElement('div');
+      card.style.cssText = `
+        background: white;
+        border-radius: 8px;
+        padding: 1em;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border-left: 4px solid #3498db;
+      `;
+
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-2px)';
+        card.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+        card.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+      });
+
+      card.addEventListener('click', () => {
+        window.location.href = `view.html?id=${recommendation.id}`;
+      });
+
+      const categoryColor = getCategoryColor(recommendation.category);
+
+      card.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5em;">
+          <h4 style="margin: 0; color: #2c3e50; font-size: 1.1em; line-height: 1.3;">
+            ${recommendation.name}
+          </h4>
+          <span style="
+            background: ${categoryColor};
+            color: white;
+            padding: 0.2em 0.6em;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+          ">
+            ${recommendation.category.toUpperCase()}
+          </span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5em;">
+          <span style="
+            background: #ecf0f1;
+            color: #34495e;
+            padding: 0.2em 0.6em;
+            border-radius: 8px;
+            font-size: 0.8em;
+            font-weight: bold;
+          ">
+            Block ${recommendation.block}
+          </span>
+          <span style="
+            color: #7f8c8d;
+            font-size: 0.8em;
+            font-style: italic;
+          ">
+            ${recommendation.reason}
+          </span>
+        </div>
+      `;
+
+      return card;
+    }
+
+    // Function to get category color
+    function getCategoryColor(category) {
+      const colors = {
+        'defence': '#e74c3c',
+        'agriculture': '#27ae60',
+        'energy': '#f39c12',
+        'science': '#3498db',
+        'environment': '#16a085',
+        'tourism': '#9b59b6',
+        'transport': '#e67e22',
+        'education': '#2980b9',
+        'finance': '#8e44ad',
+        'technology': '#1abc9c',
+        'standards': '#95a5a6',
+        'textile': '#d35400',
+        'handicrafts': '#c0392b',
+        'health': '#e91e63'
+      };
+      return colors[category] || '#95a5a6';
+    }
   </script>
 </body>
 </html>
