@@ -3,16 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exhibition Chatbot</title>
+  <title>AI Exhibition Assistant</title>
   <link rel="stylesheet" href="chat_style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <header>Exhibition Assistant</header>
+  <div class="chat-wrapper">
+    <header class="ai-header">
+      <div class="header-content">
+        <div class="ai-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="header-text">
+          <h1>AI Exhibition Assistant</h1>
+          <p class="status">Online • Ready to help</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="minimize-btn" id="minimize-btn">
+          <i class="fas fa-minus"></i>
+        </button>
+        <button class="close-btn" id="close-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </header>
 
-  <div id="chat-container"></div>
-  <div id="chat-options"></div>
+    <div class="chat-container" id="chat-container">
+      <div class="welcome-message">
+        <div class="ai-typing-indicator">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
+      </div>
+    </div>
 
-  <button id="back-btn">← Back to Main Page</button>
+    <div class="chat-options" id="chat-options"></div>
+
+    <div class="chat-input-area">
+      <div class="input-wrapper">
+        <input type="text" id="user-input" placeholder="Ask me anything about the exhibition..." />
+        <button id="send-btn" class="send-btn">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+
+    <button id="back-btn" class="back-btn">
+      <i class="fas fa-arrow-left"></i>
+      <span>Back to Main Page</span>
+    </button>
+  </div>
 
   <script src="chat_app.js"></script>
 </body>
