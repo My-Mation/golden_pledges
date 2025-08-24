@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 2025 Exhibition Field Report & Data Archive</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Poppins', Arial, sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #EFA55C, #F5F5F5, #5E995E);
+      color: #222;
+      padding: 1em;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      z-index: 10;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 0.5em 0;
+      font-size: 2em;
+      color: #222;
+    }
+
+    #searchBar {
+      padding: 0.7em 1.2em;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 50px;
+      border: 2px solid #5E995E;
+      outline: none;
+      font-size: 1em;
+      transition: box-shadow 0.3s ease, border 0.3s ease;
+    }
+    #searchBar:focus { 
+      box-shadow: 0 0 10px rgba(94,153,94,0.5); 
+      border-color: #EFA55C;
+    }
+
+    #blocks {
+      text-align: center;
+      margin: 2em auto;
+      flex: 1;
+    }
+
+    .block-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5em;
+      justify-items: center;
+      margin-top: 1.5em;
+    }
+
+    .block-buttons a button {
+      background: linear-gradient(to right, #EFA55C, #F5F5F5, #5E995E);
+      border-radius: 50px;
+      border: 2px solid #5E995E;
+      padding: 1em 2em;
+      color: #222;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .block-buttons a button:hover { 
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(94,153,94,0.3);
+    }
+
+    .cultural-btn {
+      background: linear-gradient(to right, #EFA55C, #F5F5F5, #5E995E);
+      border-radius: 50px;
+      border: 2px solid #5E995E;
+      padding: 1.5em 3em;
+      color: #222;
+      font-weight: bold;
+      font-size: 1.5em;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cultural-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(94,153,94,0.4);
+    }
+
+    footer {
+      margin-top: auto;
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 1.5em 1em;
+    }
+
+    footer h2 { margin: 0; font-size: 1.3em; color: #EFA55C; }
+    footer p { margin: 0.5em 0 0; font-size: 0.9em; }
+
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .block-buttons {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .block-buttons {
+        grid-template-columns: 1fr;
+      }
+      .cultural-btn {
+        width: 90%;
+      }
+      /* Ensure buttons don’t overlap */
+      .creator-btn {
+        bottom: 90px;
+      }
+      #ai-chat-btn {
+        bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>The 2025 Exhibition Field Report & Data Archive</h1>
+  </header>
+
+  <section id="blocks">
+    <div class="block-buttons">
+      <a href="blockA.html"><button>Defence Expo Stalls</button></a>
+      <a href="blockB.html"><button>Agri Expo Stalls</button></a>
+      <a href="blockC.html"><button>Science & Research Stalls</button></a>
+      <a href="blockD.html"><button>Tourism Stalls</button></a>
+      <a href="blockG.html"><button>Textile Stalls</button></a>
+      <a href="blockH.html"><button>Health Stalls</button></a>
+    </div>
+  </section>
+
+  <footer>
+    <h2>The 2025 Exhibition Field Report & Data Archive</h2>
+    <p>&copy; 2025 The 2025 Exhibition Field Report & Data Archive. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchBar = document.getElementById('searchBar');
+      if(!searchBar) return;
+
+      searchBar.addEventListener('keydown', (e) => {
+        if(e.key === "Enter"){
+          e.preventDefault();
+          const query = searchBar.value.toLowerCase().trim();
+          if(!query) return;
+          window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
