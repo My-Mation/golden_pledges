@@ -200,8 +200,6 @@ header a button:hover {
   box-shadow: 0 4px 12px rgba(94,153,94,0.3);
 }
 
-
-
 /* ===== Chat App Container ===== */
 #chat-options {
     display: flex;
@@ -331,11 +329,11 @@ header a button:hover {
 }
 /* ===== Search Option Boxes (Index Page) ===== */
 .search-options {
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 40px;
-    margin-top: 2em;
     flex-wrap: wrap;
 }
 
