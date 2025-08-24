@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "univ-burdwan":
             "The University of Burdwan engages in higher education and research, focusing on medical sciences, public health, and applied life sciences.",
         // user-facing stall count message
-        numberofStalls: 22,
+        numberofStalls: 74,
         // better prompt when user clicks 'Specific Stall'
         stall: "Which block do you want to see stalls from? A, B, C, D, G, or H?",
     };
