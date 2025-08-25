@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organising Body</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #1A237E, #0D47A1);
+      color: white;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.4rem;
+      letter-spacing: 1.1px;
+    }
+
+    header p {
+      margin: 12px 0 0;
+      font-size: 1.1rem;
+      color: #FFB74D;
+      font-weight: 500;
+    }
+
+    /* Main container behaves like a vertical scroll list */
+    .container {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+      border-radius: 18px;
+      padding: 30px 20px;
+      text-align: center;
+      border: 2px solid rgba(26,35,126,0.15);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+      scroll-snap-align: start;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 6px;
+      width: 100%;
+      background: linear-gradient(90deg, #FF9800, #FFFFFF, #388E3C);
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+    }
+
+    .avatar {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      background: #1A237E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 15px auto 12px;
+      font-size: 1.6rem;
+      color: white;
+      font-weight: 600;
+      border: 3px solid #FF9800;
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      color: #1A237E;
+      margin: 12px 0 6px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #444;
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #0D47A1, #1A237E);
+      color: white;
+      font-size: 0.9rem;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    footer span {
+      color: #FF9800;
+      font-weight: bold;
+    }
+
+    /* --- MOBILE OPTIMIZATION --- */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      .container {
+        grid-template-columns: 1fr; /* one card per row */
+        padding: 20px;
+        gap: 20px;
+      }
+
+      .card {
+        padding: 25px 15px;
+      }
+
+      .avatar {
+        width: 65px;
+        height: 65px;
+        font-size: 1.4rem;
+      }
+
+      .card h2 {
+        font-size: 1.1rem;
+      }
+
+      .card p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Exhibition Organising Body</h1>
+    <p>Meet the Leaders Behind the Event</p>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <div class="avatar">A</div>
+      <h2>Prof. Alok K Banerjee</h2>
+      <p>President, CCSCOY</p>
+    </div>
+
+    <div class="card">
+      <div class="avatar">N</div>
+      <h2>Nemai Chandra Pramanik</h2>
+      <p>Chief General Secretary</p>
+    </div>
+
+    <div class="card">
+      <div class="avatar">R</div>
+      <h2>Rita Paul</h2>
+      <p>General Secretary</p>
+    </div>
+
+    <div class="card">
+      <div class="avatar">D</div>
+      <h2>Prof. (Dr.) Dhrubajyoti Chattopadhyay</h2>
+      <p>President, National Exhibition</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 <span>National Science Exhibition</span> | Organising Committee</p>
+  </footer>
+
+</body>
+</html>
