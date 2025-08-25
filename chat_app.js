@@ -154,6 +154,10 @@ document.addEventListener("DOMContentLoaded", () => {
             "The National Health Mission in West Bengal strengthens health infrastructure, maternal-child health, and affordable healthcare.",
         "univ-burdwan":
             "The University of Burdwan engages in higher education and research, focusing on medical sciences, public health, and applied life sciences.",
+        // user-facing stall count message
+        numberofStalls: 74,
+        // better prompt when user clicks 'Specific Stall'
+        stall: "Which block do you want to see stalls from? A, B, C, D, G, or H?",
     };
 
     // ==========================
@@ -585,6 +589,18 @@ document.addEventListener("DOMContentLoaded", () => {
     function findResponse(text) {
         const lowerText = text.toLowerCase();
 
+        // NEW: Answer stall-count questions
+        if (
+            lowerText.includes("how many stalls") ||
+            lowerText.includes("number of stalls") ||
+            lowerText.includes("no. of stalls") ||
+            /how many.*stalls/.test(lowerText) ||
+            lowerText === "how many stalls?" ||
+            lowerText === "how many stalls are there?"
+        ) {
+            return `There are ${replies.numberofStalls} stalls.`;
+        }
+
         // Check for common keywords
         if (
             lowerText.includes("food") ||
@@ -620,6 +636,15 @@ document.addEventListener("DOMContentLoaded", () => {
             lowerText.includes("science")
         ) {
             return "The student section is at the end of Block D. It features most of the engineering exhibits and tends to be crowded. Would you like to know more about specific stalls there?";
+        }
+
+        // If user just types "stalls" or "show stalls", guide them to choose a block
+        if (
+            lowerText === "stalls" ||
+            lowerText.includes("show stalls") ||
+            lowerText.includes("list stalls")
+        ) {
+            return replies.stall; // This will prompt the user to pick a block
         }
 
         return null;
