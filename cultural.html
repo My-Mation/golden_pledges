@@ -29,7 +29,8 @@
         padding: 2em 0 3em 0;
     }
 
-    .gallery img {
+    .gallery img, 
+    .gallery video {
         width: 80%;
         height: 55vh;
         object-fit: cover;
@@ -40,16 +41,17 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .gallery img:hover {
+    .gallery img:hover, 
+    .gallery video:hover {
         transform: scale(1.03);
         box-shadow: 
         0 -25px 50px rgba(239,165,92,0.8),
         0 25px 50px rgba(94,153,94,0.8);
     }
 
-    #addImageBtn {
+    .btn {
         display: block;
-        margin: 1em auto 2em auto;
+        margin: 1em auto 0.5em auto;
         padding: 0.7em 1.5em;
         background-color: #EFA55C;
         color: #000;
@@ -61,13 +63,14 @@
         transition: transform 0.2s ease, background-color 0.2s ease;
     }
 
-    #addImageBtn:hover {
+    .btn:hover {
         background-color: #fff;
         transform: scale(1.05);
     }
 
     @media (max-width: 600px) {
-        .gallery img {
+        .gallery img,
+        .gallery video {
             width: 90%;
             height: 45vh;
         }
@@ -78,8 +81,12 @@
 
 <h1>Exhibition Gallery</h1>
 
-<button id="addImageBtn">Contribute now</button>
+<button id="addImageBtn" class="btn">Contribute Images</button>
+<button id="addVideoBtn" class="btn">Contribute Videos</button>
+
+<!-- Hidden file inputs -->
 <input type="file" id="imageInput" accept="image/*" style="display:none">
+<input type="file" id="videoInput" accept="video/*" style="display:none">
 
 <div class="gallery">
   <img src="assets/culture1.jpg" alt="Culture 1">
