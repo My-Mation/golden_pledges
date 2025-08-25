@@ -1,0 +1,16 @@
+@echo off
+echo Starting Science Exhibition Ratings System...
+echo.
+echo 1. Installing dependencies...
+cd server
+npm install
+echo.
+echo 2. Starting ratings server...
+echo The server will run on http://localhost:3001
+echo.
+echo 3. Opening science exhibition page...
+start ../sciencepages.html
+echo.
+echo 4. Server is starting...
+npm start
+pause

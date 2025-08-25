@@ -55,117 +55,381 @@
       margin-bottom: 10px;
     }
     
-    .stars {
-      display: inline-block;
-      font-size: 30px;
-      cursor: pointer;
-      margin: 10px 0;
+    /* Average Rating Stars (Display Only) */
+    .avg-stars {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin: 15px 0;
     }
     
-    .star {
+    .avg-stars .star {
       color: #ddd;
-      transition: color 0.2s;
+      font-size: 32px;
+      margin: 0;
+      cursor: default;
+      transition: all 0.3s ease;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
     }
     
-    .star.filled {
+    .avg-stars .star.filled {
       color: #ffd700;
+      transform: scale(1.05);
+      filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.3));
     }
     
-    .star:hover {
-      color: #ffd700;
-    }
-    
+    /* Rating Input Stars (Interactive) */
     .rating-input {
       margin: 15px 0;
     }
     
     .rating-input .stars {
-      font-size: 25px;
+      font-size: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
     }
     
     .rating-input .star {
+      color: #ddd;
+      transition: all 0.3s ease;
       cursor: pointer;
+      position: relative;
+      text-shadow: 0 0 5px rgba(0,0,0,0.1);
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
     }
     
     .rating-input .star:hover ~ .star {
       color: #ddd;
+      transform: scale(1);
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
     }
     
     .rating-input .star:hover,
     .rating-input .star.active {
       color: #ffd700;
+      transform: scale(1.2);
+      filter: drop-shadow(0 6px 12px rgba(255, 215, 0, 0.4));
     }
     
     .submit-rating {
-      background: #28a745;
+      background: linear-gradient(135deg, #0077cc 0%, #005fa3 100%);
       color: white;
       border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
+      padding: 15px 30px;
+      border-radius: 25px;
       cursor: pointer;
-      font-size: 16px;
-      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 119, 204, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
     
     .submit-rating:hover {
-      background: #218838;
+      background: linear-gradient(135deg, #005fa3 0%, #004080 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 119, 204, 0.4);
     }
     
     .submit-rating:disabled {
-      background: #6c757d;
+      background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
       cursor: not-allowed;
+      transform: none;
+      box-shadow: 0 2px 8px rgba(108, 117, 125, 0.3);
     }
     
-    .reviews {
-      margin-top: 20px;
-    }
-    .review-box {
-      background: #f9f9f9;
+    /* User Name Input Styles */
+    .user-name-section {
+      background: #e8f4fd;
       padding: 15px;
-      margin-bottom: 15px;
       border-radius: 8px;
-      border: 1px solid #ddd;
+      margin-bottom: 20px;
+      border: 2px solid #0077cc;
     }
     
-    .review-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    
-    .review-rating {
-      color: #ffd700;
-      font-size: 18px;
-    }
-    
-    .review-text {
-      font-size: 16px;
-      line-height: 1.4;
-    }
-    
-    textarea {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
+    .user-name-section input {
+      padding: 10px;
+      border: 1px solid #0077cc;
       border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-      resize: vertical;
-      min-height: 80px;
+      font-size: 16px;
+      width: 200px;
+      margin-right: 10px;
     }
-    button {
-      margin-top: 10px;
-      padding: 10px 20px;
+    
+    .user-name-section button {
       background: #0077cc;
       color: white;
       border: none;
+      padding: 10px 20px;
       border-radius: 5px;
       cursor: pointer;
       font-size: 16px;
     }
-    button:hover {
+    
+    .user-name-section button:hover {
       background: #005fa3;
+    }
+    
+    .user-info {
+      background: #d4edda;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+      color: #155724;
+      font-weight: bold;
+    }
+    
+    /* Dropdown Styles */
+    .ratings-dropdown {
+      margin: 20px 0;
+    }
+    
+    .dropdown-header {
+      background: #0077cc;
+      color: white;
+      padding: 15px;
+      border-radius: 8px 8px 0 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+    }
+    
+    .dropdown-header:hover {
+      background: #005fa3;
+    }
+    
+    .dropdown-content {
+      background: white;
+      border: 1px solid #ddd;
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .dropdown-content.active {
+      max-height: 500px;
+    }
+    
+    .dropdown-content-inner {
+      padding: 20px;
+    }
+    
+    .ratings-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .rating-card {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 20px;
+      border-radius: 12px;
+      border: 2px solid #dee2e6;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .rating-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      border-color: #0077cc;
+    }
+    
+    .rating-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #0077cc, #ffd700);
+    }
+    
+    .rating-user {
+      font-weight: bold;
+      color: #0077cc;
+      margin-bottom: 12px;
+      font-size: 18px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    .rating-stars {
+      color: #ffd700;
+      font-size: 24px;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+      filter: drop-shadow(0 2px 4px rgba(255, 215, 0, 0.2));
+    }
+    
+    .rating-type {
+      color: #6f42c1;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      background: rgba(111, 66, 193, 0.1);
+      padding: 5px 12px;
+      border-radius: 15px;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .rating-date {
+      color: #6c757d;
+      font-size: 14px;
+      font-style: italic;
+      background: rgba(255,255,255,0.7);
+      padding: 5px 10px;
+      border-radius: 15px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    
+        .rating-review {
+      color: #495057;
+      font-size: 14px;
+      line-height: 1.4;
+      background: rgba(255,255,255,0.8);
+      padding: 10px;
+      border-radius: 8px;
+      border-left: 3px solid #0077cc;
+      font-style: italic;
+    }
+    
+    /* Public Review Section Styles */
+    .public-review-section {
+      margin: 30px 0;
+      padding: 25px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 15px;
+      border: 2px solid #dee2e6;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .public-review-section h3 {
+      color: #0077cc;
+      margin-bottom: 10px;
+      font-size: 22px;
+      text-align: center;
+    }
+    
+    .public-review-section p {
+      color: #6c757d;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    
+    .review-form {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #dee2e6;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .review-form textarea {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      font-size: 16px;
+      line-height: 1.5;
+      resize: vertical;
+      min-height: 100px;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+    }
+    
+    .review-form textarea:focus {
+      outline: none;
+      border-color: #0077cc;
+      box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.1);
+    }
+    
+    .review-form textarea::placeholder {
+      color: #adb5bd;
+      font-style: italic;
+    }
+    
+    .review-form-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+    }
+    
+    .char-counter {
+      color: #6c757d;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    .char-counter span {
+      color: #0077cc;
+      font-weight: bold;
+    }
+    
+    #submitReviewBtn {
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    #submitReviewBtn:hover:not(:disabled) {
+      background: linear-gradient(135deg, #20c997 0%, #17a2b8 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+    }
+    
+    #submitReviewBtn:disabled {
+      background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: 0 2px 8px rgba(108, 117, 125, 0.3);
+    }
+    
+    .review-status {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+    }
+    
+    .review-status.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    .review-status.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
     }
     
     .no-reviews {
@@ -173,6 +437,10 @@
       color: #666;
       font-style: italic;
       padding: 20px;
+    }
+    
+    .hidden {
+      display: none;
     }
   </style>
 </head>
@@ -185,12 +453,21 @@
   </div>
   <p class="description" id="projectDescription"></p>
 
-  <!-- Star Rating Section -->
-  <div class="rating-section">
+  <!-- User Name Input Section -->
+  <div class="user-name-section" id="userNameSection">
+    <h3>Enter Your Name to Rate This Project</h3>
+    <input type="text" id="userNameInput" placeholder="Enter your full name" maxlength="50">
+    <button onclick="setUserName()">Continue</button>
+  </div>
+
+  <!-- Star Rating Section (Hidden until name is entered) -->
+  <div class="rating-section hidden" id="ratingSection">
+    <div class="user-info" id="userInfo"></div>
+    
     <div class="average-rating">
       Average Rating: <span id="avgRating">0.0</span>/5.0
     </div>
-    <div class="stars" id="avgStars">
+    <div class="avg-stars" id="avgStars">
       <span class="star">★</span>
       <span class="star">★</span>
       <span class="star">★</span>
@@ -206,18 +483,49 @@
         <span class="star" data-rating="4">★</span>
         <span class="star" data-rating="5">★</span>
       </div>
-      <button class="submit-rating" id="submitRating" onclick="submitRating()" disabled>Submit Rating</button>
+      <button class="submit-rating" id="submitRating" onclick="submitRating()" disabled>Rate Now</button>
     </div>
   </div>
 
-  <div class="reviews">
-    <h3>Public Reviews:</h3>
-    <div id="publicReviews">
-      <div class="no-reviews">No reviews yet. Be the first to review!</div>
+  <!-- Ratings Dropdown -->
+  <div class="ratings-dropdown">
+    <div class="dropdown-header" onclick="toggleDropdown()">
+      <span>View All Ratings & Users</span>
+      <span id="dropdownArrow">▼</span>
     </div>
-    <textarea id="userReview" placeholder="Write your review..."></textarea>
-    <button onclick="addPublicReview()">Submit Review</button>
+    <div class="dropdown-content" id="dropdownContent">
+      <div class="dropdown-content-inner">
+        <div id="ratingsSummary">
+          <div class="no-reviews">No ratings yet. Be the first to rate!</div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Public Review Section -->
+  <div class="public-review-section">
+    <h3>Share Your Thoughts</h3>
+    <p>Write a detailed review about this project. Your feedback helps improve future exhibitions!</p>
+    
+    <div class="review-form">
+      <textarea 
+        id="reviewText" 
+        placeholder="Share your thoughts about this project... What did you like? What could be improved? Any suggestions?"
+        rows="4"
+        maxlength="500"
+      ></textarea>
+      
+      <div class="review-form-footer">
+        <div class="char-counter">
+          <span id="charCount">0</span>/500 characters
+        </div>
+        <button id="submitReviewBtn" onclick="submitReview()" disabled>Submit Review</button>
+      </div>
+    </div>
+    
+    <div id="reviewStatus" class="review-status hidden"></div>
+  </div>
+
 </div>
 
 <script>
@@ -281,24 +589,57 @@ const projects = {
 
 let currentProject = null;
 let currentRating = 0;
+let currentUserName = "";
 let projectRatings = [];
 const params = new URLSearchParams(window.location.search);
 const projectId = params.get("id");
 
-// Load project data and ratings from localStorage
+// Load project data and ratings
 if (projects[projectId]) {
   currentProject = projects[projectId];
   document.getElementById("projectImg").src = currentProject.img;
   document.getElementById("projectDescription").textContent = currentProject.description;
   
-  // Load ratings from localStorage
-  const storedRatings = localStorage.getItem(`project_${projectId}_ratings`);
-  if (storedRatings) {
-    projectRatings = JSON.parse(storedRatings);
+  // Initialize ratings (try database first, fallback to localStorage)
+  initializeRatings();
+}
+
+// User name functionality
+function setUserName() {
+  const userName = document.getElementById("userNameInput").value.trim();
+  if (userName.length < 2) {
+    alert("Please enter a valid name (at least 2 characters)");
+    return;
   }
   
-  updateAverageRating();
-  displayReviews();
+  currentUserName = userName;
+  
+  // Hide name input section and show rating section
+  document.getElementById("userNameSection").classList.add("hidden");
+  document.getElementById("ratingSection").classList.remove("hidden");
+  
+  // Update user info display
+  document.getElementById("userInfo").textContent = `Welcome, ${currentUserName}! You can now rate this project.`;
+  
+  // Enable review form if there's text
+  const reviewText = document.getElementById('reviewText').value.trim();
+  if (reviewText.length > 0) {
+    document.getElementById('submitReviewBtn').disabled = false;
+  }
+  
+  // Save user name to localStorage for this session
+  localStorage.setItem(`current_user_${projectId}`, currentUserName);
+}
+
+// Check if user already has a name for this session
+function checkExistingUser() {
+  const existingUser = localStorage.getItem(`current_user_${projectId}`);
+  if (existingUser) {
+    currentUserName = existingUser;
+    document.getElementById("userNameSection").classList.add("hidden");
+    document.getElementById("ratingSection").classList.remove("hidden");
+    document.getElementById("userInfo").textContent = `Welcome back, ${currentUserName}!`;
+  }
 }
 
 // Star rating functionality
@@ -322,21 +663,34 @@ document.getElementById('ratingStars').addEventListener('click', function(e) {
   }
 });
 
-function submitRating() {
-  if (currentRating > 0) {
-    const ratingToSubmit = currentRating; // Store the rating before resetting
+async function submitRating() {
+  if (currentRating > 0 && currentUserName) {
+    const ratingToSubmit = currentRating;
     
-    // Add rating to project
-    projectRatings.push({
+    // Create rating data
+    const ratingData = {
       rating: currentRating,
+      userName: currentUserName,
       timestamp: Date.now()
-    });
+    };
     
-    // Save to localStorage
+    // Try to save to database first
+    let savedToDatabase = false;
+    try {
+      savedToDatabase = await saveToDatabase(ratingData);
+    } catch (error) {
+      console.log('Database save failed, using localStorage');
+    }
+    
+    // Add rating to local array
+    projectRatings.push(ratingData);
+    
+    // Save to localStorage as backup
     localStorage.setItem(`project_${projectId}_ratings`, JSON.stringify(projectRatings));
     
     // Update display
     updateAverageRating();
+    updateRatingsSummary();
     
     // Reset rating input
     currentRating = 0;
@@ -344,7 +698,11 @@ function submitRating() {
     stars.forEach(star => star.classList.remove('active'));
     document.getElementById('submitRating').disabled = true;
     
-    alert(`Thank you! You rated this project ${ratingToSubmit} stars.`);
+    if (savedToDatabase) {
+      alert(`Thank you, ${currentUserName}! Your ${ratingToSubmit}-star rating has been saved to the database.`);
+    } else {
+      alert(`Thank you, ${currentUserName}! You rated this project ${ratingToSubmit} stars. (Saved locally)`);
+    }
   }
 }
 
@@ -377,68 +735,238 @@ function updateAverageStars(averageRating) {
   });
 }
 
-function displayReviews() {
-  const reviewsContainer = document.getElementById('publicReviews');
+function updateRatingsSummary() {
+  const summaryContainer = document.getElementById('ratingsSummary');
   
   if (projectRatings.length === 0) {
-    reviewsContainer.innerHTML = '<div class="no-reviews">No reviews yet. Be the first to review!</div>';
+    summaryContainer.innerHTML = '<div class="no-reviews">No ratings yet. Be the first to rate!</div>';
     return;
   }
-  
-  reviewsContainer.innerHTML = '';
   
   // Sort ratings by timestamp (newest first)
   const sortedRatings = [...projectRatings].sort((a, b) => b.timestamp - a.timestamp);
   
-  sortedRatings.forEach((ratingData, index) => {
-    const reviewDiv = document.createElement('div');
-    reviewDiv.className = 'review-box';
-    
-    const stars = '★'.repeat(ratingData.rating) + '☆'.repeat(5 - ratingData.rating);
+  let summaryHTML = '<h3>All Ratings</h3><div class="ratings-summary">';
+  
+  sortedRatings.forEach((ratingData) => {
     const date = new Date(ratingData.timestamp).toLocaleDateString();
     
-    reviewDiv.innerHTML = `
-      <div class="review-header">
-        <span class="review-rating">${stars}</span>
-        <small>${date}</small>
-      </div>
-      <div class="review-text">
-        Rated ${ratingData.rating} out of 5 stars
+    summaryHTML += `
+      <div class="rating-card">
+        <div class="rating-user">${ratingData.userName}</div>
+        ${ratingData.rating > 0 ? `<div class="rating-stars">${'★'.repeat(ratingData.rating)}</div>` : '<div class="rating-type">Text Review</div>'}
+        <div class="rating-date">${date}</div>
+        ${ratingData.reviewText ? `<div class="rating-review">${ratingData.reviewText}</div>` : ''}
       </div>
     `;
-    
-    reviewsContainer.appendChild(reviewDiv);
   });
+  
+  summaryHTML += '</div>';
+  summaryContainer.innerHTML = summaryHTML;
 }
 
-function addPublicReview() {
-  const reviewText = document.getElementById("userReview").value.trim();
-  if (reviewText !== "") {
-    // Add review with current rating if available
+
+
+
+
+function toggleDropdown() {
+  const dropdownContent = document.getElementById('dropdownContent');
+  const dropdownArrow = document.getElementById('dropdownArrow');
+  
+  dropdownContent.classList.toggle('active');
+  
+  if (dropdownContent.classList.contains('active')) {
+    dropdownArrow.textContent = '▲';
+  } else {
+    dropdownArrow.textContent = '▼';
+  }
+}
+
+// Check for existing user when page loads
+checkExistingUser();
+
+// Initialize review form functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const reviewTextarea = document.getElementById('reviewText');
+  const charCount = document.getElementById('charCount');
+  const submitReviewBtn = document.getElementById('submitReviewBtn');
+  
+  // Character counter
+  reviewTextarea.addEventListener('input', function() {
+    const length = this.value.length;
+    charCount.textContent = length;
+    
+    // Enable/disable submit button based on content
+    if (length > 0 && currentUserName) {
+      submitReviewBtn.disabled = false;
+    } else {
+      submitReviewBtn.disabled = true;
+    }
+  });
+  
+  // Check if user has entered name when textarea is focused
+  reviewTextarea.addEventListener('focus', function() {
+    if (!currentUserName) {
+      alert('Please enter your name first to submit a review.');
+      this.blur();
+    }
+  });
+});
+
+// Submit review function
+async function submitReview() {
+  const reviewText = document.getElementById('reviewText').value.trim();
+  const submitBtn = document.getElementById('submitReviewBtn');
+  const statusDiv = document.getElementById('reviewStatus');
+  
+  if (!reviewText) {
+    showReviewStatus('Please enter a review before submitting.', 'error');
+    return;
+  }
+  
+  if (!currentUserName) {
+    showReviewStatus('Please enter your name first to submit a review.', 'error');
+    return;
+  }
+  
+  // Disable button during submission
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting...';
+  
+  try {
+    // Create review data (rating will be 0 for text-only reviews)
     const reviewData = {
-      text: reviewText,
-      rating: currentRating || 0,
+      rating: 0,
+      userName: currentUserName,
+      reviewText: reviewText,
       timestamp: Date.now()
     };
     
-    // Add to ratings array
+    // Try to save to database first
+    let savedToDatabase = false;
+    try {
+      savedToDatabase = await saveToDatabase(reviewData);
+    } catch (error) {
+      console.log('Database save failed, using localStorage');
+    }
+    
+    // Add to local ratings array
     projectRatings.push(reviewData);
     
-    // Save to localStorage
+    // Save to localStorage as backup
     localStorage.setItem(`project_${projectId}_ratings`, JSON.stringify(projectRatings));
     
     // Update display
+    updateRatingsSummary();
+    
+    // Clear form
+    document.getElementById('reviewText').value = '';
+    document.getElementById('charCount').textContent = '0';
+    
+    // Show success message
+    if (savedToDatabase) {
+      showReviewStatus(`Thank you, ${currentUserName}! Your review has been saved to the database.`, 'success');
+    } else {
+      showReviewStatus(`Thank you, ${currentUserName}! Your review has been saved locally.`, 'success');
+    }
+    
+    // Reset button
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submit Review';
+    
+  } catch (error) {
+    console.error('Error submitting review:', error);
+    showReviewStatus('An error occurred while submitting your review. Please try again.', 'error');
+    
+    // Reset button
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit Review';
+  }
+}
+
+// Show review status message
+function showReviewStatus(message, type) {
+  const statusDiv = document.getElementById('reviewStatus');
+  statusDiv.textContent = message;
+  statusDiv.className = `review-status ${type}`;
+  statusDiv.classList.remove('hidden');
+  
+  // Hide status after 5 seconds
+  setTimeout(() => {
+    statusDiv.classList.add('hidden');
+  }, 5000);
+}
+
+// Database integration functions
+async function saveToDatabase(ratingData) {
+  try {
+    const response = await fetch('http://localhost:3001/api/ratings', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        projectId: projectId,
+        rating: ratingData.rating,
+        userName: ratingData.userName,
+        reviewText: ratingData.reviewText || null
+      })
+    });
+    
+    const data = await response.json();
+    if (data.success) {
+      console.log('Rating saved to database:', data);
+      return true;
+    } else {
+      console.error('Failed to save rating:', data.error);
+      return false;
+    }
+  } catch (error) {
+    console.error('Error saving to database:', error);
+    return false;
+  }
+}
+
+async function loadFromDatabase() {
+  try {
+    const response = await fetch(`http://localhost:3001/api/ratings/${projectId}`);
+    const data = await response.json();
+    
+    if (data.success) {
+      // Convert database format to local format
+      projectRatings = data.ratings.map(rating => ({
+        rating: rating.rating,
+        userName: rating.userName,
+        reviewText: rating.review_text,
+        timestamp: new Date(rating.timestamp).getTime()
+      }));
+      
+      updateAverageRating();
+      updateRatingsSummary();
+      console.log('Ratings loaded from database:', data);
+    } else {
+      console.error('Failed to load ratings:', data.error);
+    }
+  } catch (error) {
+    console.error('Error loading from database:', error);
+    // Fallback to localStorage if database is not available
+    console.log('Falling back to localStorage...');
+  }
+}
+
+// Try to load from database first, fallback to localStorage
+async function initializeRatings() {
+  try {
+    await loadFromDatabase();
+  } catch (error) {
+    console.log('Database not available, using localStorage');
+    // Load from localStorage as fallback
+    const storedRatings = localStorage.getItem(`project_${projectId}_ratings`);
+    if (storedRatings) {
+      projectRatings = JSON.parse(storedRatings);
+    }
     updateAverageRating();
-    displayReviews();
-    
-    // Clear input
-    document.getElementById("userReview").value = "";
-    
-    // Reset rating
-    currentRating = 0;
-    const stars = document.querySelectorAll('#ratingStars .star');
-    stars.forEach(star => star.classList.remove('active'));
-    document.getElementById('submitRating').disabled = true;
+    updateRatingsSummary();
   }
 }
 </script>
