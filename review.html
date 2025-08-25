@@ -38,22 +38,121 @@
       font-size: 18px;
       text-align: center;
     }
+    
+    /* Star Rating Styles */
+    .rating-section {
+      text-align: center;
+      margin: 20px 0;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 10px;
+    }
+    
+    .average-rating {
+      font-size: 24px;
+      font-weight: bold;
+      color: #0077cc;
+      margin-bottom: 10px;
+    }
+    
+    .stars {
+      display: inline-block;
+      font-size: 30px;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+    
+    .star {
+      color: #ddd;
+      transition: color 0.2s;
+    }
+    
+    .star.filled {
+      color: #ffd700;
+    }
+    
+    .star:hover {
+      color: #ffd700;
+    }
+    
+    .rating-input {
+      margin: 15px 0;
+    }
+    
+    .rating-input .stars {
+      font-size: 25px;
+    }
+    
+    .rating-input .star {
+      cursor: pointer;
+    }
+    
+    .rating-input .star:hover ~ .star {
+      color: #ddd;
+    }
+    
+    .rating-input .star:hover,
+    .rating-input .star.active {
+      color: #ffd700;
+    }
+    
+    .submit-rating {
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    
+    .submit-rating:hover {
+      background: #218838;
+    }
+    
+    .submit-rating:disabled {
+      background: #6c757d;
+      cursor: not-allowed;
+    }
+    
     .reviews {
       margin-top: 20px;
     }
     .review-box {
       background: #f9f9f9;
-      padding: 10px;
-      margin-bottom: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
       border-radius: 8px;
       border: 1px solid #ddd;
     }
+    
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .review-rating {
+      color: #ffd700;
+      font-size: 18px;
+    }
+    
+    .review-text {
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    
     textarea {
       width: 100%;
-      padding: 8px;
+      padding: 12px;
       margin-top: 10px;
       border-radius: 5px;
       border: 1px solid #ccc;
+      font-size: 14px;
+      resize: vertical;
+      min-height: 80px;
     }
     button {
       margin-top: 10px;
@@ -63,9 +162,17 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 16px;
     }
     button:hover {
       background: #005fa3;
+    }
+    
+    .no-reviews {
+      text-align: center;
+      color: #666;
+      font-style: italic;
+      padding: 20px;
     }
   </style>
 </head>
@@ -78,14 +185,40 @@
   </div>
   <p class="description" id="projectDescription"></p>
 
+  <!-- Star Rating Section -->
+  <div class="rating-section">
+    <div class="average-rating">
+      Average Rating: <span id="avgRating">0.0</span>/5.0
+    </div>
+    <div class="stars" id="avgStars">
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+    </div>
+    <div class="rating-input">
+      <p>Rate this project:</p>
+      <div class="stars" id="ratingStars">
+        <span class="star" data-rating="1">★</span>
+        <span class="star" data-rating="2">★</span>
+        <span class="star" data-rating="3">★</span>
+        <span class="star" data-rating="4">★</span>
+        <span class="star" data-rating="5">★</span>
+      </div>
+      <button class="submit-rating" id="submitRating" onclick="submitRating()" disabled>Submit Rating</button>
+    </div>
+  </div>
+
   <div class="reviews">
     <h3>Public Reviews:</h3>
-    <div id="publicReviews"></div>
+    <div id="publicReviews">
+      <div class="no-reviews">No reviews yet. Be the first to review!</div>
+    </div>
     <textarea id="userReview" placeholder="Write your review..."></textarea>
     <button onclick="addPublicReview()">Submit Review</button>
   </div>
 </div>
-
 
 <script>
 const projects = {
@@ -132,7 +265,7 @@ const projects = {
   9: {
     img: "scienceimage/9img.jpg",
     description: "Smart Irrigation System: Reduces water wastage in farming.",
-    judges: ["Saves resources.", "Easy to implement."]
+    judges: ["Highly practical.", "Easy to implement."]
   },
   10: {
     img: "scienceimage/10img.jpg",
@@ -147,31 +280,165 @@ const projects = {
 };
 
 let currentProject = null;
+let currentRating = 0;
+let projectRatings = [];
 const params = new URLSearchParams(window.location.search);
 const projectId = params.get("id");
 
+// Load project data and ratings from localStorage
 if (projects[projectId]) {
   currentProject = projects[projectId];
   document.getElementById("projectImg").src = currentProject.img;
   document.getElementById("projectDescription").textContent = currentProject.description;
+  
+  // Load ratings from localStorage
+  const storedRatings = localStorage.getItem(`project_${projectId}_ratings`);
+  if (storedRatings) {
+    projectRatings = JSON.parse(storedRatings);
+  }
+  
+  updateAverageRating();
+  displayReviews();
+}
 
-  const judgesContainer = document.getElementById("judgesReviews");
-  currentProject.judges.forEach(review => {
-    const div = document.createElement("div");
-    div.className = "review-box";
-    div.textContent = review;
-    judgesContainer.appendChild(div);
+// Star rating functionality
+document.getElementById('ratingStars').addEventListener('click', function(e) {
+  if (e.target.classList.contains('star')) {
+    const rating = parseInt(e.target.dataset.rating);
+    currentRating = rating;
+    
+    // Update star display
+    const stars = document.querySelectorAll('#ratingStars .star');
+    stars.forEach((star, index) => {
+      if (index < rating) {
+        star.classList.add('active');
+      } else {
+        star.classList.remove('active');
+      }
+    });
+    
+    // Enable submit button
+    document.getElementById('submitRating').disabled = false;
+  }
+});
+
+function submitRating() {
+  if (currentRating > 0) {
+    const ratingToSubmit = currentRating; // Store the rating before resetting
+    
+    // Add rating to project
+    projectRatings.push({
+      rating: currentRating,
+      timestamp: Date.now()
+    });
+    
+    // Save to localStorage
+    localStorage.setItem(`project_${projectId}_ratings`, JSON.stringify(projectRatings));
+    
+    // Update display
+    updateAverageRating();
+    
+    // Reset rating input
+    currentRating = 0;
+    const stars = document.querySelectorAll('#ratingStars .star');
+    stars.forEach(star => star.classList.remove('active'));
+    document.getElementById('submitRating').disabled = true;
+    
+    alert(`Thank you! You rated this project ${ratingToSubmit} stars.`);
+  }
+}
+
+function updateAverageRating() {
+  if (projectRatings.length === 0) {
+    document.getElementById('avgRating').textContent = '0.0';
+    updateAverageStars(0);
+    return;
+  }
+  
+  const totalRating = projectRatings.reduce((sum, item) => sum + item.rating, 0);
+  const averageRating = (totalRating / projectRatings.length).toFixed(1);
+  
+  document.getElementById('avgRating').textContent = averageRating;
+  updateAverageStars(parseFloat(averageRating));
+}
+
+function updateAverageStars(averageRating) {
+  const stars = document.querySelectorAll('#avgStars .star');
+  stars.forEach((star, index) => {
+    if (index < Math.floor(averageRating)) {
+      star.classList.add('filled');
+    } else if (index === Math.floor(averageRating) && averageRating % 1 > 0) {
+      star.classList.add('filled');
+      star.style.opacity = '0.6';
+    } else {
+      star.classList.remove('filled');
+      star.style.opacity = '1';
+    }
+  });
+}
+
+function displayReviews() {
+  const reviewsContainer = document.getElementById('publicReviews');
+  
+  if (projectRatings.length === 0) {
+    reviewsContainer.innerHTML = '<div class="no-reviews">No reviews yet. Be the first to review!</div>';
+    return;
+  }
+  
+  reviewsContainer.innerHTML = '';
+  
+  // Sort ratings by timestamp (newest first)
+  const sortedRatings = [...projectRatings].sort((a, b) => b.timestamp - a.timestamp);
+  
+  sortedRatings.forEach((ratingData, index) => {
+    const reviewDiv = document.createElement('div');
+    reviewDiv.className = 'review-box';
+    
+    const stars = '★'.repeat(ratingData.rating) + '☆'.repeat(5 - ratingData.rating);
+    const date = new Date(ratingData.timestamp).toLocaleDateString();
+    
+    reviewDiv.innerHTML = `
+      <div class="review-header">
+        <span class="review-rating">${stars}</span>
+        <small>${date}</small>
+      </div>
+      <div class="review-text">
+        Rated ${ratingData.rating} out of 5 stars
+      </div>
+    `;
+    
+    reviewsContainer.appendChild(reviewDiv);
   });
 }
 
 function addPublicReview() {
   const reviewText = document.getElementById("userReview").value.trim();
   if (reviewText !== "") {
-    const div = document.createElement("div");
-    div.className = "review-box";
-    div.textContent = reviewText;
-    document.getElementById("publicReviews").appendChild(div);
+    // Add review with current rating if available
+    const reviewData = {
+      text: reviewText,
+      rating: currentRating || 0,
+      timestamp: Date.now()
+    };
+    
+    // Add to ratings array
+    projectRatings.push(reviewData);
+    
+    // Save to localStorage
+    localStorage.setItem(`project_${projectId}_ratings`, JSON.stringify(projectRatings));
+    
+    // Update display
+    updateAverageRating();
+    displayReviews();
+    
+    // Clear input
     document.getElementById("userReview").value = "";
+    
+    // Reset rating
+    currentRating = 0;
+    const stars = document.querySelectorAll('#ratingStars .star');
+    stars.forEach(star => star.classList.remove('active'));
+    document.getElementById('submitRating').disabled = true;
   }
 }
 </script>
