@@ -7,12 +7,12 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      background: #FFF8E1;
       margin: 0;
       padding: 0;
     }
     header {
-      background: #0077cc;
+      background: #FF9933;
       color: white;
       padding: 15px;
       text-align: center;
@@ -33,6 +33,22 @@
       width: 400px;
       border-radius: 10px;
     }
+    .project-details {
+      margin-top: 20px;
+      background: #ffffff;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .project-details h2 {
+      margin-bottom: 10px;
+      color: #e7bd32;
+    }
+    .project-details p {
+      margin: 6px 0;
+    }
+
     .description {
       margin-top: 15px;
       font-size: 18px;
@@ -51,7 +67,7 @@
     .average-rating {
       font-size: 24px;
       font-weight: bold;
-      color: #0077cc;
+      color: #FFC107;
       margin-bottom: 10px;
     }
     
@@ -115,7 +131,7 @@
     }
     
     .submit-rating {
-      background: linear-gradient(135deg, #0077cc 0%, #005fa3 100%);
+      background: linear-gradient(135deg, #cc9600 0%, #57f442 100%);
       color: white;
       border: none;
       padding: 15px 30px;
@@ -131,7 +147,7 @@
     }
     
     .submit-rating:hover {
-      background: linear-gradient(135deg, #005fa3 0%, #004080 100%);
+      background: linear-gradient(135deg, #a38000 0%, #49fe5b 100%);
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(0, 119, 204, 0.4);
     }
@@ -149,12 +165,12 @@
       padding: 15px;
       border-radius: 8px;
       margin-bottom: 20px;
-      border: 2px solid #0077cc;
+      border: 2px solid #e1b830;
     }
     
     .user-name-section input {
       padding: 10px;
-      border: 1px solid #0077cc;
+      border: 1px solid #cc9c00;
       border-radius: 5px;
       font-size: 16px;
       width: 200px;
@@ -453,6 +469,18 @@
   </div>
   <p class="description" id="projectDescription"></p>
 
+  <div class="project-details">
+    <h2 id="projectTitle"></h2>
+    <p><strong>Institute:</strong> <span id="projectInstitute"></span></p>
+    <p><strong>Category:</strong> <span id="projectCategory"></span></p>
+    <p><strong>Members:</strong> <span id="projectMembers"></span></p>
+    <p><strong>Team Lead:</strong> <span id="projectLead"></span> (<span id="projectLeadContact"></span>)</p>
+    <p><strong>Mentor:</strong> <span id="projectMentor"></span> (<span id="projectMentorContact"></span>)</p>
+    <p><strong>Email:</strong> <span id="projectEmail"></span></p>
+    <p><strong>Desk No.:</strong> <span id="projectDesk"></span></p>
+  </div>
+
+
   <!-- User Name Input Section -->
   <div class="user-name-section" id="userNameSection">
     <h3>Enter Your Name to Rate This Project</h3>
@@ -532,60 +560,184 @@
 const projects = {
   1: {
     img: "scienceimage/1img.jpg",
-    description: "Eco-Friendly Energy Model: A sustainable model demonstrating energy efficiency techniques.",
-    judges: ["Great innovative concept!", "Well-presented model."]
+    title: "Low-Cost Gesture Controlled Wheel Chair",
+    description: `Low-Cost Gesture Controlled Wheelchair.
+
+Quadriplegic patients or individuals who are physically disabled cannot move on their own. Existing wheelchairs are too costly (~₹15k–45k). This project creates an affordable wheelchair controlled by hand/neck/leg gestures. Features include obstacle avoidance, accident-proof system, emergency alerts, location detection, and smart appliance control.`,
+    email: "bhs.teaminnovation@gmail.com",
+    institute: "BEGRI HIGH SCHOOL (H.S.)",
+    category: "Junior",
+    members: ["Plaban Paul"],
+    teamLead: "Ayan Das",
+    teamLeadContact: "8622833378",
+    mentor: "Pritimoy Bhattacharyya",
+    mentorContact: "8622833378",
+    deskNo: "15"
   },
+
   2: {
     img: "scienceimage/2img.jpg",
-    description: "Smart Waste Management: Optimizing urban waste disposal using IoT.",
-    judges: ["Practical and impactful.", "Excellent use of technology."]
+    title: "Accident Prevention with Advanced Technology (Road, Home and Hospital)",
+    description: `Model focuses on advanced technology to prevent road, home, and hospital accidents.
+Features:
+1. Head safeguard for pedestrians
+2. Automatic signaling & barricade system
+3. Smart train accident prevention
+4. Anti-sleeping driver alarm
+5. LPG gas leak detection
+6. Auto-cloth drying shelter
+7. Smart helmet
+8. Saline alert in hospitals
+9. Fog-based car stop alert system
+10. Mobile app for fines & alerts`,
+    email: "bhs.teaminnovation@gmail.com",
+    institute: "BEGRI HIGH SCHOOL (H.S.)",
+    category: "Junior",
+    members: ["Anshu Manna"],
+    teamLead: "Soumyadip Mandal",
+    teamLeadContact: "8622833378",
+    mentor: "Pritimoy Bhattacharyya",
+    mentorContact: "8622833378",
+    deskNo: "14"
   },
+
   3: {
     img: "scienceimage/3img.jpg",
-    description: "AI Traffic Management: Reduces congestion using AI-based predictions.",
-    judges: ["Very futuristic idea.", "Needs real-world trials."]
+    title: "Upcycled Utopia: Eco-Resilience, B.L.U.E. Residence",
+    description: `50×40 ft community shelter using ecobricks. Called B.L.U.E = Biogas, Lifesaving, Utility powered, Elevated.
+Eco-friendly, reduces non-biodegradable plastic, encourages renewable energy, disaster shelter design.`,
+    email: "sudiptada1975@gmail.com",
+    institute: "Raghunathpur Nafar Academy (H.S.)",
+    category: "Junior",
+    members: ["Arghya Ghosh", "Bishal Cho"],
+    teamLead: "Arghya Ghosh",
+    teamLeadContact: "7439583349",
+    mentor: "Sudipta Das",
+    mentorContact: "8585807086",
+    deskNo: "11"
   },
+
   4: {
     img: "scienceimage/4img.jpg",
-    description: "Water Purification System: Affordable solution for rural areas.",
-    judges: ["Highly useful.", "Cost-effective approach."]
+    title: "AI-Powered Smart Drip Irrigation",
+    description: `AI sensor-based drip irrigation system with soil moisture sensors connected to AI unit. Entire system runs on solar power. Features: water efficiency, AI precision, renewable energy integration.`,
+    email: "ayushpaul268@gmail.com",
+    institute: "Brainware University",
+    category: "Senior",
+    members: ["Ayush Paul", "Indrajit Ghosh"],
+    teamLead: "Ayush Paul",
+    teamLeadContact: "9775849140",
+    mentor: "Dr. Sahely Kanthal",
+    mentorContact: "8902552891",
+    deskNo: "03"
   },
+
   5: {
     img: "scienceimage/5img.jpg",
-    description: "Plastic Waste Recycler: Converts plastic into usable products.",
-    judges: ["Environmentally friendly.", "Scalable innovation."]
+    title: "Mushroom Based Soil Restoration System",
+    description: `Mycoremediation model using mushrooms to clean polluted soils and recycle waste. Converts residues into mushrooms, biofuel, fertilizer. Targets heavy metals, pesticides, industrial effluents. Supports circular economy.`,
+    email: "sampritisikdar12@gmail.com",
+    institute: "Brainware University",
+    category: "Senior",
+    members: ["Sampriti Sikdar", "Bitan Chakraborty"],
+    teamLead: "Sampriti Sikdar",
+    teamLeadContact: "8777436840",
+    mentor: "Dr. Sahely Kanthal",
+    mentorContact: "8902552891",
+    deskNo: "02"
   },
+
   6: {
     img: "scienceimage/6img.jpg",
-    description: "Mushroom-Based Soil Restoration: Restores barren lands naturally.",
-    judges: ["Biotech brilliance.", "Low-cost solution."]
+    title: "Lotus Leaf Inspired Superhydrophobic Coating",
+    description: `Bio-inspired coating using toluene & silica to mimic lotus leaf properties (self-cleaning, hydrophobic). Applications: solar panels, food industry, marine ships, textiles.`,
+    email: "samadritadas007@gmail.com",
+    institute: "Brainware University",
+    category: "Senior",
+    members: ["Samadrita Das", "Arkya Deep Pramanick"],
+    teamLead: "Samadrita Das",
+    teamLeadContact: "7980595798",
+    mentor: "Dr. Anusuya Debnath",
+    mentorContact: "-",
+    deskNo: "1"
   },
+
   7: {
     img: "scienceimage/7img.jpg",
-    description: "Solar Car Prototype: Affordable solar-powered vehicle.",
-    judges: ["Excellent engineering.", "Good efficiency results."]
+    title: "Sustainable Solid Waste Management in a Circular Economy",
+    description: `Captures heat & gases from waste burning, filters smoke, extracts acids from water scrubbing, reuses water, generates renewable energy. Reduces emissions, produces useful by-products, creates jobs.`,
+    email: "sayannaskaral@gmail.com",
+    institute: "Baruipur High School",
+    category: "Junior",
+    members: ["Sayan Naskar"],
+    teamLead: "Sayak Sarkar",
+    teamLeadContact: "9330618882",
+    mentor: "Sujit Mondal",
+    mentorContact: "9735222384",
+    deskNo: "27"
   },
+
   8: {
     img: "scienceimage/8img.jpg",
-    description: "Bee & Organic Farming: Boosts crop yield sustainably.",
-    judges: ["Supports farmers.", "Eco-friendly innovation."]
+    title: "Bee-yond Tourism: Harnessing Sustainability",
+    description: `Agri-tourism hub combining organic farming, apiculture, water conservation. Features Apiculture Excellence Zone, Pollinator Corridor, Bee Museum, Rooftop Rainwater Harvesting, Organic Farm Store. Promotes eco-tourism and education.`,
+    email: "sayansen1509@gmail.com",
+    institute: "Brainware University",
+    category: "Senior",
+    members: ["Sayan Sen", "Sreshthya Singha"],
+    teamLead: "Sayan Sen",
+    teamLeadContact: "9874920060",
+    mentor: "Soumik Dey Roy",
+    mentorContact: "8617576557",
+    deskNo: "06"
   },
+
   9: {
     img: "scienceimage/9img.jpg",
-    description: "Smart Irrigation System: Reduces water wastage in farming.",
-    judges: ["Highly practical.", "Easy to implement."]
+    title: "Smart Reward Based Dustbin",
+    description: `Smart dustbin that rewards positive behavior. Uses Arduino + sensors to gamify cleanliness and encourage participation.`,
+    email: "hasanurjaman72@gmail.com",
+    institute: "Satulia Islamia Sr. Madrasah",
+    category: "Junior",
+    members: ["Arif Mehebub", "Tarik Jamil"],
+    teamLead: "Arif Mehebub",
+    teamLeadContact: "9735130501",
+    mentor: "Hasanur Jaman",
+    mentorContact: "9732487504",
+    deskNo: "12"
   },
+
   10: {
     img: "scienceimage/10img.jpg",
-    description: "Drone Delivery System: Ensures fast delivery to remote areas.",
-    judges: ["Highly practical.", "Needs regulatory approval."]
+    title: "Terrarium – Nature for Beautifying Interior",
+    description: `Closed terrarium model with plants, moss, charcoal, gravel. Promotes eco-friendly gardening, water conservation, low-maintenance classrooms, and hands-on ecology learning.`,
+    email: "gnbvschool@gmail.com",
+    institute: "GHOSHPARA NISCHINDA BALIKA VIDYAPITH",
+    category: "Junior",
+    members: ["Priyoma Dey", "Prajna Das"],
+    teamLead: "Priyoma Dey",
+    teamLeadContact: "9804360595",
+    mentor: "Dr. Soumi Bhattacharjee",
+    mentorContact: "6290432224",
+    deskNo: "23"
   },
+
   11: {
     img: "scienceimage/11img.jpg",
-    description: "Lotus Leaf Self-Cleaning Surface: Repels water & dirt naturally.",
-    judges: ["Inspired by nature.", "Great industrial application."]
+    title: "Smart Garbage Segregating Dustbin",
+    description: `Eco-friendly dustbin that segregates waste automatically to control pollution.`,
+    email: "kalpanashit63@gmail.com",
+    institute: "B.E. COLLEGE MODEL SCHOOL",
+    category: "Junior",
+    members: ["Nirjhar Bandyopadhyay", "Oishik Shit"],
+    teamLead: "Oishik Shit",
+    teamLeadContact: "9830631516",
+    mentor: "-",
+    mentorContact: "-",
+    deskNo: "28"
   }
 };
+
 
 let currentProject = null;
 let currentRating = 0;
@@ -599,7 +751,16 @@ if (projects[projectId]) {
   currentProject = projects[projectId];
   document.getElementById("projectImg").src = currentProject.img;
   document.getElementById("projectDescription").textContent = currentProject.description;
-  
+  document.getElementById("projectTitle").textContent = currentProject.title;
+  document.getElementById("projectInstitute").textContent = currentProject.institute;
+  document.getElementById("projectCategory").textContent = currentProject.category;
+  document.getElementById("projectMembers").textContent = currentProject.members.join(", ");
+  document.getElementById("projectLead").textContent = currentProject.teamLead;
+  document.getElementById("projectLeadContact").textContent = currentProject.teamLeadContact;
+  document.getElementById("projectMentor").textContent = currentProject.mentor;
+  document.getElementById("projectMentorContact").textContent = currentProject.mentorContact;
+  document.getElementById("projectEmail").textContent = currentProject.email;
+  document.getElementById("projectDesk").textContent = currentProject.deskNo;
   // Initialize ratings (try database first, fallback to localStorage)
   initializeRatings();
 }

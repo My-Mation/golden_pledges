@@ -12,7 +12,7 @@
     }
 
     header {
-      background: #004080;
+      background: #daae2b;
       color: white;
       padding: 15px;
       text-align: center;
@@ -28,7 +28,7 @@
     }
 
     nav button {
-      background: #004080;
+      background: #008015;
       color: white;
       border: none;
       margin: 0 10px;
@@ -39,17 +39,18 @@
     }
 
     nav button:hover {
-      background: #00264d;
+      background: #1da71f;
     }
 
     .block-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Force 3 columns */
-  gap: 20px;
-  padding: 20px;
-  max-width: 1200px;
-  margin: auto;
-}
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
 
 
     .stall-card {
@@ -89,7 +90,7 @@
     }
 
     footer {
-      background: #004080;
+      background: #be871b;
       color: white;
       text-align: center;
       padding: 10px;
@@ -259,161 +260,150 @@
   <button onclick="showSection('junior')">Junior</button>
   <button onclick="showSection('top')">Top Pages</button>
 </nav>
-
 <!-- All Projects -->
 <main id="all" class="block-container section active">
   <div class="stall-card" onclick="openDetails(1)">
-    <img src="scienceimage/1img.jpg" alt="Eco Energy">
-    <p>Eco-Friendly Energy Model</p>
-    <small>A sustainable model demonstrating energy efficiency techniques.</small>
+    <img src="scienceimage/1img.jpg" alt="Gesture Wheelchair">
+    <p>Low-Cost Gesture Controlled Wheel Chair</p>
+    <small>Affordable wheelchair with gesture control, obstacle avoidance, and smart features.</small>
   </div>
 
   <div class="stall-card" onclick="openDetails(2)">
-    <img src="scienceimage/2img.jpg" alt="Smart Waste">
-    <p>Smart Waste Management</p>
-    <small>Innovative approach to optimize urban waste disposal.</small>
+    <img src="scienceimage/2img.jpg" alt="Accident Prevention">
+    <p>Accident Prevention with Advanced Technology</p>
+    <small>Multi-domain accident prevention model for road, home, and hospital safety.</small>
   </div>
 
   <div class="stall-card" onclick="openDetails(3)">
-    <img src="scienceimage/3img.jpg" alt="AI Waste">
-    <p>AI-Powered Waste Sorting</p>
-    <small>Optimizing waste management using AI & IoT.</small>
+    <img src="scienceimage/3img.jpg" alt="Upcycled Utopia">
+    <p>Upcycled Utopia: Eco-Resilience, B.L.U.E. Residence</p>
+    <small>Community shelter with ecobricks, renewable energy, and disaster resilience.</small>
   </div>
 
   <div class="stall-card" onclick="openDetails(4)">
-    <img src="scienceimage/4img.jpg" alt="Green Energy">
-    <p>Renewable Energy Plant</p>
-    <small>Generating clean energy using hybrid solar-wind systems.</small>
+    <img src="scienceimage/4img.jpg" alt="Smart Drip Irrigation">
+    <p>AI-Powered Smart Drip Irrigation</p>
+    <small>Solar-powered irrigation with AI soil sensors for efficient water use.</small>
   </div>
 
   <div class="stall-card" onclick="openDetails(5)">
-    <img src="scienceimage/5img.jpg" alt="Water Purifier">
-    <p>Low-Cost Water Purifier</p>
-    <small>Providing clean water using natural filtration techniques.</small>
+    <img src="scienceimage/5img.jpg" alt="Mushroom Soil Restoration">
+    <p>Mushroom Based Soil Restoration System</p>
+    <small>Mycoremediation system recycling waste into mushrooms, fuel, and fertilizer.</small>
   </div>
 
   <div class="stall-card" onclick="openDetails(6)">
-    <img src="scienceimage/6img.jpg" alt="Mushroom Soil">
-    <p>Mushroom-Based Soil Restoration</p>
-    <small>Biotechnological approach to rejuvenate degraded soil naturally.</small>
+    <img src="scienceimage/6img.jpg" alt="Lotus Coating">
+    <p>Lotus Leaf Inspired Superhydrophobic Coating</p>
+    <small>Bio-inspired hydrophobic surface for self-cleaning and industrial use.</small>
   </div>
 
   <div class="stall-card" onclick="openDetails(7)">
-    <img src="scienceimage/7img.jpg" alt="Recycling Robot">
-    <p>Automated Recycling Robot</p>
-    <small>Robot designed to segregate and recycle waste efficiently.</small>
+    <img src="scienceimage/7img.jpg" alt="Solid Waste Management">
+    <p>Sustainable Solid Waste Management in a Circular Economy</p>
+    <small>Captures emissions, reuses by-products, and generates renewable energy.</small>
   </div>
 
   <div class="stall-card" onclick="openDetails(8)">
-    <img src="scienceimage/8img.jpg" alt="Bee Farming">
-    <p>Bee & Organic Farming</p>
-    <small>Integrating bees into organic farming to boost pollination.</small>
+    <img src="scienceimage/8img.jpg" alt="Bee Tourism">
+    <p>Bee-yond Tourism: Harnessing Sustainability</p>
+    <small>Eco-tourism hub with apiculture, rainwater harvesting, and organic farming.</small>
   </div>
 
   <div class="stall-card" onclick="openDetails(9)">
-    <img src="scienceimage/9img.jpg" alt="Ocean Cleaner">
-    <p>Marine Plastic Cleaner</p>
-    <small>Autonomous system to remove plastics from oceans.</small>
+    <img src="scienceimage/9img.jpg" alt="Reward Dustbin">
+    <p>Smart Reward Based Dustbin</p>
+    <small>Arduino-based smart dustbin that rewards cleanliness behavior.</small>
   </div>
 
   <div class="stall-card" onclick="openDetails(10)">
-    <img src="scienceimage/10img.jpg" alt="Smart Traffic">
-    <p>AI-Based Traffic Management</p>
-    <small>Reducing congestion with AI-driven traffic lights.</small>
+    <img src="scienceimage/10img.jpg" alt="Terrarium">
+    <p>Terrarium – Nature for Beautifying Interior</p>
+    <small>Eco-friendly closed terrarium for classrooms and water conservation.</small>
   </div>
 
   <div class="stall-card" onclick="openDetails(11)">
-    <img src="scienceimage/11img.jpg" alt="Lotus Leaf Coating">
-    <p>Lotus Leaf Self-Cleaning Surface</p>
-    <small>Inspired by lotus leaves, surfaces repel water and dirt naturally.</small>
+    <img src="scienceimage/11img.jpg" alt="Garbage Segregation">
+    <p>Smart Garbage Segregating Dustbin</p>
+    <small>Automated dustbin that separates waste to reduce pollution.</small>
   </div>
 </main>
-<!-- senior -->
- <main id="senior" class="block-container section active">
-  <div class="stall-card" onclick="openDetails(2)">
-    <img src="scienceimage/2img.jpg" alt="Eco Energy">
-    <p>Smart Waste Management</p>
-    <small>Innovative approach to optimize urban waste disposal</small>
+
+
+<!-- Senior Projects (Universities/Colleges only) -->
+<main id="senior" class="block-container section">
+  <div class="stall-card" onclick="openDetails(4)">
+    <img src="scienceimage/4img.jpg" alt="Smart Drip Irrigation">
+    <p>AI-Powered Smart Drip Irrigation</p>
+    <small>Solar-powered irrigation with AI soil sensors for efficient water use.</small>
   </div>
-<div class="stall-card" onclick="openDetails(3)">
-    <img src="scienceimage/3img.jpg" alt="Eco Energy">
-       <p>AI-Powered Waste Sorting</p>
-    <small>Optimizing waste management using AI & IoT.</small>
-  </div>
+
   <div class="stall-card" onclick="openDetails(5)">
-    <img src="scienceimage/5img.jpg" alt="Water Purifier">
-    <p>Low-Cost Water Purifier</p>
-    <small>Providing clean water using natural filtration techniques.</small>
+    <img src="scienceimage/5img.jpg" alt="Mushroom Restoration">
+    <p>Mushroom Based Soil Restoration System</p>
+    <small>Mycoremediation system recycling waste into mushrooms, fuel, and fertilizer.</small>
   </div>
 
   <div class="stall-card" onclick="openDetails(6)">
-    <img src="scienceimage/6img.jpg" alt="Mushroom Soil">
-    <p>Mushroom-Based Soil Restoration</p>
-    <small>Biotechnological approach to rejuvenate degraded soil naturally.</small>
+    <img src="scienceimage/6img.jpg" alt="Lotus Coating">
+    <p>Lotus Leaf Inspired Superhydrophobic Coating</p>
+    <small>Bio-inspired hydrophobic surface for self-cleaning and industrial use.</small>
   </div>
+
   <div class="stall-card" onclick="openDetails(8)">
-    <img src="scienceimage/8img.jpg" alt="Bee Farming">
-    <p>Bee & Organic Farming</p>
-    <small>Integrating bees into organic farming to boost pollination.</small>
+    <img src="scienceimage/8img.jpg" alt="Bee Tourism">
+    <p>Bee-yond Tourism: Harnessing Sustainability</p>
+    <small>Eco-tourism hub with apiculture, rainwater harvesting, and organic farming.</small>
   </div>
-
-  <div class="stall-card" onclick="openDetails(9)">
-    <img src="scienceimage/9img.jpg" alt="Ocean Cleaner">
-    <p>Marine Plastic Cleaner</p>
-    <small>Autonomous system to remove plastics from oceans.</small>
-  </div>
-<div class="stall-card" onclick="openDetails(10)">
-    <img src="scienceimage/10img.jpg" alt="Smart Traffic">
-    <p>AI-Based Traffic Management</p>
-    <small>Reducing congestion with AI-driven traffic lights.</small>
-  </div>
-
 </main>
 
 
-
-<!-- junior -->
-
-<main id="junior" class="block-container section active">
+<!-- Junior Projects (Schools only) -->
+<main id="junior" class="block-container section">
   <div class="stall-card" onclick="openDetails(1)">
-    <img src="scienceimage/1img.jpg" alt="Eco Energy">
-    <p>Eco-Friendly Energy Model</p>
-    <small>A sustainable model demonstrating energy efficiency techniques.</small>
+    <img src="scienceimage/1img.jpg" alt="Gesture Wheelchair">
+    <p>Low-Cost Gesture Controlled Wheel Chair</p>
+    <small>Affordable wheelchair with gesture control, obstacle avoidance, and smart features.</small>
   </div>
 
-<div class="stall-card" onclick="openDetails(8)">
-    <img src="scienceimage/8img.jpg" alt="Eco Energy">
-    <p>Bee & Organic Farming</p>
-    <small>Boosts pollination and promotes sustainability.</small>
+  <div class="stall-card" onclick="openDetails(2)">
+    <img src="scienceimage/2img.jpg" alt="Accident Prevention">
+    <p>Accident Prevention with Advanced Technology</p>
+    <small>Multi-domain accident prevention model for road, home, and hospital safety.</small>
   </div>
 
+  <div class="stall-card" onclick="openDetails(3)">
+    <img src="scienceimage/3img.jpg" alt="Upcycled Utopia">
+    <p>Upcycled Utopia: Eco-Resilience, B.L.U.E. Residence</p>
+    <small>Community shelter with ecobricks, renewable energy, and disaster resilience.</small>
+  </div>
+
+  <div class="stall-card" onclick="openDetails(7)">
+    <img src="scienceimage/7img.jpg" alt="Solid Waste Management">
+    <p>Sustainable Solid Waste Management in a Circular Economy</p>
+    <small>Captures emissions, reuses by-products, and generates renewable energy.</small>
+  </div>
+
+  <div class="stall-card" onclick="openDetails(9)">
+    <img src="scienceimage/9img.jpg" alt="Reward Dustbin">
+    <p>Smart Reward Based Dustbin</p>
+    <small>Arduino-based smart dustbin that rewards cleanliness behavior.</small>
+  </div>
+
+  <div class="stall-card" onclick="openDetails(10)">
+    <img src="scienceimage/10img.jpg" alt="Terrarium">
+    <p>Terrarium – Nature for Beautifying Interior</p>
+    <small>Eco-friendly closed terrarium for classrooms and water conservation.</small>
+  </div>
 
   <div class="stall-card" onclick="openDetails(11)">
-    <img src="scienceimage/11img.jpg" alt="Eco Energy">
-    <p>Lotus Leaf Self-Cleaning Surface</p>
-    <small>Repels water & dirt naturally for industrial applications.</small>
+    <img src="scienceimage/11img.jpg" alt="Garbage Segregation">
+    <p>Smart Garbage Segregating Dustbin</p>
+    <small>Automated dustbin that separates waste to reduce pollution.</small>
   </div>
-
-<div class="stall-card" onclick="openDetails(4)">
-    <img src="scienceimage/4img.jpg" alt="Eco Energy">
-    <p>Eco-Friendly Energy Model</p>
-    <small>Shows how waste can be converted into energy.</small>
-  </div>
-
-<div class="stall-card" onclick="openDetails(7)">
-    <img src="scienceimage/7img.jpg" alt="Eco Energy">
-    <p>Automated Recycling Robo</p>
-    <small>Robot designed to segregate and recycle waste efficiently.</small>
-  </div>
-<div class="stall-card" onclick="openDetails(10)">
-    <img src="scienceimage/10img.jpg" alt="Smart Traffic">
-    <p>AI-Based Traffic Management</p>
-    <small>Reducing congestion with AI-driven traffic lights.</small>
-  </div>
+</main>
 
 
-
-  </main>
 
 <!-- Top Pages Section -->
 <main id="top" class="block-container section">
@@ -433,60 +423,160 @@
   const projects = {
     1: {
       img: "scienceimage/1img.jpg",
-      title: "Eco-Friendly Energy Model",
-      description: "A sustainable model demonstrating energy efficiency techniques."
+      title: "Low-Cost Gesture Controlled Wheel Chair",
+      description: "A sustainable model demonstrating energy efficiency techniques.",
+      email: "bhs.teaminnovation@gmail.com",
+      institute: "BEGRI HIGH SCHOOL (H.S.)",
+      category: "Junior",
+      members: ["Plaban Paul"],
+      teamLead: "Ayan Das",
+      teamLeadContact: "8622833378",
+      mentor: "Pritimoy Bhattacharyya",
+      mentorContact: "8622833378",
+      deskNo: "15"
     },
     2: {
       img: "scienceimage/2img.jpg",
-      title: "Smart Waste Management",
-      description: "Innovative approach to optimize urban waste disposal."
+      title: "Accident Prevention with Advanced Technology (Road, Home and Hospital)",
+      description: "Innovative approach to optimize urban waste disposal.",
+      email: "bhs.teaminnovation@gmail.com",
+      institute: "BEGRI HIGH SCHOOL (H.S.)",
+      category: "Junior",
+      members: ["Anshu Manna"],
+      teamLead: "Soumyadip Mandal",
+      teamLeadContact: "8622833378",
+      mentor: "Pritimoy Bhattacharyya",
+      mentorContact: "8622833378",
+      deskNo: "14"
     },
     3: {
       img: "scienceimage/3img.jpg",
-      title: "AI-Powered Waste Sorting",
-      description: "Optimizing waste management using AI & IoT."
+      title: "Upcycled Utopia: Eco-Resilience, B.L.U.E. Residence",
+      description: "Optimizing waste management using AI & IoT.",
+      email: "sudiptada1975@gmail.com",
+      institute: "Raghunathpur Nafar Academy (H.S.)",
+      category: "Junior",
+      members: ["Arghya Ghosh", "Bishal Cho"],
+      teamLead: "Arghya Ghosh",
+      teamLeadContact: "7439583349",
+      mentor: "Sudipta Das",
+      mentorContact: "8585807086",
+      deskNo: "S-11"
     },
     4: {
       img: "scienceimage/4img.jpg",
-      title: "Renewable Energy Plant",
-      description: "Generating clean energy using hybrid solar-wind systems."
+      title: "AI-Powered Smart Drip Irrigation",
+      description: "Generating clean energy using hybrid solar-wind systems.",
+      email: "ayushpaul268@gmail.com",
+      institute: "Brainware University",
+      category: "Senior",
+      members: ["Ayush Paul", "Indrajit Ghosh"],
+      teamLead: "Ayush Paul",
+      teamLeadContact: "9775849140",
+      mentor: "Dr. Sahely Kanthal",
+      mentorContact: "8902552891",
+      deskNo: "03"
     },
     5: {
       img: "scienceimage/5img.jpg",
-      title: "Low-Cost Water Purifier",
-      description: "Providing clean water using natural filtration techniques."
+      title: "Mushroom Based Soil Restoration System",
+      description: "Providing clean water using natural filtration techniques.",
+      email: "sampritisikdar12@gmail.com",
+      institute: "Brainware University",
+      category: "Senior",
+      members: ["Sampriti Sikdar", "Bitan Chakraborty"],
+      teamLead: "Sampriti Sikdar",
+      teamLeadContact: "8777436840",
+      mentor: "Dr. Sahely Kanthal",
+      mentorContact: "8902552891",
+      deskNo: "02"
     },
     6: {
       img: "scienceimage/6img.jpg",
-      title: "Mushroom-Based Soil Restoration",
-      description: "Biotechnological approach to rejuvenate degraded soil naturally."
+      title: "Lotus Leaf Inspired Superhydrophobic Coating",
+      description: "Biotechnological approach to rejuvenate degraded soil naturally.",
+      email: "samadritadas007@gmail.com",
+      institute: "Brainware University",
+      category: "Senior",
+      members: ["Samadrita Das", "Arkya Deep Pramanick"],
+      teamLead: "Samadrita Das",
+      teamLeadContact: "7980595798",
+      mentor: "Dr. Anusuya Debnath",
+      mentorContact: "",
+      deskNo: "1"
     },
     7: {
       img: "scienceimage/7img.jpg",
-      title: "Automated Recycling Robot",
-      description: "Robot designed to segregate and recycle waste efficiently."
+      title: "Sustainable Solid Waste Management in a Circular Economy",
+      description: "Robot designed to segregate and recycle waste efficiently.",
+      email: "sayannaskaral@gmail.com",
+      institute: "Baruipur High School",
+      category: "Junior",
+      members: ["Sayan Naskar"],
+      teamLead: "Sayak Sarkar",
+      teamLeadContact: "9330618882",
+      mentor: "Sujit Mondal",
+      mentorContact: "9735222384",
+      deskNo: "27"
     },
     8: {
       img: "scienceimage/8img.jpg",
-      title: "Bee & Organic Farming",
-      description: "Integrating bees into organic farming to boost pollination."
+      title: "Bee-yond Tourism: Harnessing Sustainability",
+      description: "Integrating bees into organic farming to boost pollination.",
+      email: "sayansen1509@gmail.com",
+      institute: "Brainware University",
+      category: "Senior",
+      members: ["Sayan Sen", "Sreshthya Singha"],
+      teamLead: "Sayan Sen",
+      teamLeadContact: "9874920060",
+      mentor: "Soumik Dey Roy",
+      mentorContact: "+91 86175 76557",
+      deskNo: "06"
     },
     9: {
       img: "scienceimage/9img.jpg",
-      title: "Marine Plastic Cleaner",
-      description: "Autonomous system to remove plastics from oceans."
+      title: "Smart Reward Based Dustbin",
+      description: "Autonomous system to remove plastics from oceans.",
+      email: "hasanurjaman72@gmail.com",
+      institute: "Satulia Islamia Sr. Madrasah",
+      category: "Junior",
+      members: ["Arif Mehebub", "Tarik Jamil"],
+      teamLead: "Arif Mehebub",
+      teamLeadContact: "+919735130501",
+      mentor: "Hasanur Jaman",
+      mentorContact: "9732487504",
+      deskNo: "12"
     },
     10: {
       img: "scienceimage/10img.jpg",
-      title: "AI-Based Traffic Management",
-      description: "Reducing congestion with AI-driven traffic lights."
+      title: "Terrarium - Nature for Beautifying Interior",
+      description: "Reducing congestion with AI-driven traffic lights.",
+      email: "gnbvschool@gmail.com",
+      institute: "GHOSHPARA NISCHINDA BALIKA VIDYAPITH",
+      category: "Junior",
+      members: ["Priyoma Dey IX", "Prajna Das IX"],
+      teamLead: "Priyoma Dey",
+      teamLeadContact: "9804360595",
+      mentor: "Dr. Soumi Bhattacharjee",
+      mentorContact: "6290432224",
+      deskNo: "23"
     },
     11: {
       img: "scienceimage/11img.jpg",
-      title: "Lotus Leaf Self-Cleaning Surface",
-      description: "Inspired by lotus leaves, surfaces repel water and dirt naturally."
+      title: "Smart Garbage Segregation Dustbin",
+      description: "Inspired by lotus leaves, surfaces repel water and dirt naturally.",
+      email: "kalpanashit63@gmail.com",
+      institute: "B.E. College Model School",
+      category: "Junior",
+      members: ["Nirjhar Bandyopadhyay", "Oishik Shit"],
+      teamLead: "Oishik Shit",
+      teamLeadContact: "+91 98306 31516",
+      mentor: "",
+      mentorContact: "",
+      deskNo: "28"
     }
   };
+
 
   function showSection(id) {
     document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
