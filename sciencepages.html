@@ -5,195 +5,281 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2025 Science Exhibition</title>
   <style>
-    /* ===== General Styles ===== */
     body {
-      font-family: 'Poppins', Arial, sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #fcdec1, #b4f0af);
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      background: #f8f9fa;
     }
 
-    /* ===== Navbar ===== */
-    nav {
-      background-color: #005da0;
+    header {
+      background: #004080;
       color: white;
-      padding: 1em;
+      padding: 15px;
       text-align: center;
-      font-size: 1.5em;
+      font-size: 24px;
       font-weight: bold;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
-    /* ===== Main Title ===== */
-    h1 {
-      text-align: center;
-      padding: 1em;
-      margin: 0;
-      font-size: 2em;
-      color: #005da0;
-      background-color: rgba(255, 255, 255, 0.8);
-      border-bottom: 2px solid #005da0;
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #e3e3e3;
+      padding: 10px;
     }
 
-    /* ===== Block Container ===== */
+    nav button {
+      background: #004080;
+      color: white;
+      border: none;
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    nav button:hover {
+      background: #00264d;
+    }
+
     .block-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 2.5em; /* more space between cards */
-      padding: 2em;
-    }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Force 3 columns */
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
 
-    /* For desktop: 3 per row */
-    @media (min-width: 900px) {
-      .block-container {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
 
-    /* ===== Stall Card Styles ===== */
     .stall-card {
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       overflow: hidden;
-      transition: all 0.3s ease;
       text-align: center;
+      transition: 0.3s;
+      cursor: pointer;
     }
 
     .stall-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      transform: scale(1.05);
     }
 
     .stall-card img {
       width: 100%;
-      height: 180px; /* increased image size */
+      height: 150px;
       object-fit: cover;
-      border-bottom: 1px solid #ddd;
     }
 
     .stall-card p {
-      padding: 1em 1em 0.3em 1em; /* more space between title and top of card */
-      font-weight: 700;
-      font-size: 1.2em;
-      color: #222;
+      font-weight: bold;
+      margin: 10px 0 5px;
     }
 
     .stall-card small {
       display: block;
-      padding: 0.5em 1em 1em 1em; /* more space between title and description */
-      font-weight: 400;
-      color: #555;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #666;
     }
 
-    /* ===== Footer ===== */
+    #senior, #junior {
+      margin-bottom: 15vh;
+    }
+
     footer {
-      background-color: #222;
+      background: #004080;
       color: white;
       text-align: center;
-      padding: 1em;
-      margin-top: auto;
+      padding: 10px;
+      font-size: 14px;
     }
 
-    /* ===== Responsive ===== */
-    @media (max-width: 600px) {
-      .stall-card img {
-        height: 120px;
-      }
-      .stall-card p {
-        font-size: 1em;
-      }
-      .stall-card small {
-        font-size: 0.9em;
-      }
-    }
+    /* Hide other sections initially */
+    .section { display: none; }
+    .section.active { display: grid; }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav>2025 Science Exhibition</nav>
+<header>2025 Science Exhibition</header>
 
-  <!-- Main Title -->
-  <h1>Explore Our Stalls</h1>
+<nav>
+  <button onclick="showSection('all')">All</button>
+  <button onclick="showSection('senior')">Senior</button>
+  <button onclick="showSection('junior')">Junior</button>
+</nav>
 
-  <!-- Main Section -->
-  <main class="block-container">
-    <div class="stall-card">
-        <img src="scienceimage/1img.jpg" alt="Metal & Steel Factory">
-        <p>1. Eco-Friendly Energy Model</p>
-        <small>A sustainable model demonstrating energy efficiency techniques.</small>
-    </div>
+<!-- All Projects -->
+<main id="all" class="block-container section active">
+  <div class="stall-card" onclick="openDetails(1)">
+    <img src="scienceimage/1img.jpg" alt="Eco Energy">
+    <p>Eco-Friendly Energy Model</p>
+    <small>A sustainable model demonstrating energy efficiency techniques.</small>
+  </div>
 
-    <div class="stall-card">
-        <img src="scienceimage/2img.jpg" alt="Armoured Vehicles Nigam">
-        <p>2. Smart Waste Management</p>
-        <small>An innovative approach to optimize urban waste disposal.</small>
-    </div>
+  <div class="stall-card" onclick="openDetails(2)">
+    <img src="scienceimage/2img.jpg" alt="Smart Waste">
+    <p>Smart Waste Management</p>
+    <small>Innovative approach to optimize urban waste disposal.</small>
+  </div>
 
-    <div class="stall-card">
-        <img src="scienceimage/3img.jpg" alt="Stall 3">
-        <p>3. Biogas Generation</p>
-        <small>Shows how organic waste can be converted into renewable energy.</small>
-    </div>
+  <div class="stall-card" onclick="openDetails(3)">
+    <img src="scienceimage/3img.jpg" alt="AI Waste">
+    <p>AI-Powered Waste Sorting</p>
+    <small>Optimizing waste management using AI & IoT.</small>
+  </div>
 
-    <div class="stall-card">
-        <img src="scienceimage/4img.jpg" alt="Stall 4">
-        <p>4. Lunar Research Base</p>
-        <small>A futuristic concept for sustainable living on the moon.</small>
-    </div>
+  <div class="stall-card" onclick="openDetails(4)">
+    <img src="scienceimage/4img.jpg" alt="Green Energy">
+    <p>Renewable Energy Plant</p>
+    <small>Generating clean energy using hybrid solar-wind systems.</small>
+  </div>
 
-    <div class="stall-card">
-        <img src="scienceimage/5img.jpg" alt="Stall 5">
-        <p>5. IoT-Integrated Aeroponics</p>
-        <small>Smart aeroponic farming using IoT sensors for optimal growth.</small>
-    </div>
+  <div class="stall-card" onclick="openDetails(5)">
+    <img src="scienceimage/5img.jpg" alt="Water Purifier">
+    <p>Low-Cost Water Purifier</p>
+    <small>Providing clean water using natural filtration techniques.</small>
+  </div>
 
-    <div class="stall-card">
-        <img src="scienceimage/6img.jpg" alt="Stall 6">
-        <p>6. Mushroom-Based Soil Restoration</p>
-        <small>Biotechnological approach to rejuvenate degraded soil naturally.</small>
-    </div>
+  <div class="stall-card" onclick="openDetails(6)">
+    <img src="scienceimage/6img.jpg" alt="Mushroom Soil">
+    <p>Mushroom-Based Soil Restoration</p>
+    <small>Biotechnological approach to rejuvenate degraded soil naturally.</small>
+  </div>
 
-    <div class="stall-card">
-        <img src="scienceimage/7img.jpg" alt="Stall 7">
-        <p>7. Hydroponic Farming System</p>
-        <small>Soilless cultivation system for high-efficiency crop production.</small>
-    </div>
+  <div class="stall-card" onclick="openDetails(7)">
+    <img src="scienceimage/7img.jpg" alt="Recycling Robot">
+    <p>Automated Recycling Robot</p>
+    <small>Robot designed to segregate and recycle waste efficiently.</small>
+  </div>
 
-    <div class="stall-card">
-        <img src="scienceimage/8img.jpg" alt="Stall 8">
-        <p>8. Bee & Organic Farming</p>
-        <small>Integrating bees into organic farming to boost pollination.</small>
-    </div>
+  <div class="stall-card" onclick="openDetails(8)">
+    <img src="scienceimage/8img.jpg" alt="Bee Farming">
+    <p>Bee & Organic Farming</p>
+    <small>Integrating bees into organic farming to boost pollination.</small>
+  </div>
 
-    <div class="stall-card">
-        <img src="scienceimage/9img.jpg" alt="Stall 9">
-        <p>9. Smart City Infrastructure</p>
-        <small>Concepts for sustainable and intelligent urban development.</small>
-    </div>
+  <div class="stall-card" onclick="openDetails(9)">
+    <img src="scienceimage/9img.jpg" alt="Ocean Cleaner">
+    <p>Marine Plastic Cleaner</p>
+    <small>Autonomous system to remove plastics from oceans.</small>
+  </div>
 
-    <div class="stall-card">
-        <img src="scienceimage/10img.jpg" alt="Stall 10">
-        <p>10. Biodegradable System</p>
-        <small>Demonstrates eco-friendly materials that decompose naturally.</small>
-    </div>
+  <div class="stall-card" onclick="openDetails(10)">
+    <img src="scienceimage/10img.jpg" alt="Smart Traffic">
+    <p>AI-Based Traffic Management</p>
+    <small>Reducing congestion with AI-driven traffic lights.</small>
+  </div>
 
-    <div class="stall-card">
-        <img src="scienceimage/11img.jpg" alt="Stall 11">
-        <p>11. Lotus Leaf Self-Cleaning Surface</p>
-        <small>Inspired by lotus leaves, surfaces repel water and dirt naturally.</small>
-    </div>
+  <div class="stall-card" onclick="openDetails(11)">
+    <img src="scienceimage/11img.jpg" alt="Lotus Leaf Coating">
+    <p>Lotus Leaf Self-Cleaning Surface</p>
+    <small>Inspired by lotus leaves, surfaces repel water and dirt naturally.</small>
+  </div>
+</main>
+<!-- senior -->
+ <main id="senior" class="block-container section active">
+  <div class="stall-card" onclick="openDetails(2)">
+    <img src="scienceimage/2img.jpg" alt="Eco Energy">
+    <p>Smart Waste Management</p>
+    <small>Innovative approach to optimize urban waste disposal</small>
+  </div>
+<div class="stall-card" onclick="openDetails(3)">
+    <img src="scienceimage/3img.jpg" alt="Eco Energy">
+       <p>AI-Powered Waste Sorting</p>
+    <small>Optimizing waste management using AI & IoT.</small>
+  </div>
+  <div class="stall-card" onclick="openDetails(5)">
+    <img src="scienceimage/5img.jpg" alt="Water Purifier">
+    <p>Low-Cost Water Purifier</p>
+    <small>Providing clean water using natural filtration techniques.</small>
+  </div>
+
+  <div class="stall-card" onclick="openDetails(6)">
+    <img src="scienceimage/6img.jpg" alt="Mushroom Soil">
+    <p>Mushroom-Based Soil Restoration</p>
+    <small>Biotechnological approach to rejuvenate degraded soil naturally.</small>
+  </div>
+  <div class="stall-card" onclick="openDetails(8)">
+    <img src="scienceimage/8img.jpg" alt="Bee Farming">
+    <p>Bee & Organic Farming</p>
+    <small>Integrating bees into organic farming to boost pollination.</small>
+  </div>
+
+  <div class="stall-card" onclick="openDetails(9)">
+    <img src="scienceimage/9img.jpg" alt="Ocean Cleaner">
+    <p>Marine Plastic Cleaner</p>
+    <small>Autonomous system to remove plastics from oceans.</small>
+  </div>
+<div class="stall-card" onclick="openDetails(10)">
+    <img src="scienceimage/10img.jpg" alt="Smart Traffic">
+    <p>AI-Based Traffic Management</p>
+    <small>Reducing congestion with AI-driven traffic lights.</small>
+  </div>
+
+</main>
+
+
+
+<!-- junior -->
+
+<main id="junior" class="block-container section active">
+  <div class="stall-card" onclick="openDetails(1)">
+    <img src="scienceimage/1img.jpg" alt="Eco Energy">
+    <p>Eco-Friendly Energy Model</p>
+    <small>A sustainable model demonstrating energy efficiency techniques.</small>
+  </div>
+
+<div class="stall-card" onclick="openDetails(8)">
+    <img src="scienceimage/8img.jpg" alt="Eco Energy">
+    <p>Bee & Organic Farming</p>
+    <small>Boosts pollination and promotes sustainability.</small>
+  </div>
+
+
+  <div class="stall-card" onclick="openDetails(11)">
+    <img src="scienceimage/11img.jpg" alt="Eco Energy">
+    <p>Lotus Leaf Self-Cleaning Surface</p>
+    <small>Repels water & dirt naturally for industrial applications.</small>
+  </div>
+
+<div class="stall-card" onclick="openDetails(4)">
+    <img src="scienceimage/4img.jpg" alt="Eco Energy">
+    <p>Eco-Friendly Energy Model</p>
+    <small>Shows how waste can be converted into energy.</small>
+  </div>
+
+<div class="stall-card" onclick="openDetails(7)">
+    <img src="scienceimage/7img.jpg" alt="Eco Energy">
+    <p>Automated Recycling Robo</p>
+    <small>Robot designed to segregate and recycle waste efficiently.</small>
+  </div>
+<div class="stall-card" onclick="openDetails(10)">
+    <img src="scienceimage/10img.jpg" alt="Smart Traffic">
+    <p>AI-Based Traffic Management</p>
+    <small>Reducing congestion with AI-driven traffic lights.</small>
+  </div>
+
+
+
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Defence Expo</p>
-  </footer>
+
+
+<footer>© 2025 Science Exhibition | All Rights Reserved</footer>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  function openDetails(id) {
+    window.location.href = `review.html?id=${id}`;
+  }
+</script>
 
 </body>
 </html>

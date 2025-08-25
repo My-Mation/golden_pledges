@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Science Exhibition Reviews</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #0077cc;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 24px;
+    }
+    .container {
+      width: 90%;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .project-image {
+      text-align: center;
+    }
+    .project-image img {
+      width: 400px;
+      border-radius: 10px;
+    }
+    .description {
+      margin-top: 15px;
+      font-size: 18px;
+      text-align: center;
+    }
+    .reviews {
+      margin-top: 20px;
+    }
+    .review-box {
+      background: #f9f9f9;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #005fa3;
+    }
+  </style>
+</head>
+<body>
+<header>Science Exhibition 2025 - Project Reviews</header>
+
+<div class="container">
+  <div class="project-image">
+    <img id="projectImg" src="" alt="Project">
+  </div>
+  <p class="description" id="projectDescription"></p>
+
+  <div class="reviews">
+    <h3>Judges' Reviews:</h3>
+    <div id="judgesReviews"></div>
+  </div>
+
+  <div class="reviews">
+    <h3>Public Reviews:</h3>
+    <div id="publicReviews"></div>
+    <textarea id="userReview" placeholder="Write your review..."></textarea>
+    <button onclick="addPublicReview()">Submit Review</button>
+  </div>
+</div>
+
+<script>
+const projects = {
+  1: {
+    img: "scienceimage/1img.jpg",
+    description: "Eco-Friendly Energy Model: A sustainable model demonstrating energy efficiency techniques.",
+    judges: ["Great innovative concept!", "Well-presented model."]
+  },
+  2: {
+    img: "scienceimage/2img.jpg",
+    description: "Smart Waste Management: Optimizing urban waste disposal using IoT.",
+    judges: ["Practical and impactful.", "Excellent use of technology."]
+  },
+  3: {
+    img: "scienceimage/3img.jpg",
+    description: "AI Traffic Management: Reduces congestion using AI-based predictions.",
+    judges: ["Very futuristic idea.", "Needs real-world trials."]
+  },
+  4: {
+    img: "scienceimage/4img.jpg",
+    description: "Water Purification System: Affordable solution for rural areas.",
+    judges: ["Highly useful.", "Cost-effective approach."]
+  },
+  5: {
+    img: "scienceimage/5img.jpg",
+    description: "Plastic Waste Recycler: Converts plastic into usable products.",
+    judges: ["Environmentally friendly.", "Scalable innovation."]
+  },
+  6: {
+    img: "scienceimage/6img.jpg",
+    description: "Mushroom-Based Soil Restoration: Restores barren lands naturally.",
+    judges: ["Biotech brilliance.", "Low-cost solution."]
+  },
+  7: {
+    img: "scienceimage/7img.jpg",
+    description: "Solar Car Prototype: Affordable solar-powered vehicle.",
+    judges: ["Excellent engineering.", "Good efficiency results."]
+  },
+  8: {
+    img: "scienceimage/8img.jpg",
+    description: "Bee & Organic Farming: Boosts crop yield sustainably.",
+    judges: ["Supports farmers.", "Eco-friendly innovation."]
+  },
+  9: {
+    img: "scienceimage/9img.jpg",
+    description: "Smart Irrigation System: Reduces water wastage in farming.",
+    judges: ["Saves resources.", "Easy to implement."]
+  },
+  10: {
+    img: "scienceimage/10img.jpg",
+    description: "Drone Delivery System: Ensures fast delivery to remote areas.",
+    judges: ["Highly practical.", "Needs regulatory approval."]
+  },
+  11: {
+    img: "scienceimage/11img.jpg",
+    description: "Lotus Leaf Self-Cleaning Surface: Repels water & dirt naturally.",
+    judges: ["Inspired by nature.", "Great industrial application."]
+  }
+};
+
+let currentProject = null;
+const params = new URLSearchParams(window.location.search);
+const projectId = params.get("id");
+
+if (projects[projectId]) {
+  currentProject = projects[projectId];
+  document.getElementById("projectImg").src = currentProject.img;
+  document.getElementById("projectDescription").textContent = currentProject.description;
+
+  const judgesContainer = document.getElementById("judgesReviews");
+  currentProject.judges.forEach(review => {
+    const div = document.createElement("div");
+    div.className = "review-box";
+    div.textContent = review;
+    judgesContainer.appendChild(div);
+  });
+}
+
+function addPublicReview() {
+  const reviewText = document.getElementById("userReview").value.trim();
+  if (reviewText !== "") {
+    const div = document.createElement("div");
+    div.className = "review-box";
+    div.textContent = reviewText;
+    document.getElementById("publicReviews").appendChild(div);
+    document.getElementById("userReview").value = "";
+  }
+}
+</script>
+</body>
+</html>
