@@ -4,6 +4,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const stallCards = document.querySelectorAll('.stall-card');
 
+    // ✅ Add link button dynamically to each stall card
+    stallCards.forEach(card => {
+        const stallId = card.dataset.id;
+        if (!card.querySelector('.stall-link-btn')) { 
+            const btn = document.createElement('button');
+            btn.textContent = "View Stall";
+            btn.classList.add('stall-link-btn');
+            btn.addEventListener('click', () => {
+                window.location.href = `view.html?id=${stallId}`;
+            });
+            card.appendChild(btn);
+        }
+    });
+
     // Build lookup table
     const stallLookup = {};
     stallCards.forEach(card => {
