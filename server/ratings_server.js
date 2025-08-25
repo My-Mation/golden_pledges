@@ -21,8 +21,8 @@ app.post('/api/ratings', async (req, res) => {
       return res.status(400).json({ error: 'Missing required fields' });
     }
     
-    if (rating < 1 || rating > 5) {
-      return res.status(400).json({ error: 'Rating must be between 1 and 5' });
+    if (rating < 0 || rating > 5) {
+      return res.status(400).json({ error: 'Rating must be between 0 and 5' });
     }
     
     if (userName.trim().length < 2) {

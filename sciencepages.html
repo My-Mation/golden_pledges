@@ -99,6 +99,154 @@
     /* Hide other sections initially */
     .section { display: none; }
     .section.active { display: grid; }
+    
+    /* Loading and Top Pages Styles */
+    .loading-message {
+      text-align: center;
+      padding: 40px;
+      color: #666;
+    }
+    
+    .loading-message p {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #004080;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .top-projects {
+      width: 100%;
+    }
+    
+    .top-project-card {
+      background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      transition: 0.3s;
+      cursor: pointer;
+      border: 2px solid transparent;
+      position: relative;
+    }
+    
+    .top-project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      border-color: #ffd700;
+    }
+    
+    .top-project-card.rank-1 {
+      border-color: #ffd700;
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+    }
+    
+    .top-project-card.rank-2 {
+      border-color: #c0c0c0;
+      box-shadow: 0 6px 20px rgba(192, 192, 192, 0.3);
+    }
+    
+    .top-project-card.rank-3 {
+      border-color: #cd7f32;
+      box-shadow: 0 6px 20px rgba(205, 127, 50, 0.3);
+    }
+    
+    .rank-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: white;
+      font-size: 14px;
+    }
+    
+    .rank-1 .rank-badge {
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      color: #333;
+    }
+    
+    .rank-2 .rank-badge {
+      background: linear-gradient(135deg, #c0c0c0 0%, #e5e5e5 100%);
+      color: #333;
+    }
+    
+    .rank-3 .rank-badge {
+      background: linear-gradient(135deg, #cd7f32 0%, #daa520 100%);
+      color: white;
+    }
+    
+    .rating-summary {
+      background: rgba(0, 64, 128, 0.1);
+      padding: 8px;
+      border-radius: 8px;
+      margin: 10px 0;
+      font-size: 14px;
+      color: #004080;
+    }
+    
+    .rating-summary .stars {
+      color: #ffd700;
+      font-size: 16px;
+      margin: 0 5px;
+    }
+    
+    .rating-summary .count {
+      font-weight: bold;
+      color: #004080;
+    }
+    
+    .error-message {
+      text-align: center;
+      padding: 30px;
+      color: #721c24;
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    
+    .error-message p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    
+    .error-message code {
+      background: #e9ecef;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 14px;
+    }
+    
+    .no-ratings {
+      text-align: center;
+      padding: 40px;
+      color: #666;
+    }
+    
+    .no-ratings p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
@@ -109,6 +257,7 @@
   <button onclick="showSection('all')">All</button>
   <button onclick="showSection('senior')">Senior</button>
   <button onclick="showSection('junior')">Junior</button>
+  <button onclick="showSection('top')">Top Pages</button>
 </nav>
 
 <!-- All Projects -->
@@ -266,18 +415,230 @@
 
   </main>
 
-
+<!-- Top Pages Section -->
+<main id="top" class="block-container section">
+  <div class="loading-message" id="topLoading">
+    <p>Loading top-rated projects...</p>
+    <div class="spinner"></div>
+  </div>
+  <div class="top-projects" id="topProjects" style="display: none;">
+    <!-- Top projects will be loaded here dynamically -->
+  </div>
+</main>
 
 <footer>© 2025 Science Exhibition | All Rights Reserved</footer>
 
 <script>
+  // Project data with descriptions
+  const projects = {
+    1: {
+      img: "scienceimage/1img.jpg",
+      title: "Eco-Friendly Energy Model",
+      description: "A sustainable model demonstrating energy efficiency techniques."
+    },
+    2: {
+      img: "scienceimage/2img.jpg",
+      title: "Smart Waste Management",
+      description: "Innovative approach to optimize urban waste disposal."
+    },
+    3: {
+      img: "scienceimage/3img.jpg",
+      title: "AI-Powered Waste Sorting",
+      description: "Optimizing waste management using AI & IoT."
+    },
+    4: {
+      img: "scienceimage/4img.jpg",
+      title: "Renewable Energy Plant",
+      description: "Generating clean energy using hybrid solar-wind systems."
+    },
+    5: {
+      img: "scienceimage/5img.jpg",
+      title: "Low-Cost Water Purifier",
+      description: "Providing clean water using natural filtration techniques."
+    },
+    6: {
+      img: "scienceimage/6img.jpg",
+      title: "Mushroom-Based Soil Restoration",
+      description: "Biotechnological approach to rejuvenate degraded soil naturally."
+    },
+    7: {
+      img: "scienceimage/7img.jpg",
+      title: "Automated Recycling Robot",
+      description: "Robot designed to segregate and recycle waste efficiently."
+    },
+    8: {
+      img: "scienceimage/8img.jpg",
+      title: "Bee & Organic Farming",
+      description: "Integrating bees into organic farming to boost pollination."
+    },
+    9: {
+      img: "scienceimage/9img.jpg",
+      title: "Marine Plastic Cleaner",
+      description: "Autonomous system to remove plastics from oceans."
+    },
+    10: {
+      img: "scienceimage/10img.jpg",
+      title: "AI-Based Traffic Management",
+      description: "Reducing congestion with AI-driven traffic lights."
+    },
+    11: {
+      img: "scienceimage/11img.jpg",
+      title: "Lotus Leaf Self-Cleaning Surface",
+      description: "Inspired by lotus leaves, surfaces repel water and dirt naturally."
+    }
+  };
+
   function showSection(id) {
     document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
     document.getElementById(id).classList.add('active');
+    
+    // Load top projects when top section is shown
+    if (id === 'top') {
+      loadTopProjects();
+    }
   }
 
   function openDetails(id) {
     window.location.href = `review.html?id=${id}`;
+  }
+
+  // Load top-rated projects from localStorage (no server)
+  function loadTopProjects() {
+    const loadingDiv = document.getElementById('topLoading');
+    const projectsDiv = document.getElementById('topProjects');
+    
+    // Show loading
+    loadingDiv.style.display = 'block';
+    projectsDiv.style.display = 'none';
+    
+    // Gather ratings from localStorage for known projects
+    const projectStats = {};
+    Object.keys(projects).forEach((projectId) => {
+      const key = `project_${projectId}_ratings`;
+      const raw = localStorage.getItem(key);
+      if (!raw) return;
+      try {
+        const ratings = JSON.parse(raw) || [];
+        ratings.forEach((r) => {
+          const stars = Number(r.rating) || 0;
+          if (stars <= 0) return; // ignore text-only reviews
+          if (!projectStats[projectId]) {
+            projectStats[projectId] = { totalStars: 0, totalRatings: 0 };
+          }
+          projectStats[projectId].totalStars += stars;
+          projectStats[projectId].totalRatings += 1;
+        });
+      } catch (e) {
+        /* ignore parse errors */
+      }
+    });
+    
+    // Sort by totalStars ASC (as requested)
+    const sorted = Object.entries(projectStats)
+      .sort(([,a], [,b]) => a.totalStars - b.totalStars)
+      .filter(([,stats]) => stats.totalRatings > 0);
+    
+    // Display
+    displayTopProjectsLocal(sorted);
+  }
+
+  // Display top projects using local totals
+  function displayTopProjectsLocal(sortedProjects) {
+    const loadingDiv = document.getElementById('topLoading');
+    const projectsDiv = document.getElementById('topProjects');
+    
+    if (sortedProjects.length === 0) {
+      loadingDiv.innerHTML = `
+        <div class="no-ratings">
+          <p>No projects have been rated yet.</p>
+          <p>Be the first to rate a project!</p>
+        </div>
+      `;
+      return;
+    }
+    
+    let projectsHTML = '<h2 style="text-align: center; color: #004080; margin-bottom: 30px;">🏆 Top Pages (by total stars)</h2>';
+    
+    sortedProjects.forEach(([projectId, stats], index) => {
+      const project = projects[projectId];
+      if (!project) return;
+      const rank = index + 1;
+      const rankClass = rank <= 3 ? `rank-${rank}` : '';
+      const rankBadge = rank <= 3 ? `<div class="rank-badge">${rank}</div>` : '';
+      const avg = stats.totalRatings > 0 ? (stats.totalStars / stats.totalRatings) : 0;
+      const stars = '★'.repeat(Math.round(avg)) + '☆'.repeat(5 - Math.round(avg));
+      
+      projectsHTML += `
+        <div class="top-project-card ${rankClass}" onclick="openDetails(${projectId})">
+          ${rankBadge}
+          <img src="${project.img}" alt="${project.title}" style="width: 100%; height: 150px; object-fit: cover;">
+          <p style="font-weight: bold; margin: 10px 0 5px; font-size: 16px;">${project.title}</p>
+          <small style="display: block; margin-bottom: 10px; font-size: 14px; color: #666;">${project.description}</small>
+          <div class="rating-summary">
+            <span class="stars">${stars}</span>
+            <span class="count">Total Stars: ${stats.totalStars}</span>
+            <br>
+            <small>${stats.totalRatings} rating${stats.totalRatings !== 1 ? 's' : ''}</small>
+          </div>
+        </div>
+      `;
+    });
+    
+    projectsHTML += '</div>';
+    loadingDiv.style.display = 'none';
+    projectsDiv.innerHTML = projectsHTML;
+    projectsDiv.style.display = 'grid';
+  }
+
+  // Display top projects in the UI
+  function displayTopProjects(sortedProjects) {
+    const loadingDiv = document.getElementById('topLoading');
+    const projectsDiv = document.getElementById('topProjects');
+    
+    if (sortedProjects.length === 0) {
+      loadingDiv.innerHTML = `
+        <div class="no-ratings">
+          <p>No projects have been rated yet.</p>
+          <p>Be the first to rate a project!</p>
+        </div>
+      `;
+      return;
+    }
+    
+    let projectsHTML = '<h2 style="text-align: center; color: #004080; margin-bottom: 30px;">🏆 Top Rated Projects</h2>';
+    
+    sortedProjects.forEach(([projectId, stats], index) => {
+      const project = projects[projectId];
+      if (!project) return;
+      
+      const rank = index + 1;
+      const rankClass = rank <= 3 ? `rank-${rank}` : '';
+      const rankBadge = rank <= 3 ? `<div class="rank-badge">${rank}</div>` : '';
+      
+      const stars = '★'.repeat(Math.round(stats.averageRating)) + '☆'.repeat(5 - Math.round(stats.averageRating));
+      
+      projectsHTML += `
+        <div class="top-project-card ${rankClass}" onclick="openDetails(${projectId})">
+          ${rankBadge}
+          <img src="${project.img}" alt="${project.title}" style="width: 100%; height: 150px; object-fit: cover;">
+          <p style="font-weight: bold; margin: 10px 0 5px; font-size: 16px;">${project.title}</p>
+          <small style="display: block; margin-bottom: 10px; font-size: 14px; color: #666;">${project.description}</small>
+          <div class="rating-summary">
+            <span class="stars">${stars}</span>
+            <span class="count">${stats.averageRating.toFixed(1)}/5.0</span>
+            <br>
+            <small>${stats.totalRatings} rating${stats.totalRatings !== 1 ? 's' : ''}</small>
+          </div>
+        </div>
+      `;
+    });
+    
+    projectsHTML += '</div>';
+    
+    // Hide loading and show projects
+    loadingDiv.style.display = 'none';
+    projectsDiv.innerHTML = projectsHTML;
+    projectsDiv.style.display = 'grid';
   }
 </script>
 

@@ -21,7 +21,7 @@ function createTables() {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       project_id INTEGER NOT NULL,
       user_name TEXT NOT NULL,
-      rating INTEGER NOT NULL CHECK (rating >= 1 AND rating <= 5),
+      rating INTEGER NOT NULL CHECK (rating >= 0 AND rating <= 5),
       review_text TEXT,
       timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
     )
@@ -39,6 +39,12 @@ function createTables() {
 // Save a new rating
 function saveRating(projectId, userName, rating, reviewText = null) {
   return new Promise((resolve, reject) => {
+    // For text-only reviews (rating = 0), ensure there's review text
+    if (rating === 0 && (!reviewText || reviewText.trim().length === 0)) {
+      reject(new Error('Review text is required for text-only reviews'));
+      return;
+    }
+    
     const sql = `
       INSERT INTO ratings (project_id, user_name, rating, review_text, timestamp)
       VALUES (?, ?, ?, ?, datetime('now'))
