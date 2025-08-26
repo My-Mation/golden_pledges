@@ -272,12 +272,20 @@
     <!-- Slider 2 -->
     <div class="slider-container">
       <div class="slider-wrapper">
-        <img src="scienceimage/1strun.jpeg" class="slide slide2 active" alt="DRDO">
-        <img src="scienceimage/2ndrun.jpeg" class="slide slide2" alt="HAL">
-        <img src="scienceimage/3rdrun.jpeg" class="slide slide2" alt="CMFRI">
+        <!-- Two images for 1st Position -->
+        <img src="scienceimage/1strun.jpeg" class="slide slide2 active" alt="1st Position - Rivana Parvin">
+        <img src="scienceimage/1st2nd.jpeg" class="slide slide2" alt="1st Position - Priti Singha">
+
+        <!-- One image for 2nd Position -->
+        <img src="scienceimage/2ndrun.jpeg" class="slide slide2" alt="2nd Position - Arif & Tarik">
+
+        <!-- One image for 3rd Position -->
+        <img src="scienceimage/3rdrun.jpeg" class="slide slide2" alt="3rd Position - Sayan & Sreshthya">
       </div>
+
       <div class="slider-caption" id="rankText2">Got 1st Rank</div>
     </div>
+
 
     <!-- Slider 3 -->
     <div class="slider-container">
@@ -510,7 +518,7 @@
     function startSlider(slideClass, captionId) {
       let slides = document.querySelectorAll(`.${slideClass}`);
       let caption = document.getElementById(captionId);
-      let ranks =  ["Got 1st Rank for Stall", "Got 2nd Ran for Stall", "Got 3rd Rank for Stall"];
+      let ranks = ["Got 1st Rank for Stall", "Got 2nd Ran for Stall", "Got 3rd Rank for Stall"];
       let index = 0;
 
       function showSlide() {
@@ -531,22 +539,32 @@
 
     // Independent slider for Slide2
     (function () {
-      let slides = document.querySelectorAll('.slide2');
-      let caption = document.getElementById('rankText2');
-      let ranks =["Got 1st Rank Science Project name : BASUNDHORA Position  1st Participants name   RIVANA PARVIN PRITI SINGHA School name -DHOLA HIGH SCHOOL HS   ", "Got 2nd Rank  Science  Project Name: Smart Reward Based Dustbin.Position: 2nd position.Participants Name: Arif Mehboob, Tarik Zamil.School Name: Satulia Islamia senior madrasha.", "Got 3rd Rank Science Project name: Bee-yond Tourism: Harnessing Sustainability Position: 3rd  Participants name: Sayan Sen & Sreshthya Singha School/College Name: Brainware University"];
-      let index = 0;
+  let slides = document.querySelectorAll('.slide2');
+  let caption = document.getElementById('rankText2');
 
-      function showSlide() {
-        slides.forEach((slide, i) => {
-          slide.classList.remove('active');
-          if (i === index) slide.classList.add('active');
-        });
-        caption.textContent = ranks[index];
-        index = (index + 1) % slides.length;
-      }
+  // Captions for each slide (match order with images above)
+  let ranks = [
+    "Got 1st Rank - Science Project: BASUNDHORA | Position: 1st | Participant: RIVANA PARVIN,PRITI SINGHA | School: DHOLA HIGH SCHOOL (HS)",
+    "Got 1st Rank - Science Project: BASUNDHORA | Position: 1st | Participant: Plaban paul , Ayan das| School: Begri High school",
+    "Got 2nd Rank - Science Project: Smart Reward Based Dustbin | Position: 2nd | Participants: Arif Mehboob, Tarik Zamil | School: Satulia Islamia Senior Madrasha",
+    "Got 3rd Rank - Science Project: Bee-yond Tourism: Harnessing Sustainability | Position: 3rd | Participants: Sayan Sen, Sreshthya Singha | College: Brainware University"
+  ];
 
-      setInterval(showSlide, 2000);
-    })();
+  let index = 0;
+
+  function showSlide() {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      if (i === index) slide.classList.add('active');
+    });
+
+    caption.textContent = ranks[index];
+    index = (index + 1) % slides.length;
+  }
+
+  setInterval(showSlide, 2000);
+})();
+
 
 
 
