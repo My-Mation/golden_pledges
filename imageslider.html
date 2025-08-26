@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Slider with Rank Section</title>
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+      background: #111;
+      font-family: Arial, sans-serif;
+    }
+
+    .slider {
+      position: relative;
+      width: 800px;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .slider img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    .slider img.active {
+      opacity: 1;
+    }
+
+    .rank-section {
+      width: 800px;
+      background: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 22px;
+      font-weight: bold;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slider">
+    <img src="assets/adamas.jpg" class="slide active">
+    <img src="assets/apeda.jpg" class="slide">
+    <img src="assets/bose.jpg" class="slide">
+  </div>
+
+  <div class="rank-section" id="rankText">Got 1st Rank</div>
+
+  <script>
+    let slides = document.querySelectorAll('.slide');
+    let rankText = document.getElementById('rankText');
+    let ranks = ["Got 1st Rank", "Got 2nd Rank", "Got 3rd Rank"];
+    let index = 0;
+
+    function showSlide() {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
+      });
+
+      rankText.textContent = ranks[index]; // Update rank text
+      index = (index + 1) % slides.length;
+    }
+
+    setInterval(showSlide, 2000); // Change image & rank every 2 seconds
+  </script>
+
+</body>
+</html>

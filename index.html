@@ -6,6 +6,7 @@
   <title>The 2025 Exhibition Field Report & Data Archive</title>
   <link rel="stylesheet" href="modern-style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+ 
 </head>
 <body>
   <!-- Header -->
@@ -252,6 +253,34 @@
   </a>
 </div>
 
+
+
+<!-- Image Slider Row (4 sliders side by side) -->
+<div class="slider-row">
+  <!-- Slider 1 -->
+  <div class="slider-container">
+    <div class="slider-wrapper">
+      <img src="scienceimage/1st.jpeg" class="slide slide1 active" alt="Adamas">
+      <img src="scienceimage/2nd.jpeg" class="slide slide1" alt="Apeda">
+      <img src="scienceimage/3rd.jpeg" class="slide slide1" alt="Bose">
+    </div>
+    <div class="slider-caption" id="rankText1">Got 1st Rank     </div>
+
+  </div>
+
+  <!-- Slider 2 -->
+  <div class="slider-container">
+    <div class="slider-wrapper">
+      <img src="assets/drdo.jpg" class="slide slide2 active" alt="DRDO">
+      <img src="assets/hal.jpg" class="slide slide2" alt="HAL">
+      <img src="assets/cmfri.jpg" class="slide slide2" alt="CMFRI">
+    </div>
+    <div class="slider-caption" id="rankText2">Got 1st Rank</div>
+  </div>
+</div>
+
+
+
   <footer style="
     background: var(--gray-900);
     color: white;
@@ -421,6 +450,57 @@
       }
     });
     
+
+
+// 
+
+// Multi-slider logic (4 independent sliders)
+function startSlider(slideClass, captionId) {
+  let slides = document.querySelectorAll(`.${slideClass}`);
+  let caption = document.getElementById(captionId);
+  let ranks = ["Got 1st Rank for Science Project     Project name - BASUNDHORA Position - 1st Participants name -     RIVANA PARVIN PRITI SINGHA School name -DHOLA HIGH SCHOOL HS", "Got 2nd Rank   for Science Project  Project Name: Smart Reward Based Dustbin. Position- 2nd position.Participants Name- Arif Mehboob, Tarik Zamil.School Name- Satulia Islamia senior madrasha", "Got 3rd Rank  for Science Project  Project name: Bee-yond Tourism: Harnessing Sustainability Position: 3rd Participants name: Sayan Sen & Sreshthya Singha School/College Name: Brainware University"];
+  let index = 0;
+
+  function showSlide() {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      if (i === index) slide.classList.add('active');
+    });
+    caption.textContent = ranks[index];
+    index = (index + 1) % slides.length;
+  }
+  setInterval(showSlide, 2000);
+
+// Independent slider for slide2
+(function () {
+  let slides = document.querySelectorAll('.slide2');
+  let caption = document.getElementById('rankText2');
+  let ranks = ["Got 1st Rank for stall", "Got 2nd Rank for stall", "Got 3rd Rank for stall"];
+  let index = 0;
+
+  function showSlide() {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      if (i === index) slide.classList.add('active');
+    });
+    caption.textContent = ranks[index];
+    index = (index + 1) % slides.length;
+  }
+
+  setInterval(showSlide, 2000);
+})();
+
+
+
+
+}
+
+// Initialize 4 sliders
+startSlider('slide1', 'rankText1');
+startSlider('slide2', 'rankText2');
+
+
+
   </script>
 </body>
 </html> 
