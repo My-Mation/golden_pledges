@@ -6,7 +6,6 @@
   <title>The 2025 Exhibition Field Report & Data Archive</title>
   <link rel="stylesheet" href="modern-style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
- 
 </head>
 <body>
   <!-- Header -->
@@ -114,6 +113,43 @@
         </section>
 
         <!-- Today's Schedule -->
+        <!-- <section id="top-gallery" class="card" style="margin-bottom: var(--spacing-xl); padding: var(--spacing-lg); text-align: center;">
+          <div class="gallery-header" style="margin-bottom: var(--spacing-md);">
+            <h2>📸 Explore Our Galleries</h2>
+            <p>Click a category to explore related content</p>
+          </div>
+          <div class="gallery-buttons" style="display: flex; justify-content: center; gap: var(--spacing-md);">
+            <a href="sciencepages.html" class="btn btn-primary btn-sm">Science</a>
+            <a href="cultural.html" class="btn btn-secondary btn-sm">Culture</a>
+          </div>
+        </section> -->
+        <section id="leaderboard" class="card">
+          <div class="leaderboard-header">
+            <h2>🏆 Popular Stalls</h2>
+            <p>Most voted stalls</p>
+          </div>
+          <div id="leaderboard-overall">
+            <!-- Leaderboard items will be loaded here -->
+          </div>
+        </section>
+        
+        <section id="social" class="card" style="margin-bottom: var(--spacing-xl);">
+          <div class="social-feed-header">
+            <h2>📱 Live Social Feed</h2>
+            <p>#KolkataSciCulture25</p>
+          </div>
+          <div id="social-feed-content" class="social-feed-content">
+            <!-- Social posts will be loaded here -->
+          </div>
+        </section>
+
+        <!-- Top Stalls Leaderboard -->
+        <!--  -->
+
+      </div>
+
+      <!-- Right Column -->
+      <div class="right-column">
         <section id="top-gallery" class="card" style="margin-bottom: var(--spacing-xl); padding: var(--spacing-lg); text-align: center;">
           <div class="gallery-header" style="margin-bottom: var(--spacing-md);">
             <h2>📸 Explore Our Galleries</h2>
@@ -124,34 +160,7 @@
             <a href="cultural.html" class="btn btn-secondary btn-sm">Culture</a>
           </div>
         </section>
-
-
-        <!-- Top Stalls Leaderboard -->
-        <section id="leaderboard" class="card">
-          <div class="leaderboard-header">
-            <h2>🏆 Popular Stalls</h2>
-            <p>Most voted stalls</p>
-          </div>
-          <div id="leaderboard-overall">
-            <!-- Leaderboard items will be loaded here -->
-          </div>
-        </section>
-
-      </div>
-
-      <!-- Right Column -->
-      <div class="right-column">
         
-        <!-- Social Media Feed -->
-        <section id="social" class="card" style="margin-bottom: var(--spacing-xl);">
-          <div class="social-feed-header">
-            <h2>📱 Live Social Feed</h2>
-            <p>#KolkataSciCulture25</p>
-          </div>
-          <div id="social-feed-content" class="social-feed-content">
-            <!-- Social posts will be loaded here -->
-          </div>
-        </section>
 
         <!-- Category Leaderboards -->
         <section class="card">
@@ -165,7 +174,7 @@
                 <div id="leaderboard-science" style="max-height: 200px; overflow-y: auto;"></div>
               </div>
               <div>
-                <h4 style="margin-bottom: var(--spacing-sm);">🛡️ Defence</h4>
+                <h4 style="margin-bottom: var(--spacing-sm);">🛡 Defence</h4>
                 <div id="leaderboard-defence" style="max-height: 200px; overflow-y: auto;"></div>
               </div>
               <div>
@@ -179,6 +188,23 @@
             </div>
           </div>
         </section>
+
+        <section id="live-video" class="card" style="text-align:center;">
+      <div class="card-header">
+        <h2>🎥 Live Experience Video</h2>
+        <p>Watch highlights and visitor experiences</p>
+      </div>
+      <div class="card-body">
+        <video controls style="width:100%; max-width:720px; border-radius:12px;">
+          <source src="scienceimage/sample.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
+        <div style="margin-top:15px;">
+          <a href="scienceimage/video.html" class="btn btn-secondary">View More Videos</a>
+        </div>
+      </div>
+    </section>
 
       </div>
 
@@ -249,37 +275,9 @@
      "
      onmouseover="this.style.background='#fff'; this.style.color='#000'; this.style.transform='scale(1.05)'"
      onmouseout="this.style.background='#EFA55C'; this.style.color='#000'; this.style.transform='scale(1)'">
-    Exhibition Organize
+    Exhibition Organizer
   </a>
 </div>
-
-
-
-<!-- Image Slider Row (4 sliders side by side) -->
-<div class="slider-row">
-  <!-- Slider 1 -->
-  <div class="slider-container">
-    <div class="slider-wrapper">
-      <img src="scienceimage/1st.jpeg" class="slide slide1 active" alt="Adamas">
-      <img src="scienceimage/2nd.jpeg" class="slide slide1" alt="Apeda">
-      <img src="scienceimage/3rd.jpeg" class="slide slide1" alt="Bose">
-    </div>
-    <div class="slider-caption" id="rankText1">Got 1st Rank     </div>
-
-  </div>
-
-  <!-- Slider 2 -->
-  <div class="slider-container">
-    <div class="slider-wrapper">
-      <img src="assets/drdo.jpg" class="slide slide2 active" alt="DRDO">
-      <img src="assets/hal.jpg" class="slide slide2" alt="HAL">
-      <img src="assets/cmfri.jpg" class="slide slide2" alt="CMFRI">
-    </div>
-    <div class="slider-caption" id="rankText2">Got 1st Rank</div>
-  </div>
-</div>
-
-
 
   <footer style="
     background: var(--gray-900);
@@ -305,8 +303,6 @@
     </div>
   </footer>
 
-  <!-- Floating Action Buttons -->
-  <!-- Floating Action Buttons -->
   <a href="chat_app.html" id="ai-chat-btn" title="Chat with AI" style="
     position: fixed;
     bottom: 20px;
@@ -385,7 +381,7 @@
             e.preventDefault();
             const query = searchBar.value.toLowerCase().trim();
             if (!query) return;
-            window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+            window.location.href = search.html?q=${encodeURIComponent(query)};
           }
         });
       }
@@ -404,7 +400,7 @@
       function initializeVotingButtons() {
         const featuredStalls = ['drdo', 'hal', 'cmfri', 'victor-jute'];
         featuredStalls.forEach(stallId => {
-          const container = document.getElementById(`vote-${stallId}`);
+          const container = document.getElementById(vote-${stallId});
           if (container && votingSystem) {
             container.innerHTML = votingSystem.createVoteButton(stallId);
           }
@@ -450,57 +446,6 @@
       }
     });
     
-
-
-// 
-
-// Multi-slider logic (4 independent sliders)
-function startSlider(slideClass, captionId) {
-  let slides = document.querySelectorAll(`.${slideClass}`);
-  let caption = document.getElementById(captionId);
-  let ranks = ["Got 1st Rank for Science Project     Project name - BASUNDHORA Position - 1st Participants name -     RIVANA PARVIN PRITI SINGHA School name -DHOLA HIGH SCHOOL HS", "Got 2nd Rank   for Science Project  Project Name: Smart Reward Based Dustbin. Position- 2nd position.Participants Name- Arif Mehboob, Tarik Zamil.School Name- Satulia Islamia senior madrasha", "Got 3rd Rank  for Science Project  Project name: Bee-yond Tourism: Harnessing Sustainability Position: 3rd Participants name: Sayan Sen & Sreshthya Singha School/College Name: Brainware University"];
-  let index = 0;
-
-  function showSlide() {
-    slides.forEach((slide, i) => {
-      slide.classList.remove('active');
-      if (i === index) slide.classList.add('active');
-    });
-    caption.textContent = ranks[index];
-    index = (index + 1) % slides.length;
-  }
-  setInterval(showSlide, 2000);
-
-// Independent slider for slide2
-(function () {
-  let slides = document.querySelectorAll('.slide2');
-  let caption = document.getElementById('rankText2');
-  let ranks = ["Got 1st Rank for stall", "Got 2nd Rank for stall", "Got 3rd Rank for stall"];
-  let index = 0;
-
-  function showSlide() {
-    slides.forEach((slide, i) => {
-      slide.classList.remove('active');
-      if (i === index) slide.classList.add('active');
-    });
-    caption.textContent = ranks[index];
-    index = (index + 1) % slides.length;
-  }
-
-  setInterval(showSlide, 2000);
-})();
-
-
-
-
-}
-
-// Initialize 4 sliders
-startSlider('slide1', 'rankText1');
-startSlider('slide2', 'rankText2');
-
-
-
   </script>
 </body>
-</html> 
+</html>
