@@ -205,9 +205,7 @@
               Your browser does not support the video tag.
             </video>
 
-            <div style="margin-top:15px;">
-              <a href="scienceimage/video.html" class="btn btn-secondary">View More Videos</a>
-            </div>
+
           </div>
         </section>
 
@@ -394,6 +392,29 @@
     transition: all var(--transition-normal);
     z-index: var(--z-fixed);
   " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">👤</a>
+
+  <a href="https://www.google.com/maps/place/Salt+Lake+City,+Kolkata,+West+Bengal/"
+    id="location-btn" title="Locate Salt Lake City, Kolkata" target="_blank"
+    style="
+      position: fixed;
+      bottom: 230px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-xl);
+      transition: all var(--transition-normal);
+      z-index: var(--z-fixed);
+    "
+    onmouseover="this.style.transform='scale(1.1)'"
+    onmouseout="this.style.transform='scale(1)'">
+    <img src="assets/location_pin.jpg" alt="Location Pin" 
+        style="width: 24px; height: 24px;">
+  </a>
 
   <!-- Scripts -->
   <script src="recommendation-system.js"></script>
